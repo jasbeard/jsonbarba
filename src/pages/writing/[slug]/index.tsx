@@ -1,13 +1,11 @@
 import { format, parseISO } from 'date-fns';
 import { allWritings, Writing } from 'contentlayer/generated';
-import { useMDXComponent } from 'next-contentlayer/hooks'
+import { useMDXComponent } from 'next-contentlayer2/hooks'
 import { MainLayout } from '@/components/MainLayout';
 import { NextSeo } from 'next-seo';
 import type { MDXComponents } from 'mdx/types'
 import Image from 'next/image';
 import { GetStaticPropsContext } from 'next';
-
-// TODO: switch contentlayer to velite https://velite.js.org/guide/using-mdx
 
 const CustomMdxComponents: MDXComponents =  {
   img: ({ src, alt }) =>  <Image  src={src as string} alt={alt as string} className="rounded-xl shadow-lg" width={456} height={456}/>
