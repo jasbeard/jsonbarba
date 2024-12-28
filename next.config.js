@@ -11,7 +11,16 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['media.giphy.com', 'yzft9j8wzzlydetx.public.blob.vercel-storage.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media.giphy.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'yzft9j8wzzlydetx.public.blob.vercel-storage.com'
+      }
+    ],
   },
   transpilePackages: ["@radix-ui/react-moving-focus"],
 }
