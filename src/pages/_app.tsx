@@ -36,8 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider attribute="class">
         <main>
-          {/* temp: just for rsvp */}
-          {router.pathname !== '/jasonandjosan/[section]' && <Header />}
+          <Header />
           <Component {...pageProps} />
           <Analytics />
           <SpeedInsights />
