@@ -7,6 +7,7 @@ import type { MDXComponents } from 'mdx/types'
 import Image, { ImageProps as NextImageProps } from 'next/image';
 import { GetStaticPropsContext } from 'next';
 import { calculateReadingTime } from '@/utils/lib';
+import { Tags } from '@/components/writing/Tags';
 
 type ImageProps = NextImageProps & { title: string };
 
@@ -35,17 +36,6 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return { props: { writing } }
 }
 
-export const Tags = ({ list }: { list: string[] }) => {
-  if (!list.length) return null;
-  return (
-    <div className="flex space-x-2 py-4 text-sm">
-      {list.map((tag) => (
-        <div key={tag} className="py-1 px-4 border rounded-xl border-gray-400">{tag}</div>
-      ))}
-    </div>
-  );
-}
-
 const Content = ({ writing }: { writing: Writing }) => {
   // const post = allWritings.find((post) => post._raw.flattenedPath === router?.query.slug) as Writing;
   const MDXContent = useMDXComponent(writing?.body.code)
@@ -62,9 +52,7 @@ const Content = ({ writing }: { writing: Writing }) => {
       <MainLayout>
         <article className="pb-8">
           <div className="mb-10">
-            <div>
-              <Tags list={writing.tags as string[]} />
-            </div>
+            <Tags list={writing.tags as string[]} />
             <h1 className="text-3xl font-bold">{writing.title}</h1>
             <div className="flex mb-1 text-base text-gray-400">
               <time dateTime={writing.date}>
