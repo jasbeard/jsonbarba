@@ -10,6 +10,7 @@ export const Post = defineDocumentType(() => ({
     bodyPreview: { type: 'string', required: true },
     image: { type: 'string', required: false },
     wordCount: { type: 'number', required: true },
+    tags: { type: 'list', of: { type: 'string' }, required: false },
   },
   computedFields: {
     url: { type: 'string', resolve: (post) => `/writing/${post._raw.flattenedPath}` },
