@@ -1,28 +1,8 @@
 import { MainLayout } from '@/components/MainLayout';
-import { allWritings, Writing } from 'contentlayer/generated';
-import { compareDesc, format, parseISO } from 'date-fns';
+import { WritingPreview } from '@/components/writing/WritingPreview';
+import { allWritings } from 'contentlayer/generated';
+import { compareDesc } from 'date-fns';
 import { NextSeo } from 'next-seo';
-import Link from 'next/link';
-
-function WritingPreview(post: Writing) {
-  return (
-    <div className="flex flex-col md:justify-between md:flex-row mb-8">
-      <div>
-        <h3 className="mb-1">
-          <Link href={post.url} className="transition-all duration-500 hover:text-indigo-400 text-base sm:text-lg">
-            {post.title}
-          </Link>
-        </h3>
-        <span className="text-gray-400 font-light text-sm md:text-base">{post.bodyPreview}</span>
-      </div>
-      <div className="mt-1">
-        <time dateTime={post.date} className="text-gray-400 font-light text-xs md:text-base">
-          {format(parseISO(post.date), 'LLL. d, yyyy')}
-        </time>
-      </div>
-    </div>
-  );
-}
 
 const WritingPage = () => {
   const posts = allWritings.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
