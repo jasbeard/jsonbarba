@@ -14,7 +14,7 @@ const WritingPage = () => {
         themeColor="dark"
       />
       <MainLayout>
-        <div className="mt-8">
+        <div>
           <h1 className="font-semibold text-dark text-2xl sm:text-3xl dark:text-white">Writing</h1>
           <p className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg">Life experiences, learnings, values, brain dumps. Pretty much anything I can think of, and something worthy to share.</p>
         </div>
