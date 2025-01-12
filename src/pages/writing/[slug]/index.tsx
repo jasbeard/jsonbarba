@@ -12,7 +12,7 @@ import { AnchorWithLinkDisplay, Tags, ExternalLink } from '@/components/writing'
 type ImageProps = NextImageProps & { title: string };
 
 const CustomMdxComponents: MDXComponents = {
-  img: (props) =>  <Image {...(props as ImageProps)} alt={props.alt} className="rounded-xl shadow-lg cursor-help"  width={800} height={700}/>,
+  img: (props) =>  <Image {...(props as ImageProps)} alt={props.alt} className="transition-all drop-shadow-lg rounded-xl shadow-lg cursor-help hover:-translate-y-2"  width={800} height={700}/>,
   a: (props) => <AnchorWithLinkDisplay {...props} className="transition-all duration-500 hover:text-indigo-300 underline-offset-2"/>,
   ExternalLink: (props) => <ExternalLink {...props} className="transition-all duration-500 hover:text-indigo-300 underline-offset-2"/>
 }
