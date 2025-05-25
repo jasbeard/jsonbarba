@@ -4,22 +4,11 @@ import xsplit from '/public/xsplit.svg';
 import videocom from '/public/videocom.svg';
 import metrobank from '/public/metrobank.svg';
 import pangolin from '/public/pangolin.png';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment } from 'react';
 import { NextSeo } from 'next-seo';
-import GitHubCalendar from "react-github-calendar";
-import { useTheme } from 'next-themes';
+import { GithubContributionMap } from '@/components/GithubContributionMap';
 
 export default function Home() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return null
-  }
   const workList = [
     {
       imageSource: videocom,
@@ -84,8 +73,6 @@ export default function Home() {
     technology: ['PHP', 'JavaScipt', 'TypeScript', 'React', 'Node', 'IBM API Connect', 'Firebase', "Git"]
   }
 
-  const currentYear = new Date().getFullYear();
-
   return (
     <>
       <NextSeo
@@ -101,8 +88,7 @@ export default function Home() {
           </p>
         </section>
         <section className="flex flex-col items-center justify-center mt-4">
-          <h2 className="font-medium text-[#2c3136] dark:text-white mb-4">This year&apos;s ({currentYear}) code contribution so far</h2>
-          <GitHubCalendar username="swoppy" colorScheme={theme === 'dark' ? 'dark' : 'light'} />
+          <GithubContributionMap />
         </section>
         <section className="flex flex-col justify-center items-center mt-8">
           <h2 className="font-medium text-[#2c3136] dark:text-white">Commercial Projects & Contracts</h2>
