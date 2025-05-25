@@ -1,33 +1,23 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import {
   ArrowRightIcon,
   BackpackIcon,
   OpenInNewWindowIcon
 } from '@radix-ui/react-icons'
-import { ReactNode, forwardRef } from 'react';
-
-interface WorkCardBaseProps {
-  name: string[];
-  lengthOfStay: string;
-  designation: string;
-  items?: string[];
-  stack?: string[];
-  image?: StaticImageData;
-  children: ReactNode;
-}
-
-type CompanyProps = Pick<WorkCardBaseProps, 'name' | 'image' | 'lengthOfStay'>;
-type ItemProps = Pick<WorkCardBaseProps, 'designation' | 'items'>;
-type TechnologyProps = Pick<WorkCardBaseProps, 'stack'>;
+import { forwardRef } from 'react';
+import { WorkCardContext, useWorkList } from './WorkCardContext';
+import { WorkListProps } from '../ExperienceSection';
 
 const Root = forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>  
->(({ children, ...props }, ref) => {
+  React.HTMLAttributes<HTMLDivElement> & { work: WorkListProps }  
+>(({ children, work, ...props }, ref) => {
   return (
-    <div ref={ref} {...props}>
-      {children}
-    </div>
+    <WorkCardContext.Provider value={work}>
+      <div ref={ref} {...props}>
+        {children}
+      </div>
+    </WorkCardContext.Provider>
   );
 });
 
@@ -37,15 +27,16 @@ const WorkCard = Root;
 
 const Company = forwardRef<
 HTMLDivElement,
-React.HTMLAttributes<HTMLDivElement> & CompanyProps
->(({ name, image, lengthOfStay, ...props }, ref) => {
-  let assistiveLabel = name[0] === 'Asurion' ? `Jason's current contract` : `one of Jason's past contract`;
+React.HTMLAttributes<HTMLDivElement>
+>(({ ...props }, ref) => {
+  const workListContext = useWorkList();
+  let assistiveLabel = workListContext?.name[0] === 'Asurion' ? `Jason's current contract` : `one of Jason's past contract`;
   return (
     <div ref={ref} {...props}>
       <div className="w-12 h-12 relative">
-        {image ? (
+        {workListContext?.imageSource ? (
           <Image
-            src={image}
+            src={workListContext?.imageSource}
             quality={95}
             fill
             sizes="100vw"
@@ -57,23 +48,23 @@ React.HTMLAttributes<HTMLDivElement> & CompanyProps
         )}
       </div>
       <div className="flex flex-col ml-2 text-xs sm:text-sm">
-        {name[1] ? (
+        {workListContext?.name[1] ? (
           <a
-            href={name[1]}
+            href={workListContext?.name[1]}
             target="_blank"
             rel="noopener noreferrer"
             className="w-fit hover:underline hover:underline-offset-4"
-            aria-label={`A link to ${name[0]}'s website, ${assistiveLabel}`}
+            aria-label={`A link to ${workListContext?.name[0]}'s website, ${assistiveLabel}`}
           >
-            <span className="font-semibold mt-1">{name[0]}</span>
+            <span className="font-semibold mt-1">{workListContext?.name[0]}</span>
             <OpenInNewWindowIcon className="inline ml-1" />
           </a>
         ) : (
           <>
-            <span className="font-semibold mt-1">{name[0]}</span>
+            <span className="font-semibold mt-1">{workListContext?.name[0]}</span>
           </>
         )}
-        <span className="dark:text-gray-300 ">{lengthOfStay}</span>
+        <span className="dark:text-gray-300 ">{workListContext?.period}</span>
       </div>
     </div>
   );
@@ -84,12 +75,13 @@ Company.displayName = 'WorkCardCompany';
 
 const Responsibilities = forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & Required<ItemProps>
->(({ items, designation, ...props }, ref) => {
+  React.HTMLAttributes<HTMLDivElement>
+>(({ ...props }, ref) => {
+  const workListContext = useWorkList();
   return (
     <div ref={ref} {...props}>
-      <span className="-ml-4 font-semibold mb-2">{designation}</span>
-      {items && items.map((exp, index) => (
+      <span className="-ml-4 font-semibold mb-2">{workListContext?.designation}</span>
+      {workListContext?.highlights && workListContext?.highlights.map((exp, index) => (
         <ul key={index}>
           <li className="flex items-start">
             <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
@@ -105,11 +97,12 @@ Responsibilities.displayName = 'WorkCardResponsibilities';
 
 const Technology = forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & Required<TechnologyProps>
->(({ stack, ...props }, ref) => {
+  React.HTMLAttributes<HTMLDivElement>
+>(({ ...props }, ref) => {
+  const workListContext = useWorkList();
   return (
-    <div {...props}>
-      Technology: {stack?.join(", ")}
+    <div ref={ref} {...props}>
+      Technology: {workListContext?.technology.join(", ")}
     </div>
   )
 });

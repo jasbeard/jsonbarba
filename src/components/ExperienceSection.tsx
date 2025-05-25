@@ -6,10 +6,10 @@ import pangolin from '/public/pangolin.png';
 import bajetto from '/public/bajetto.svg';
 import asurion from '/public/asurion.png';
 import { StaticImageData } from "next/image";
-import * as WorkCard from "./WorkCard";
+import * as WorkCard from "./workcard/WorkCard";
 
-interface WorkListProps {
-  imageSource: StaticImageData;
+export interface WorkListProps {
+  imageSource?: StaticImageData;
   name: string[];
   designation: string;
   highlights: string[];
@@ -106,41 +106,22 @@ export function ContractSection() {
           <li key={index} aria-label="list of companies">
             <WorkCard.Root
               className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white"
+              work={item}
             >
-              <WorkCard.Company
-                name={item.name}
-                image={item.imageSource}
-                lengthOfStay={item.period}
-                className="flex"
-              />
-              <WorkCard.Responsibilities
-                items={item.highlights}
-                designation={item.designation}
-                className="flex flex-col text-xs sm:text-sm mt-2 px-4"
-              />
-              <WorkCard.Technology
-                stack={item.technology}
-                className="text-xs sm:text-sm px-4 -ml-4 mt-4"
-              />
+              <WorkCard.Company className="flex"/>
+              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2 px-4"/>
+              <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
             </WorkCard.Root>
           </li>
         ))}
           <li>
-            <WorkCard.Root className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white">
-              <WorkCard.Company
-                name={legacyWork.name}
-                lengthOfStay={legacyWork.period}
-                className="flex"
-              />
-              <WorkCard.Responsibilities
-                items={legacyWork.highlights}
-                designation={legacyWork.designation}
-                className="flex flex-col text-xs sm:text-sm mt-2 px-4"
-              />
-              <WorkCard.Technology
-                stack={legacyWork.technology}
-                className="text-xs sm:text-sm px-4 -ml-4 mt-4"
-              />
+            <WorkCard.Root
+              className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white"
+              work={legacyWork}
+            >
+              <WorkCard.Company className="flex"/>
+              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2 px-4" />
+              <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
             </WorkCard.Root>
           </li>
         </ul>
@@ -171,18 +152,11 @@ export function ProjectSection() {
           <Fragment key={index}>
             <WorkCard.Root
               className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white"
+              work={item}
             >
-              <WorkCard.Company
-                name={item.name}
-                image={item.imageSource}
-                lengthOfStay={item.period}
-                className="flex"
-              />
-              <WorkCard.Responsibilities
-                items={item.highlights}
-                designation={item.designation}
-                className="flex flex-col text-xs sm:text-sm mt-2 px-4"
-              />
+              <WorkCard.Company className="flex"/>
+              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2 px-4"/>
+              <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
             </WorkCard.Root>
           </Fragment>
         ))}
