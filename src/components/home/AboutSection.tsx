@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useBlur } from "./useBlur";
 import { useHover } from "./useHover";
+import { serif } from "@/font/fonts";
 
 export function AboutSection({ currentYear }: { currentYear: number }) {
   const { states:blur, handlers:toggle  } = useBlur();
@@ -15,7 +16,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           Hey! I&#39;m{' '}
         </span>{' '}
         <button
-          className="inline-flex rounded-xl bg-indigo-400 dark:text-dark"
+          className={`inline-flex rounded-xl bg-indigo-400 dark:text-dark ${serif.className}`}
           onClick={toggle.firstBlur}
           onMouseOver={() => onMouse.firstGroup({ event: 'over' })}
           onMouseOut={() => onMouse.firstGroup({ event: 'out'})}
@@ -29,7 +30,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
         &nbsp;&nbsp;<span className={`inline ${(hover.first && !blur.first) && 'text-indigo-400'}`}>
           I&#39;m based in Metro Manila Philippines.{' '}
           <button
-            className={`inline px-2 w-[93px] md:w-[145px] ${blur.first ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
+            className={`inline px-2 w-[98px] md:w-[155px] ${serif.className} ${blur.first ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
             onClick={toggle.secondBlur}
             onMouseOver={() => onMouse.secondGroup({ event: 'over' })}
             onMouseOut={() => onMouse.secondGroup({ event: 'out' })}
@@ -41,7 +42,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
         <span className={`inline ${blur.second ? 'blur ' : `blur-0 ${hover.second && 'text-indigo-400'}`}`}>
           I&#39;ve been dabbling in writing — just checking it out and seeing where it takes me.{' '}
           <button
-            className={`inline px-2 w-[101px] md:w-[157px] ${blur.second ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
+            className={`inline px-2 w-[108px] md:w-[168px] ${serif.className} ${blur.second ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
             onClick={toggle.thirdBlur}
             onMouseOver={() => onMouse.thirdGroup({ event: 'over' })}
             onMouseOut={() => onMouse.thirdGroup({ event: 'out' })}
@@ -54,7 +55,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           my background is mostly around web app and UI development.{' '}<br/><br/>
           <button
             className={`
-              inline px-2 w-[198px] md:w-[319px] 
+              inline px-2 w-[212px] md:w-[342px] ${serif.className} 
               ${blur.third ? 'blur cursor-text' : 'blur-0 cursor-pointer font-medium bg-slate-400 dark:text-dark'}
             `}
             onClick={toggle.fourthBlur}
@@ -79,7 +80,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           </Link> at{' '}
         </span>
         <button
-          className="w-[82px] md:w-[127px] inline px-2 rounded-xl font-medium bg-slate-400 dark:text-dark"
+          className={`w-[86px] md:w-[134px] inline px-2 rounded-xl font-medium bg-slate-400 dark:text-dark ${serif.className}`}
           onClick={toggle.fifthBlur}
           onMouseOver={() => onMouse.fifthGroup({ event: 'over' })}
           onMouseOut={() => onMouse.fifthGroup({ event: 'out' })}
@@ -113,7 +114,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             me@jsonbarba.com
           </a>{' '}
           <button
-            className="w-[57px] md:w-[84px] inline px-2 rounded-xl font-medium bg-slate-400 dark:text-dark"
+            className={`w-[60px] md:w-[86px] inline px-2 rounded-xl font-medium bg-slate-400 dark:text-dark ${serif.className}`}
             onClick={toggle.sixthBlur}
             onMouseOver={() => onMouse.sixthGroup({ event: 'over' })}
             onMouseOut={() => onMouse.sixthGroup({ event: 'out' })}

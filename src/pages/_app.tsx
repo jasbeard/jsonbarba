@@ -1,4 +1,3 @@
-import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
@@ -6,6 +5,8 @@ import Head from 'next/head';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
 import { Header } from '@/components/Header';
+import '@/styles/globals.css';
+import { sans, serif } from '@/font/fonts';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -14,6 +15,15 @@ export default function App({ Component, pageProps }: AppProps) {
         defaultTitle="Jason Barba"
         description="Have a nice day!"
       />
+      <style jsx global>{`
+        html {
+          font-family: ${sans.style.fontFamily};
+        }
+
+        h1, h2, h3 {
+          font-family: ${serif.style.fontFamily};
+        }
+      `}</style>
       <Head>
         <meta
           name="viewport"
