@@ -30,7 +30,7 @@ export function ContractSection() {
         "Code reviews",
       ],
       period: '2023 - present',
-      technology: ["Gatsbyjs", "GraphQL", "Nx", "Contentful", "Tailwind CSS", "NGINX", "Docker", "AWS", "Git", "Github Actions", "Fullstory", "Evidently"],
+      technology: ["TypeScript", "Nx", "Gatsbyjs", "GraphQL", "Contentful", "Tailwind CSS", "NGINX", "Docker", "AWS", "Git", "Github Actions"],
     },
     {
       imageSource: videocom,
