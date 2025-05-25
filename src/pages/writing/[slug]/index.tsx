@@ -35,6 +35,17 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return { props: { writing } }
 }
 
+export const Tags = ({ list }: { list: string[] }) => {
+  if (!list.length) return null;
+  return (
+    <div className="flex space-x-2 py-4 text-sm">
+      {list.map((tag) => (
+        <div key={tag} className="py-1 px-4 border rounded-xl border-gray-400">{tag}</div>
+      ))}
+    </div>
+  );
+}
+
 const Content = ({ writing }: { writing: Writing }) => {
   // const post = allWritings.find((post) => post._raw.flattenedPath === router?.query.slug) as Writing;
   const MDXContent = useMDXComponent(writing?.body.code)
@@ -49,8 +60,11 @@ const Content = ({ writing }: { writing: Writing }) => {
         themeColor="dark"
       />
       <MainLayout>
-        <article className="py-8">
+        <article className="pb-8">
           <div className="mb-10">
+            <div>
+              <Tags list={writing.tags as string[]} />
+            </div>
             <h1 className="text-3xl font-bold">{writing.title}</h1>
             <div className="flex mb-1 text-base text-gray-400">
               <time dateTime={writing.date}>
