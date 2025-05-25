@@ -1,3 +1,5 @@
+const colors = require('./src/components/colors.json');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -8,9 +10,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        accent: '#fc9d03',
+        accent: colors.accent['400'],
         dark: '#2c3136',
         cgray: '#afb9c5',
+        ...colors,
+      },
+      screens: {
+        xs: { max: '639px' },
       },
       keyframes: {
         'slide-up': {
@@ -56,12 +62,28 @@ module.exports = {
             transform: 'translateX(0)',
           }
         
+        },
+        
+        'slide-up-mobile': {
+          from: {
+            transform: 'translateY(0)',
+          },
+          to: {
+            transform: 'translateY(100%)',
+          }
         }
+      },
+
+      transitionTimingFunction: {
+        in: 'cubic-bezier(0, 0, 0, 1)',
+        out: 'cubic-bezier(1, 0, 1, 1)',
+        'in-out': 'cubic-bezier(0.8 , 0 , 0.2 , 1)',
       },
 
       animation: {
         'slide-up': '400ms cubic-bezier(0, 0, 0, 1) slide-up',
-        'slide-down': '400ms cubic-bezier(0, 0, 0, 1) slide-down'
+        'slide-down': '400ms cubic-bezier(0, 0, 0, 1) slide-down',
+        'slide-up-mobile': '400ms cubic-bezier(0, 0, 0, 1) slide-up-mobile'
         // add animation name based on keyframes data as needed
       }
     }
