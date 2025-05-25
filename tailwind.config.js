@@ -9,6 +9,8 @@ module.exports = {
     extend: {
       colors: {
         accent: '#fc9d03',
+        dark: '#2c3136',
+        cgray: '#afb9c5',
       },
       keyframes: {
         'slide-up': {

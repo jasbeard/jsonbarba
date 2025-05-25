@@ -35,7 +35,7 @@ export function GithubContributionMap() {
             <Tooltip.Trigger asChild>{block}</Tooltip.Trigger>
             <Tooltip.Portal>
               <Tooltip.Content
-                className="rounded p-2 text-sm leading-none bg-gray-300 text-[#2c3136] dark:bg-gray-500 dark:text-white select-none duration-500 will-change-transform data-[state=delayed-open]:animate-slide-up"
+                className="rounded p-2 text-sm leading-none bg-gray-300 text-dark dark:bg-gray-500 dark:text-white select-none duration-500 will-change-transform data-[state=delayed-open]:animate-slide-up"
                 sideOffset={5}
               >
                 {`${activity.count} activities on ${activity.date}`}

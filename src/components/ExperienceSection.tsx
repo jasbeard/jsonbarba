@@ -78,7 +78,7 @@ export function ContractSection() {
   return (
     <section className="space-y-4 mt-8 mx-auto">
       <h1 className="text-4xl leading-[50px] font-semibold tracking-wider">Contracts</h1>
-      <span className="text-sm text-[#2c3136] dark:text-white mb-4">List of commercial experiences</span>
+      <span className="text-sm text-dark dark:text-white mb-4">List of commercial experiences</span>
       <div className="grid grid-cols-1 gap-y-4 mt-2">
         {workList.map((item, index) => (
           <Fragment key={index}>
@@ -139,7 +139,7 @@ export function ProjectSection() {
   return (
     <section className="space-y-4 mt-8 mx-auto">
       <h1 className="text-4xl leading-[50px] font-semibold tracking-wider">Projects</h1>
-      <span className="text-sm text-[#2c3136] dark:text-white mb-4">List of released and developing projects</span>
+      <span className="text-sm text-dark dark:text-white mb-4">List of released and developing projects</span>
       <div className="grid grid-cols-1 gap-y-4 mt-2">
         {projectList.map((item, index) => (
           <Fragment key={index}>

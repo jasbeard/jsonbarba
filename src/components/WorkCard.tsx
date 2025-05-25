@@ -21,7 +21,7 @@ export const WorkCard = ({
   technology
 }: WorkCardProps) => {
   return (
-    <div className="w-full p-4 rounded-sm border border-[#afb9c5] border-opacity-20 relative text-[#2c3136] dark:text-white">
+    <div className="w-full p-4 rounded-sm border border-cgray border-opacity-20 relative text-dark dark:text-white">
       <div className="flex">
         <div className="w-12 h-12 relative">
           <Image
@@ -64,7 +64,7 @@ export const WorkCardGeneral = ({
   technology
 }: WorkCardGeneralProps) => {
   return (
-    <div className="w-full p-4 rounded-sm border border-[#afb9c5] border-opacity-20 relative">
+    <div className="w-full p-4 rounded-sm border border-cgray border-opacity-20 relative">
       <div className="flex">
         <div className="w-12 h-12 relative">
           <BackpackIcon className="w-12 h-12 text-gray-600 dark:text-gray-300"/>

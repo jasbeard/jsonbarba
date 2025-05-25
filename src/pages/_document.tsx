@@ -8,7 +8,7 @@ export default function Document() {
         <link rel="shortcut icon" href="/favicon.png" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
       </Head>
-      <body className="dark:bg-[#2c3136]">
+      <body className="dark:bg-dark">
         <Main />
         <NextScript />
       </body>
