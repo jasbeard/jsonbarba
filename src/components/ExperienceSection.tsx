@@ -110,16 +110,7 @@ export function ContractSection() {
               name={item.name}
               designation={item.designation}
               period={item.period}
-              highlights={
-                item.highlights?.map((exp, i) => (
-                  <ul key={`h-${i}`}>
-                    <li className="flex items-start">
-                      <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
-                      <p className="ml-1 text-left">{exp}</p>
-                    </li>
-                  </ul>
-                ))
-              }
+              highlights={item.highlights}
               technology={item.technology}
             />
           </li>
@@ -129,16 +120,7 @@ export function ContractSection() {
               name={legacyWork.name}
               designation={legacyWork.designation}
               period={legacyWork.period}
-              highlights={
-                legacyWork.highlights?.map((exp, index) => (
-                  <ul key={index}>
-                    <li className="flex items-start">
-                      <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
-                      <p className="ml-1 text-left">{exp}</p>
-                    </li>
-                  </ul>
-                ))
-              }
+              highlights={legacyWork.highlights}
               technology={legacyWork.technology}
             />
           </li>
@@ -173,16 +155,7 @@ export function ProjectSection() {
               name={item.name}
               designation={item.designation}
               period={item.period}
-              highlights={
-                item.highlights?.map((exp, i) => (
-                  <ul key={`h-${i}`}>
-                    <li className="flex items-start">
-                      <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
-                      <p className="ml-1 text-left">{exp}</p>
-                    </li>
-                  </ul>
-                ))
-              }
+              highlights={item.highlights}
               technology={item.technology}
             />
           </Fragment>

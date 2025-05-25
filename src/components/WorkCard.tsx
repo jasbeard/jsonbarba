@@ -1,12 +1,16 @@
 import Image, { StaticImageData } from 'next/image';
-import { BackpackIcon, OpenInNewWindowIcon } from '@radix-ui/react-icons'
+import {
+  ArrowRightIcon,
+  BackpackIcon,
+  OpenInNewWindowIcon
+} from '@radix-ui/react-icons'
 
 interface WorkCardProps {
   imageSource: StaticImageData;
   name: string[]; 
   designation: string;
   period: string
-  highlights?: React.ReactNode;
+  highlights?: string[];
   technology?: string[];
 }
 
@@ -56,7 +60,14 @@ export const WorkCard = ({
       </div>
       <div className="flex flex-col text-xs sm:text-sm mt-2 px-4">
         <span className="-ml-4 font-semibold mb-2">{designation}</span>
-        {highlights}
+        {highlights && highlights.map((exp, i) => (
+          <ul key={`h-${i}`}>
+            <li className="flex items-start">
+              <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
+              <p className="ml-1 text-left">{exp}</p>
+            </li>
+          </ul>
+        ))}
         <span className="-ml-4 mt-4">Technology: {technology?.join(", ")}</span>
       </div>
     </div>
@@ -83,7 +94,14 @@ export const WorkCardGeneral = ({
       </div>  
       <div className="flex flex-col text-xs sm:text-sm mt-2 px-4">
         <span className="-ml-4 mb-2 font-semibold">{designation}</span>
-        {highlights}
+        {highlights && highlights.map((exp, index) => (
+          <ul key={index}>
+            <li className="flex items-start">
+              <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
+              <p className="ml-1 text-left">{exp}</p>
+            </li>
+          </ul>
+        ))}
         <span className="-ml-4 mt-4">Technology: {technology?.join(", ")}</span>
       </div>
     </div>
