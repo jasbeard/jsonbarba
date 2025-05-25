@@ -18,7 +18,7 @@ export const WeddingThemeInputWithButton = ({
   inputPlaceholder: string;
   inputName: string
   inputType?: HTMLInputTypeAttribute;
-  inputRef?: React.RefObject<HTMLInputElement>;
+  inputRef?: React.RefObject<HTMLInputElement | null>;
 } & ComponentPropsWithoutRef<'input'>) => {
   return (
     <div className="flex w-full flex-col md:flex-row md:items-center gap-4">
