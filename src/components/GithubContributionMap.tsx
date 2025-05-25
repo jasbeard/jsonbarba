@@ -1,4 +1,5 @@
 import GitHubCalendar from "react-github-calendar";
+import * as Tooltip from '@radix-ui/react-tooltip';
 import { ThemeInput } from "react-activity-calendar";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -30,6 +31,41 @@ export function GithubContributionMap() {
         blockMargin={5}
         blockRadius={7}
         labels={{ totalCount: "{{count}} activities in {{year}}"}}
+        renderBlock={(block, activity) => (
+          <Tooltip.Provider>
+            <Tooltip.Root>
+              <Tooltip.Trigger asChild>{block}</Tooltip.Trigger>
+              <Tooltip.Portal>
+                <Tooltip.Content
+                  className="rounded p-2 text-sm leading-none bg-gray-300 text-[#2c3136] dark:bg-gray-500 dark:text-white select-none duration-500 will-change-transform ease-[cubic-bezier(0.16, 1, 0.3, 1)]"
+                  sideOffset={5}
+                >
+                  <style jsx>{`
+                    [&_data-state='delayed-open'][data-side='top'] {
+                      animation-name: slideDownAndFade;
+                    }
+
+                    [&_data-state='delayed-open'][data-side='right'] {
+                      animation-name: slideLeftAndFade;
+                    }
+
+                    [&_data-state='delayed-open'][data-side='bottom'] {
+                      animation-name: slideUpAndFade;
+                    }
+
+                    [&_data-state='delayed-open'][data-side='left'] {
+                      animation-name: slideRightAndFade;
+                    }
+                  `}
+                  </style>
+                  {`${activity.count} activities on ${activity.date}`}
+                  <Tooltip.Arrow className="fill-gray-300 dark:fill-gray-500"/>
+                </Tooltip.Content>
+              </Tooltip.Portal>
+            </Tooltip.Root>
+          </Tooltip.Provider>
+        )}
+      
       />
     </>
   );
