@@ -47,12 +47,17 @@ export const CountdownTimer = () => {
 
   return (
     <div
-      className="flex shrink w-80 h-16 bg-stone-200 rounded-xl px-4 shadow-md border border-golden-amber"
+      className={`flex shrink w-80 h-16 bg-stone-200 rounded-xl px-4 shadow-md border border-golden-amber ${months < 0 && 'justify-center items-center text-center'}`}
       style={{ fontFamily: sans.style.fontFamily }}
     >
-      <CountdownItem time={"Months"} value={months} />
-      <CountdownItem time={"Days"} value={days} />
-      <CountdownItem time={"Hours"} value={hours} />
+      {months < 0 ? 'Wedding was a success, thanks for attending guys! ♥️' : (
+        <>
+          <CountdownItem time={"Months"} value={months} />
+          <CountdownItem time={"Days"} value={days} />
+          <CountdownItem time={"Hours"} value={hours} />
+        </>
+      )}
+      
     </div>
   );
 };

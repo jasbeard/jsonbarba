@@ -1,7 +1,6 @@
 import { format, parseISO } from 'date-fns';
 import { allWritings, Writing } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { useRouter } from 'next/router';
 import { MainLayout } from '@/components/MainLayout';
 import { NextSeo } from 'next-seo';
 import type { MDXComponents } from 'mdx/types'
