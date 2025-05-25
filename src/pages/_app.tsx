@@ -35,10 +35,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <main>
           <Header />
           <Component {...pageProps} />
+          <Analytics />
+          <SpeedInsights />
         </main>
       </ThemeProvider>
-      <Analytics />
-      <SpeedInsights />
     </>
   );
 }
