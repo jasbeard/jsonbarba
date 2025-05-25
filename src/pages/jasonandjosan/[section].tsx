@@ -11,15 +11,22 @@ import { useRouter } from 'next/router';
 import { noNil } from '@/utils/lib';
 import dynamic from 'next/dynamic';
 import { WeddingHeroSection } from '@/components/wedding/WeddingHeroSection';
+import { NextSeo } from 'next-seo';
 
 export interface GuestData {
   guestName: string;
   isInvited: boolean;
-  did_confirmed: boolean,
+  did_confirmed: boolean;
+  guest_id: number;
   message: string;
 }
 
-type TabNames = "our_story" | "photos" | "rsvp" | "qa" | "honeymoon_fund";
+export interface CompletionData {
+  emailSentData: string;
+  message: string;
+}
+
+type TabNames = "our_story" | "photos" | "rsvp" | "faq" | "gifts";
 
 const Rsvp = dynamic(() => import('@/components/wedding/Rsvp/RsvpContent'), {
   ssr: false,
@@ -33,18 +40,19 @@ const PhotoListWithSuspense = dynamic(() => import('@/components/wedding/Photos'
   ssr: false,
 });
 
-const QandaContent = dynamic(() => import('@/components/wedding/Qanda'), {
+const Faq = dynamic(() => import('@/components/wedding/Faq'), {
   ssr: false,
 });
 
 const Page = () => {
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
-  const [response, setResponse] = useState<GuestData | null>(null);
+  const [validateResponse, setValidateResponse] = useState<GuestData | null>(null);
+  const [completionResponse, setCompletionResponse] = useState<CompletionData | null>(null);
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const tabsTrigger = `p-2 rounded-md hover:outline-[#515152]hover:outline-none
-    data-[state='active']:outline-none data-[state='active']:text-white data-[state='active']:bg-[#515152]
+  const tabsTrigger = `p-2 rounded-md data-[state='active']:outline-none
+    data-[state='active']:text-white data-[state='active']:bg-[#AC7914]
   `;
 
   // page theme
@@ -84,12 +92,12 @@ const Page = () => {
         return 'Our Story';
       case 'photos':
         return 'Photos';
-      case 'qa':
-        return 'Q and A';
+      case 'faq':
+        return 'FAQs';
       case 'rsvp':
         return 'RSVP';
-      case 'honeymoon_fund':
-        return 'Honeymoon Fund';
+      case 'gifts':
+        return 'Gifts';
       default: '';
     };
   };
@@ -104,8 +112,8 @@ const Page = () => {
       content: <PhotoListWithSuspense />,
     },
     {
-      label: 'qa',
-      content: <QandaContent />,
+      label: 'faq',
+      content: <Faq />,
     },
     {
       label: 'rsvp',
@@ -113,13 +121,15 @@ const Page = () => {
         <Rsvp
           isLoading={isLoading}
           setLoading={setLoading}
-          setResponse={setResponse}
-          response={response}
+          setValidateResponse={setValidateResponse}
+          validateResponse={validateResponse}
+          comletionResponse={completionResponse}
+          setCompletionResponse={setCompletionResponse}
         />
       ),
     },
     { 
-      label: 'honeymoon_fund',
+      label: 'gifts',
       content: 'honeymoon fund placeholder',
     },
   ];
@@ -163,8 +173,8 @@ const Page = () => {
                 </Tabs.Trigger>
               ))}
             </Tabs.List>
-            <div className="block mb-4 text-center font-semibold text-2xl sm:text-left md:hidden">
-              {formatTabName(router.query.section as TabNames)}
+            <div className={`block mb-8 mt-4 text-center font-semibold text-2xl sm:text-left md:hidden text-[#AC7914] ${wedSerif.className}`}>
+              {formatTabName(router.query.section as TabNames) === 'FAQs' ? 'Frequently ask questions' : formatTabName(router.query.section as TabNames)}
             </div>
             <div className="w-full">
               {tabs.map((item) => (
@@ -257,14 +267,14 @@ const BackgroundImages = () => {
         quality={95}
         src={flowerTopLeft}
         alt="flower-top-left"
-        className="absolute left-0 top-0 -z-10 w-40 -ml-5 mt-20 contrast-50 md:contrast-100 md:block md:w-[276px] blur-sm lg:blur-0 md:m-[unset]"
+        className="absolute left-0 top-0 -z-10 w-40 -ml-5 mt-20 contrast-50 md:contrast-100 md:block md:w-[276px] blur-md lg:blur-0 md:m-[unset]"
         priority
       />
       <Image
         quality={95}
         src={leavesBottomRight}
         alt="leaver-bottom-right"
-        className="absolute bottom-0 right-0 -mb-20 -z-10 contrast-50 md:contrast-100 w-40 md:block md:w-[276px] blur-sm lg:blur-0 md:m-[unset]"
+        className="absolute bottom-0 right-0 -mb-20 -z-10 contrast-50 md:contrast-100 w-40 md:block md:w-[276px] blur-md lg:blur-0 md:m-[unset]"
         priority
       />
     </>
@@ -277,6 +287,10 @@ const MemoizedBackgroundImages = memo(BackgroundImages);
 const Wedding = () => {
   return (
     <>
+      <NextSeo
+        title="Jason & Josan | Wedding"
+        description="A page to check wedding details and validate invitations through RSVP"
+      />
       <MemoizedBackgroundImages />
       <Page />
       <MemoizedIframe />

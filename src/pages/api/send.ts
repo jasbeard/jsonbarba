@@ -1,12 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { EmailTemplate } from '@/components/EmailTemplate';
+import { CompletedRsvpNotification } from '@/components/EmailTemplate';
 import { Resend } from 'resend';
 import { sql } from "@vercel/postgres";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 async function send(req: NextApiRequest, res: NextApiResponse) {
-  const { email, name } = req.query;
+  const { email, name, gi } = req.query;
   
   /*  TODO: update entry on db based on name
       update the ff:'
@@ -14,14 +14,14 @@ async function send(req: NextApiRequest, res: NextApiResponse) {
       - did_email_confirmation_sent
       - updated_date 
   */  
- 
   const { data, error } = await resend.emails.send({
     from: 'Jason & Josan <me@jsonbarba.com>',
     to: [email as string],
     subject: 'Jason & Jason Wedding RSVP',
-    react: EmailTemplate({ name: name as string }),
+    react: CompletedRsvpNotification({ name: name as string }),
   });
 
+  
   if (!error) {
     // update db
     const { rows } = await sql`
@@ -29,16 +29,20 @@ async function send(req: NextApiRequest, res: NextApiResponse) {
       SET 
         did_guest_confirmed = true,
         did_email_confirmation_sent = true,
+        email = ${email as string},
         updated_date = NOW()
-      WHERE name = ${name as string};
+      WHERE id = ${gi as string};
     `;
+
+    return res.status(200).json({
+      emailSentData: data,
+      message: `Thanks for completing your RSVP, we have sent reminders to your email at ${email as string}`
+    });
   }
 
   if (error) {
     return res.status(400).json(error);
   }
-
-  res.status(200).json(data);
 };
 
 

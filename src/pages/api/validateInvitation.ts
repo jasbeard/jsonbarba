@@ -27,6 +27,7 @@ async function validateInvitation(req: NextApiRequest, res: NextApiResponse) {
         guestName: name,
         isInvited: true,
         did_confirmed: false,
+        guest_id: rows[0].id,
         message: `Hi ${name}, Yep you're on the guest list. Please complete your RSVP by sending in your email to receive updates.`
       });
     }

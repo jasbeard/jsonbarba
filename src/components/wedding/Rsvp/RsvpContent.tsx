@@ -1,36 +1,46 @@
-import { GuestData } from "@/pages/jasonandjosan/[section]";
+import { CompletionData, GuestData } from "@/pages/jasonandjosan/[section]";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { ValidateRsvp } from "./ValidateRsvp";
 import { CompleteRsvp } from "./CompleteRsvp";
 
 const RsvpContent = ({
-  response,
+  validateResponse,
+  comletionResponse,
   isLoading,
   setLoading,
-  setResponse
+  setValidateResponse,
+  setCompletionResponse
 }: {
-  response: GuestData | null;
+  validateResponse: GuestData | null;
+  comletionResponse: CompletionData | null;
   isLoading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
-  setResponse: Dispatch<SetStateAction<GuestData | null>>;
+  setValidateResponse: Dispatch<SetStateAction<GuestData | null>>;
+  setCompletionResponse: Dispatch<SetStateAction<CompletionData | null>>;
 }) => {
   useEffect(() => {
-    setResponse(null)
-  }, [setResponse]);
+    setValidateResponse(null);
+    setCompletionResponse(null)
+  }, [setValidateResponse, setCompletionResponse]);
 
   return (
     <>
-      {(!response || !response.isInvited) && (
+      {(!validateResponse || !validateResponse.isInvited) && !comletionResponse && (
         <ValidateRsvp
           isLoading={isLoading}
           setLoading={setLoading}
-          setResponse={setResponse} 
+          setValidateResponse={setValidateResponse}
         />
       )}
-      {(response && (response.isInvited && !response.did_confirmed)) ? (
-        <CompleteRsvp response={response} />
+      {(validateResponse && (validateResponse.isInvited && !validateResponse.did_confirmed)) ? (
+        <CompleteRsvp
+          completionResponse={comletionResponse}
+          validateResponse={validateResponse}
+          setCompletionResponse={setCompletionResponse}
+          setValidateResponse={setValidateResponse}
+        />
       ) : (
-        <span className="break-words mt-4 font-medium">{response?.message}</span>
+        <div className="break-words mt-4 font-medium">{validateResponse?.message}</div>
       )}
     </>
   );

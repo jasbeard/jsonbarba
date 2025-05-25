@@ -5,17 +5,16 @@ import { GuestData } from "@/pages/jasonandjosan/[section]";
 export const ValidateRsvp = ({
   isLoading,
   setLoading,
-  setResponse
+  setValidateResponse,
 }: {
   isLoading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
-  setResponse: Dispatch<SetStateAction<GuestData | null>>;
+  setValidateResponse: Dispatch<SetStateAction<GuestData | null>>;
 }) => {
-  // TODO: fix responsive concern
   return (
     <div className="flex flex-col gap-4 my-4">
       <p className="font-medium">
-        Let&apos;s confirm if your name appears on the guest list.
+        Let&apos;s confirm — if your name appears on the guest list.
       </p>
       <WeddingThemeInputWithButton
         inputName="name"
@@ -29,7 +28,7 @@ export const ValidateRsvp = ({
             return;
           }
 
-          setResponse(null);
+          setValidateResponse(null);
           setLoading(true);
           const inviteName = document.getElementById("name") as HTMLInputElement;
           const data = await fetch(`/api/validateInvitation?name=${encodeURIComponent(inviteName.value)}`)
@@ -38,7 +37,7 @@ export const ValidateRsvp = ({
             return response.json();
           });
 
-          setResponse(data);
+          setValidateResponse(data);
         }}
       />
     </div> 
