@@ -21,6 +21,10 @@ export default function App({ Component, pageProps }: AppProps) {
           description="Have a nice day!"
         />
         <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+        />
           <meta name="google-site-verification" content="eWe6gVI-N_FNp6_N2Kgegk3bWx-jkoKv028MeG1fEK4" />
         </Head>
         <Component {...pageProps} />
