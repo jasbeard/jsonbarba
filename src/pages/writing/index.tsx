@@ -1,5 +1,5 @@
 import { MainLayout } from '@/components/MainLayout';
-import { WritingPreview } from '@/components/writing/WritingPreview';
+import { WritingPreview } from '@/components/writing';
 import { allWritings } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import { NextSeo } from 'next-seo';

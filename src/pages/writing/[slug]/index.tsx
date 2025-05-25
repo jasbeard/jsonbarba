@@ -7,29 +7,14 @@ import type { MDXComponents } from 'mdx/types'
 import Image, { ImageProps as NextImageProps } from 'next/image';
 import { GetStaticPropsContext } from 'next';
 import { calculateReadingTime } from '@/utils/lib';
-import { Tags } from '@/components/writing/Tags';
-import { ComponentProps, useState } from 'react';
+import { AnchorWithLinkDisplay, Tags, ExternalLink } from '@/components/writing';
 
 type ImageProps = NextImageProps & { title: string };
 
-const AnchorWithLinkDisplay = (props: ComponentProps<'a'>) => {
-  const [hover, setHover] = useState(false);
-  return (
-    <div className="relative">
-      <a
-        {...props}
-        onMouseOver={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
-      />&nbsp;&nbsp;
-     {hover && <span>🔗</span>}
-     {hover && <div className="absolute top-0 left-0 -ml-8 font-medium mt-0.5 text-gray-600">#</div>}
-    </div>
-  );
-}
-
 const CustomMdxComponents: MDXComponents = {
   img: (props) =>  <Image {...(props as ImageProps)} alt={props.alt} className="rounded-xl shadow-lg cursor-help"  width={800} height={700}/>,
-  a: (props) => <AnchorWithLinkDisplay {...props} className="transition-all duration-500 hover:text-indigo-300"/>
+  a: (props) => <AnchorWithLinkDisplay {...props} className="transition-all duration-500 hover:text-indigo-300 underline-offset-2"/>,
+  ExternalLink: (props) => <ExternalLink {...props} className="transition-all duration-500 hover:text-indigo-300 underline-offset-2"/>
 }
 
 export async function getStaticPaths() {

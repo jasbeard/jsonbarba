@@ -1,7 +1,8 @@
 import { MainLayout } from "@/components/MainLayout";
 import { useRouter } from "next/router";
 import { allWritings } from 'contentlayer/generated';
-import { WritingPreview } from "@/components/writing/WritingPreview";
+import { WritingPreview } from "@/components/writing";
+import { compareDesc } from "date-fns";
 
 function titleCase(tag: string) {
   var splitStr = tag?.toLowerCase().split(' ');
@@ -13,8 +14,9 @@ function titleCase(tag: string) {
 
 const TopicPage = () => {
   const router = useRouter();
-  const tag = titleCase(router.query?.slug as string)
-  const writingResult = allWritings.filter((blog) => blog.tags?.includes(tag) && blog)
+  const tag = titleCase(router.query?.slug as string);
+  const sortedWritings = allWritings.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  const writingResult = sortedWritings.filter((blog) => blog.tags?.includes(tag) && blog)
   return (
     <MainLayout>
       <h1 className="font-semibold text-dark text-2xl sm:text-3xl dark:text-white">{tag}</h1>
