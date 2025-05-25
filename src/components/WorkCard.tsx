@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { LayersIcon, OpenInNewWindowIcon } from '@radix-ui/react-icons'
+import { BackpackIcon, OpenInNewWindowIcon } from '@radix-ui/react-icons'
 
 type WorkCardProps = {
   imageSource: string;
@@ -68,7 +68,7 @@ export const WorkCardGeneral = ({
     <div className="w-full p-4 rounded-sm border border-[#afb9c5] relative">
       <div className="flex">
         <div className="w-12 h-12 relative">
-          <LayersIcon className="w-12 h-12 text-gray-600"/>
+          <BackpackIcon className="w-12 h-12 text-gray-600 dark:text-white"/>
         </div>
         <div className="flex flex-col ml-2">
           <span className="text-sm font-semibold mt-1">{name[0]}</span>

@@ -26,7 +26,7 @@ export function GithubContributionMap() {
       <h2 className="font-medium text-[#2c3136] dark:text-white mb-4">This year&apos;s ({currentYear}) code contribution so far</h2>
       <GitHubCalendar
         username="swoppy"
-        colorScheme={theme === 'dark' ? 'dark' : 'light'}
+        {...(theme === 'light' && { colorScheme: 'light' })}
         theme={explicitTheme}
         blockMargin={5}
         blockRadius={7}

@@ -79,53 +79,55 @@ export default function Home() {
         title="Jason Barba"
         description="Website of Jason Barba, here is where you can see details of his commercial experience as a web engineer/developer"
       />
-      <HeaderAvatar />
-      <div className="md:px-80">
-        <section className="flex justify-center mt-4">
-          <p className="max-w-4xl text-xl text-[#2c3136] dark:text-white font-medium leading-8">
-            Hey 👋 my name is Jason Barba and I am a software engineer - I mainly focus on web frontend development for building software services on the internet. 
-            The technologies I am working with right now are Nextjs, TypeScript, Tailwind CSS, GraphQL, Git and Docker.
-          </p>
-        </section>
-        <section className="flex flex-col items-center justify-center mt-4">
-          <GithubContributionMap />
-        </section>
-        <section className="flex flex-col justify-center items-center mt-8">
-          <h2 className="font-medium text-[#2c3136] dark:text-white">Commercial Projects & Contracts</h2>
-          <div className="grid grid-cols-1 gap-y-4 mt-2">
-            {workList.map((item, index) => (
-              <Fragment key={index}>
-                <WorkCard
-                  imageSource={item.imageSource}
-                  name={item.name}
-                  designation={item.designation}
-                  period={item.period}
-                  highlights={
-                    item.highlights?.map((exp, i) => (
-                      <ul className="list-disc" key={`h-${i}`}>
-                        <li>{exp}</li>
-                      </ul>
-                    ))
-                  }
-                  technology={item.technology}
-                />
-              </Fragment>
-            ))}
-            <WorkCardGeneral 
-              name={legacyWork.name}
-              designation={legacyWork.designation}
-              period={legacyWork.period}
-              highlights={
-                legacyWork.highlights?.map((exp, index) => (
-                  <ul className="list-disc" key={index}>
-                    <li>{exp}</li>
-                  </ul>
-                ))
-              }
-              technology={legacyWork.technology}
-            />
-          </div>
-        </section>
+      <div className='m-4'>
+        <HeaderAvatar />
+        <div className="md:px-80">
+          <section className="flex justify-center mt-8">
+            <p className="max-w-4xl text-lg text-[#2c3136] dark:text-white font-medium leading-8">
+              Hey 👋 my name is Jason Barba and I am a software engineer - I mainly focus on web frontend development for building software services on the internet. 
+              The technologies I am working with right now are Nextjs, TypeScript, Tailwind CSS, GraphQL, Git and Docker.
+            </p>
+          </section>
+          <section className="flex flex-col items-center justify-center mt-4">
+            <GithubContributionMap />
+          </section>
+          <section className="flex flex-col justify-center items-center mt-8">
+            <h2 className="font-medium text-[#2c3136] dark:text-white">Commercial Projects & Contracts</h2>
+            <div className="grid grid-cols-1 gap-y-4 mt-2">
+              {workList.map((item, index) => (
+                <Fragment key={index}>
+                  <WorkCard
+                    imageSource={item.imageSource}
+                    name={item.name}
+                    designation={item.designation}
+                    period={item.period}
+                    highlights={
+                      item.highlights?.map((exp, i) => (
+                        <ul className="list-disc" key={`h-${i}`}>
+                          <li>{exp}</li>
+                        </ul>
+                      ))
+                    }
+                    technology={item.technology}
+                  />
+                </Fragment>
+              ))}
+              <WorkCardGeneral 
+                name={legacyWork.name}
+                designation={legacyWork.designation}
+                period={legacyWork.period}
+                highlights={
+                  legacyWork.highlights?.map((exp, index) => (
+                    <ul className="list-disc" key={index}>
+                      <li>{exp}</li>
+                    </ul>
+                  ))
+                }
+                technology={legacyWork.technology}
+              />
+            </div>
+          </section>
+        </div>
       </div>
     </>
   );

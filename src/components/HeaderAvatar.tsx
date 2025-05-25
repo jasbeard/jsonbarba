@@ -12,7 +12,7 @@ export function HeaderAvatar() {;
       <div className="flex justify-between">
         <div className="flex items-center">
           <Link href='/'>
-            <Avatar.Root className="relative inline-flex items-center justify-center align-middle overflow-hidden select-none w-10 h-10 rounded-full">
+            <Avatar.Root className="relative inline-flex items-center justify-center align-middle overflow-hidden select-none w-9 h-9 rounded-full">
               <Image
                 className="w-full h-full object-cover mt-1 select-none"
                 quality={95}
@@ -31,13 +31,13 @@ export function HeaderAvatar() {;
           <span className="w-0.5 h-10 border-l border-gray-300 inline mx-4"/>
           <div className="flex gap-2.5">
             <Link href="https://github.com/swoppy" target="_blank">
-              <GitHubLogoIcon width={28} height={28} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]" />
+              <GitHubLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]" />
             </Link>
             <Link href="https://www.linkedin.com/in/jsonbarba/" target="_blank">
-              <LinkedInLogoIcon width={28} height={28} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]" />
+              <LinkedInLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]" />
             </Link>
             <Link href="https://twitter.com/heyswoppy" target="_blank">
-            <TwitterLogoIcon width={28} height={28} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]"/>
+            <TwitterLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]"/>
             </Link>
           </div>
         </div>
