@@ -129,7 +129,7 @@ export function ProjectSection() {
       highlights: [
         "Responsible for everything 😁",
       ],
-      technology: ["Swift", "MySQL", "GraphQL", "REST", "Docker", "Git"],
+      technology: ["SwiftUI", "MySQL", "GraphQL", "REST", "Docker", "Git"],
     },
   ];
 
