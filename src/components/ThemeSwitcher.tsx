@@ -21,7 +21,7 @@ export function ThemeSwitcher() {
       case 'dark': return <MoonIcon width={22} height={22}/>;
       case 'light': return <SunIcon width={22} height={22}/>;
       case 'system': return <GearIcon width={22} height={22}/>;
-      default: null
+      default: null // never
     }
   }
 
@@ -58,5 +58,5 @@ export function ThemeSwitcher() {
         </Select.Content>
       </Select.Portal>
     </Select.Root>
-  )
+  );
 }

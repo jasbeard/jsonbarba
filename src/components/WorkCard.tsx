@@ -21,7 +21,7 @@ export const WorkCard = ({
   technology
 }: WorkCardProps) => {
   return (
-    <div className="w-full p-4 rounded-sm border border-[#afb9c5] relative text-[#2c3136] dark:text-white">
+    <div className="w-full p-4 rounded-sm border border-[#afb9c5] border-opacity-20 relative text-[#2c3136] dark:text-white">
       <div className="flex">
         <div className="w-12 h-12 relative">
           <Image
@@ -45,11 +45,11 @@ export const WorkCard = ({
               <OpenInNewWindowIcon className="inline ml-1" />
             </>
           )}
-          <span className="text-xs text-gray-500 ">{period}</span>
+          <span className="text-xs dark:text-gray-300 ">{period}</span>
         </div>
       </div>
       <div className="flex flex-col text-sm mt-2 px-4">
-        <span className="-ml-4 font-semibold">{designation}</span>
+        <span className="-ml-4 font-semibold mb-2">{designation}</span>
         {highlights}
         <span className="-ml-4 mt-4">Technology: {technology?.join(", ")}</span>
       </div>
@@ -65,18 +65,18 @@ export const WorkCardGeneral = ({
   technology
 }: WorkCardGeneralProps) => {
   return (
-    <div className="w-full p-4 rounded-sm border border-[#afb9c5] relative">
+    <div className="w-full p-4 rounded-sm border border-[#afb9c5] border-opacity-20 relative">
       <div className="flex">
         <div className="w-12 h-12 relative">
-          <BackpackIcon className="w-12 h-12 text-gray-600 dark:text-white"/>
+          <BackpackIcon className="w-12 h-12 text-gray-600 dark:text-gray-300"/>
         </div>
         <div className="flex flex-col ml-2">
           <span className="text-sm font-semibold mt-1">{name[0]}</span>
-          <span className="text-xs text-gray-500">{period}</span>
+          <span className="text-xs dark:text-gray-300">{period}</span>
         </div>
       </div>  
       <div className="flex flex-col text-sm mt-2 px-4">
-        <span className="-ml-4 font-semibold">{designation}</span>
+        <span className="-ml-4 mb-2 font-semibold">{designation}</span>
         {highlights}
         <span className="-ml-4 mt-4">Technology: {technology?.join(", ")}</span>
       </div>

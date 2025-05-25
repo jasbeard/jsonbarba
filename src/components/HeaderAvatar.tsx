@@ -2,7 +2,7 @@ import avatarPhoto from '/public/avatar.png';
 import * as Avatar from '@radix-ui/react-avatar';
 import Image from 'next/image';
 import Link from 'next/link';
-import { TwitterLogoIcon, GitHubLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
+import { TwitterLogoIcon, GitHubLogoIcon, LinkedInLogoIcon, EnvelopeClosedIcon } from '@radix-ui/react-icons';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 
@@ -37,7 +37,10 @@ export function HeaderAvatar() {;
               <LinkedInLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]" />
             </Link>
             <Link href="https://twitter.com/heyswoppy" target="_blank">
-            <TwitterLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]"/>
+              <TwitterLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]"/>
+            </Link>
+            <Link href="https://twitter.com/heyswoppy" target="_blank">
+              <EnvelopeClosedIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]"/>
             </Link>
           </div>
         </div>
