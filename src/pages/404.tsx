@@ -14,7 +14,7 @@ export default function Custom404() {
           quality={95}
           className="py-2"
         />
-        <Link href="/" className="font-semibold hover:text-[#fc9d03]"> Go back to main page</Link>
+        <Link href="/" className="font-semibold hover:text-accent"> Go back to main page</Link>
       </div>
     </div>
   )

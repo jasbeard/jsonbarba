@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        accent: '#fc9d03',
+      },
       keyframes: {
         'slide-up': {
           from: {

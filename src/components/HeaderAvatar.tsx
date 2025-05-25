@@ -9,7 +9,7 @@ export function HeaderAvatar() {
   const iconProps  = {
     width: 24,
     height: 24,
-    className: 'text-gray-700 dark:text-gray-300 hover:text-[#fc9d03] dark:hover:text-[#fc9d03]'
+    className: 'text-gray-700 dark:text-gray-300 hover:text-accent dark:hover:text-accent'
   };
 
   const links = [
