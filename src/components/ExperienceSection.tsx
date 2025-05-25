@@ -13,7 +13,7 @@ export function ContractSection() {
       imageSource: videocom,
       name: ['VideoCom', 'https://videocom.com'],
       designation: 'Senior Software Engineer',
-      period: '2022 - present',
+      period: '2022 - 2023',
       highlights: [
         "Frontend core team that builds and maintains VideoCom Cloud",
         "Working with engineering teams organization-wide to ensure implementation details are synched with web and apps",
