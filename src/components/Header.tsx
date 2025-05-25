@@ -114,7 +114,7 @@ export function Header() {
   const router = useRouter();
 
   return (
-    <header className="px-4 py-2">
+    <header className="px-4 py-2 sticky top-0 z-10 backdrop-blur-[1px]">
       <nav>
         <div className="flex justify-between">
           <div className="flex items-center text-lg font-medium gap-2">
