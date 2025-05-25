@@ -14,7 +14,7 @@ export function Header() {
               <Link
                 href='/'
                 aria-label="home link of the website"
-                className={router.asPath === '/' ? "underline underline-offset-[3px] decoration-indigo-400" : "hover:underline underline-offset-[3px]"}
+                className={router.asPath === '/' ? "underline underline-offset-[3px] decoration-indigo-400" : "hover:underline underline-offset-[3px] decoration-indigo-200"}
               >
                 Home
               </Link>
@@ -23,7 +23,7 @@ export function Header() {
                 aria-label="writing link of the website"
                 className={
                   router.asPath.split('/').includes('writing') ?
-                  "underline underline-offset-[3px] decoration-indigo-400" : "hover:underline underline-offset-[3px] decoration-gray-300"}
+                  "underline underline-offset-[3px] decoration-indigo-400" : "hover:underline underline-offset-[3px] decoration-indigo-200"}
                 >
                 Writing
               </Link>
@@ -32,17 +32,12 @@ export function Header() {
                 aria-label="work link of the website"
                 className={
                   router.asPath.split('/').includes('work') ?
-                  "underline underline-offset-[3px] decoration-indigo-400" : "hover:underline underline-offset-[3px] decoration-gray-300"}
+                  "underline underline-offset-[3px] decoration-indigo-400" : "hover:underline underline-offset-[3px] decoration-indigo-200"}
                 >
                 Work
               </Link>
             </div>
           </div>
-          {/* <div className="bg-white dark:bg-dark -mt-2 rounded-b ">
-            <div className="flex items-center justify-center mt-2">
-              <ThemeSwitcher />
-            </div>
-          </div> */}
         </div>
       </nav>
     </header>
