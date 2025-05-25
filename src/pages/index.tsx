@@ -64,7 +64,7 @@ function ContractSection() {
       designation: 'Senior Software Engineer',
       period: '2022 - present',
       highlights: [
-        "One of the frontend core team members that builds and maintains VideoCom Cloud",
+        "Frontend core team member that builds and maintains VideoCom Cloud",
         "Working with engineering teams organization-wide to ensure implementation details are synched with web and apps",
         "Aid requirements deliberation with project managers"
       ],
@@ -135,8 +135,11 @@ function ContractSection() {
               period={item.period}
               highlights={
                 item.highlights?.map((exp, i) => (
-                  <ul className="flex items-start" key={`h-${i}`}>
-                    <div><ArrowRightIcon className="-ml-4 mr-1 mt-[3px]"/></div><li>{exp}</li>
+                  <ul key={`h-${i}`}>
+                    <li className="flex items-start">
+                      <div><ArrowRightIcon className="-ml-4 mt-[3px]"/></div>
+                      <p className="ml-1 text-left">{exp}</p>
+                    </li>
                   </ul>
                 ))
               }
@@ -150,8 +153,11 @@ function ContractSection() {
           period={legacyWork.period}
           highlights={
             legacyWork.highlights?.map((exp, index) => (
-              <ul className="flex items-start" key={index}>
-                <div><ArrowRightIcon className="-ml-4 mr-1 mt-[3px]"/></div><li>{exp}</li>
+              <ul key={index}>
+                <li className="flex items-start">
+                  <div><ArrowRightIcon className="-ml-4 mt-[3px]"/></div>
+                  <p className="ml-1 text-left">{exp}</p>
+                </li>
               </ul>
             ))
           }

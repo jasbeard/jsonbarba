@@ -16,18 +16,22 @@ export function HeaderAvatar() {
     {
       href: 'https://github.com/swoppy',
       icon: <GitHubLogoIcon {...iconProps} />,
+      label: `link to Jason's github`,
     },
     {
       href: 'https://www.linkedin.com/in/jsonbarba/',
       icon: <LinkedInLogoIcon {...iconProps} />,
+      label: `link to Jason's linkedin`,
     },
     {
       href: 'https://twitter.com/heyswoppy',
       icon: <TwitterLogoIcon {...iconProps} />,
+      label: `link to Jason's twitter`,
     },
     {
       href: 'mailto:hello@jsonbarba.com',
       icon: <EnvelopeClosedIcon {...iconProps} />,
+      label: `link to Jason's email`,
     },
   ];
 
@@ -55,7 +59,7 @@ export function HeaderAvatar() {
           <span className="w-0.5 h-10 border-l border-gray-300 inline mx-4"/>
           <div className="flex gap-2.5">
             {links.map((item, i) => (
-              <Link key={i} href={item.href} target="_blank">
+              <Link key={i} href={item.href} target="_blank" aria-label={item.label} rel="noopener noreferrer">
                 {item.icon}
               </Link>
             ))}
