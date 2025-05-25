@@ -113,22 +113,24 @@ export function ContractSection() {
             />
           </li>
         ))}
-        <WorkCardGeneral
-          name={legacyWork.name}
-          designation={legacyWork.designation}
-          period={legacyWork.period}
-          highlights={
-            legacyWork.highlights?.map((exp, index) => (
-              <ul key={index}>
-                <li className="flex items-start">
-                  <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
-                  <p className="ml-1 text-left">{exp}</p>
-                </li>
-              </ul>
-            ))
-          }
-          technology={legacyWork.technology}
-        />
+          <li>
+            <WorkCardGeneral
+              name={legacyWork.name}
+              designation={legacyWork.designation}
+              period={legacyWork.period}
+              highlights={
+                legacyWork.highlights?.map((exp, index) => (
+                  <ul key={index}>
+                    <li className="flex items-start">
+                      <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
+                      <p className="ml-1 text-left">{exp}</p>
+                    </li>
+                  </ul>
+                ))
+              }
+              technology={legacyWork.technology}
+            />
+          </li>
         </ul>
     </section>
   );
