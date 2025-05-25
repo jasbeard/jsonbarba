@@ -99,8 +99,8 @@ export function ContractSection() {
 
   return (
     <section className="space-y-4 mt-8 mx-auto" aria-describedby="exp">
-      <h1 className={` font-semibold text-2xl sm:text-3xl`}>Contracts</h1>
-      <span className="text-xs sm:text-sm text-dark dark:text-white mb-4" id="exp">List of commercial experiences</span>
+      <h1 className={` font-semibold text-2xl sm:text-3xl`}>Work</h1>
+      <span className="text-xs sm:text-sm text-dark dark:text-white mb-4" id="exp">List of commercial work experiences</span>
         <ul className="grid grid-cols-1 gap-y-4 mt-2">
         {workList.map((item, index) => (
           <li key={index} aria-label="list of companies">

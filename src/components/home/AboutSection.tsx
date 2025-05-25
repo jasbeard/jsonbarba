@@ -1,38 +1,12 @@
 import Link from "next/link";
-import { useState } from "react";
 import { useBlur } from "./useBlur";
+import { useHover } from "./useHover";
 
 export function AboutSection({ currentYear }: { currentYear: number }) {
-  const { state:blur, handlers:toggle  } = useBlur();
+  const { states:blur, handlers:toggle  } = useBlur();
+  const { states:hover, handlers:onMouse } = useHover();
 
-  const [hover, setHover] = useState({
-    first: false,
-    second: false,
-    third: false,
-    fourth: false,
-    fifth: false,
-    sixth: false
-  });
-
-  const handleHoverforFirstGroup = ({ event }: { event: 'over' | 'out' }) => {
-    if (event === 'over') {
-      setHover((previousStates) => {
-        return {
-          ...previousStates,
-          first: true,
-        }
-      });
-    }
-
-    if (event === 'out') {
-      setHover((previousStates) => {
-        return {
-          ...previousStates,
-          first: false,
-        }
-      });
-    }
-  }
+  // TODO: improve blur sequence when it is clicked in between
 
   return (
     <section className="flex flex-col justify-center">
@@ -42,8 +16,8 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           <button
             className="inline-flex rounded-xl bg-indigo-400 dark:text-dark"
             onClick={toggle.firstBlur}
-            onMouseOver={() => handleHoverforFirstGroup({ event: 'over'})}
-            onMouseOut={() => handleHoverforFirstGroup({ event: 'out'})}
+            onMouseOver={() => onMouse.firstGroup({ event: 'over' })}
+            onMouseOut={() => onMouse.firstGroup({ event: 'out'})}
           >
             <span className="mr-2 ml-2.5 font-medium">JASON</span>
           </button>{' '}
@@ -55,68 +29,125 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
         &nbsp;&nbsp;<span className={`inline ${(hover.first && !blur.first) && 'text-indigo-400'}`}>
           I&#39;m based in Metro Manila Philippines.{' '}
           <button
-            className={`inline px-2 ${blur.first ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
+            className={`inline px-2 w-[93px] md:w-[145px] ${blur.first ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
             onClick={toggle.secondBlur}
+            onMouseOver={() => onMouse.secondGroup({ event: 'over' })}
+            onMouseOut={() => onMouse.secondGroup({ event: 'out' })}
           >
             Recently,
           </button>
         </span>{' '}
 
-        <span className={`inline ${blur.second ? 'blur ' : 'blur-0'}`}>
+        <span className={`inline ${blur.second ? 'blur ' : `blur-0 ${hover.second && 'text-indigo-400'}`}`}>
           I&#39;ve been dabbling in writing — just checking it out and seeing where it takes me.{' '}
           <button
-            className={`inline px-2 ${blur.second ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
+            className={`inline px-2 w-[101px] md:w-[157px] ${blur.second ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
             onClick={toggle.thirdBlur}
+            onMouseOver={() => onMouse.thirdGroup({ event: 'over' })}
+            onMouseOut={() => onMouse.thirdGroup({ event: 'out' })}
           >
             Moreover,
           </button>
         </span>{' '}
 
-        <span className={`inline ${blur.third ? 'blur' : 'blur-0'}`}>
+        <span className={`inline ${blur.third ? 'blur' : `blur-0 ${hover.third && 'text-indigo-400'}`}`}>
           my background is mostly around web app and UI development.{' '}<br/><br/>
           <button
-            className={`inline px-2 ${blur.third ? 'blur cursor-text' : 'blur-0 cursor-pointer font-medium bg-slate-400 dark:text-dark'}`}
+            className={`
+              inline px-2 w-[198px] md:w-[319px] 
+              ${blur.third ? 'blur cursor-text' : 'blur-0 cursor-pointer font-medium bg-slate-400 dark:text-dark'}
+            `}
             onClick={toggle.fourthBlur}
+            onMouseOver={() => onMouse.fourthGroup({ event: 'over' })}
+            onMouseOut={() => onMouse.fourthGroup({ event: 'out' })}
           >
             Over the last {currentYear - 2017} years,
           </button>{' '}
         </span>
 
-        <span className={`inline ${blur.fourth ? 'blur' : 'blur-0'}`}>
+        <span className={`inline ${blur.fourth ? 'blur' : `blur-0 ${hover.fourth && 'text-indigo-400'}`}`}>
           I&#39;ve navigated various professional landscapes, from startups to midsize and large organizations, with different capacities, gathering insights and expertise along the way.{' '}
         </span><br/><br/>
 
-        <span>
+        <span className={`blur-0 ${hover.fifth && 'text-indigo-400'}`}>
           Currently, I{' '}
-        </span>
           <Link
             href="/work"
             className="inline underline decoration-dotted underline-offset-4 decoration-1 hover:decoration-indigo-400"
           >
             work
           </Link> at{' '}
-          <button
-            className="inline px-2 rounded-xl font-medium bg-slate-400 dark:text-dark"
-            onClick={toggle.fifthBlur}
-          >
-            Asurion
-          </button>{' '}
+        </span>
+        <button
+          className="w-[82px] md:w-[127px] inline px-2 rounded-xl font-medium bg-slate-400 dark:text-dark"
+          onClick={toggle.fifthBlur}
+          onMouseOver={() => onMouse.fifthGroup({ event: 'over' })}
+          onMouseOut={() => onMouse.fifthGroup({ event: 'out' })}
+        >
+          Asurion
+        </button>{' '}
         <span>
           <a
             href="https://asurion.com"
             rel="noopener noreferrer"
             target="_blank"
-            className={`inline underline decoration-dotted underline-offset-4 decoration-1 hover:decoration-indigo-400 ${blur.fifth ? 'blur' : 'blur-0'}`}
+            className={`
+              inline underline decoration-dotted underline-offset-4 decoration-1 hover:decoration-indigo-400 
+              ${blur.fifth ? 'blur' : `blur-0 ${(!blur.fifth && hover.fifth) && 'text-indigo-400'}`}
+            `}
           >
             &#40;a tech insurance company based in Nashville&#41;
           </a>{' '}
-          <span className={`${blur.fifth ? 'blur' : 'blur-0'}`}>as a software engineer.</span>
-        </span><br/><br/>
+          <span className={`${blur.fifth ? 'blur' : `blur-0 ${hover.fifth && 'text-indigo-400'}`}`}>as a software engineer.</span>
+        </span>
+        <br/><br/>
 
         <span>
-          You can reach me at me@jsonbarba.com{' '}
-          <button className="inline px-2 rounded-xl font-medium bg-slate-400 dark:text-dark" onClick={toggle.sixthBlur}>Also,</button>{' '}
-          <span className={`inline ${blur.sixth ? 'blur' : 'blur-0'}`}>I&#39;m on Github, LinkedIn and X.</span>
+          You can reach me at{' '}
+          <a
+            href="mailto:me@jsonbarba.com"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="text-indigo-400"
+          >
+            me@jsonbarba.com
+          </a>{' '}
+          <button
+            className="w-[57px] md:w-[84px] inline px-2 rounded-xl font-medium bg-slate-400 dark:text-dark"
+            onClick={toggle.sixthBlur}
+            onMouseOver={() => onMouse.sixthGroup({ event: 'over' })}
+            onMouseOut={() => onMouse.sixthGroup({ event: 'out' })}
+          >
+            Also,
+          </button>{' '}
+          <span
+            className={`inline ${blur.sixth ? 'blur' : `blur-0 ${hover.sixth && 'text-indigo-400'}`}`}
+          >
+            I&#39;m on{' '}
+            <a
+              href="https://github.com/swoppy"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="inline underline decoration-dotted underline-offset-4 decoration-1 hover:decoration-indigo-400"
+            >
+              Github,</a>{' '}
+            <a
+              href="https://www.linkedin.com/in/jsonbarba/"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="inline underline decoration-dotted underline-offset-4 decoration-1 hover:decoration-indigo-400"
+            >
+            LinkedIn
+            </a>{' '}and{' '}
+            <a
+              href="https://twitter.com/jsonbarba"
+              rel="noopener noreferrer"
+              target="_blank"
+              className="inline underline decoration-dotted underline-offset-4 decoration-1 hover:decoration-indigo-400"
+            >
+              X.
+            </a>
+          </span>
         </span>
       </p>
     </section>

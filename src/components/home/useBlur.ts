@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const useBlur = () => {
-  const [blur, setBlur] = useState({
+  const [isBlur, setBlur] = useState({
     first: true,
     second: true,
     third: true,
@@ -11,13 +11,13 @@ export const useBlur = () => {
   });
 
   const firstBlur = () => {
-    if(!blur.first && !blur.second) {
+    if(!isBlur.first && !isBlur.second && !isBlur.third && !isBlur.fourth) {
       setBlur((previousStates) => {
         return {
-        ...previousStates,
-        second: !previousStates.second,
-        third: !previousStates.third,
-        fourth: !previousStates.fourth,
+          ...previousStates,
+          second: !previousStates.second,
+          third: !previousStates.third,
+          fourth: !previousStates.fourth,
         }
       });
     }
@@ -30,7 +30,7 @@ export const useBlur = () => {
   }
 
   const secondBlur = () => {
-    if (!blur.first) setBlur((previousStates) => {
+    if (!isBlur.first) setBlur((previousStates) => {
       return {
       ...previousStates,
       second: !previousStates.second,
@@ -39,16 +39,26 @@ export const useBlur = () => {
   }
 
   const thirdBlur = () => {
-    if (!blur.first && !blur.second) setBlur((previousStates) => {
+    if (!isBlur.first && !isBlur.second) setBlur((previousStates) => {
       return {
       ...previousStates,
       third: !previousStates.third,
       }
     });
+
+    if (!isBlur.fourth) {
+      setBlur((previousStates) => {
+        return {
+          ...previousStates,
+          third: !previousStates.third,
+          fourth: !previousStates.fourth,
+        }
+      });
+    }
   }
 
   const fourthBlur = () => {
-    if (!blur.first && !blur.second && !blur.third) setBlur((previousStates) => {
+    if (!isBlur.first && !isBlur.second && !isBlur.third) setBlur((previousStates) => {
       return {
       ...previousStates,
       fourth: !previousStates.fourth,
@@ -75,7 +85,7 @@ export const useBlur = () => {
   }
 
   return {
-    state: { ...blur },
+    states: { ...isBlur },
     handlers: {
       firstBlur,
       secondBlur,
