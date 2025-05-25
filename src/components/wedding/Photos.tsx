@@ -5,6 +5,10 @@ import React, { Suspense } from "react";
 const fetchImages = async () => {
   const response = await fetch(`/api/getPhotos`);
 
+  if (!navigator.onLine) {
+    throw new Error('No internet connection');
+  }
+
   if (!response.ok) {
     throw new Error("error");
   }

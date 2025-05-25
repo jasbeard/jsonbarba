@@ -14,7 +14,7 @@ interface CompletedRsvpNotificationProps {
   name: string;
 }
 
-const direction = 'https://www.google.com/maps/place/LOLA+Cafe+-+Tomas+Morato/@14.6300832,121.0325572,17z/data=!3m1!4b1!4m6!3m5!1s0x3397b64c20211533:0x2b40bc33d4b591e!8m2!3d14.6300832!4d121.0325572!16s%2Fg%2F11h0llbfy?entry=ttu';
+export const direction = 'https://www.google.com/maps/place/LOLA+Cafe+-+Tomas+Morato/@14.6300832,121.0325572,17z/data=!3m1!4b1!4m6!3m5!1s0x3397b64c20211533:0x2b40bc33d4b591e!8m2!3d14.6300832!4d121.0325572!16s%2Fg%2F11h0llbfy?entry=ttu';
 
 export const CompletedRsvpNotification = ({
   name,
