@@ -15,9 +15,11 @@ export function ContractSection() {
       designation: 'Senior Software Engineer',
       period: '2022 - present',
       highlights: [
-        "Frontend core team member that builds and maintains VideoCom Cloud",
+        "Frontend core team that builds and maintains VideoCom Cloud",
         "Working with engineering teams organization-wide to ensure implementation details are synched with web and apps",
-        "Aid project requirements and designs deliberation with project managers"
+        "Working on requirements deliberation with project managers and designers",
+        "Created and maintained several features",
+        "Code reviews"
       ],
       technology: ["Nextjs", "TypeScript", "GraphQL", "REST", "Tailwind CSS", "MySQL", "Redis", "Docker", "Kubernetes", "Cloudflare", "Google Cloud", "Git"],
     },
@@ -28,7 +30,7 @@ export function ContractSection() {
       period: '2021 - 2022',
       highlights: [
         "Filled development deficiencies of XSplit Cloud",
-        "Initiated and maintained several cloud features, mostly UIs and several API integrations",
+        "Initiated and maintained several cloud features - mostly UIs and several API integrations",
         "Worked with design teams for technical alignments",
       ],
       technology: ["Nextjs", "TypeScript", "GraphQL", "Tailwind CSS", "MySQL", "Redis", "Docker", "Kubernetes", "Cloudflare", "Google Cloud", "Git"],
@@ -39,9 +41,10 @@ export function ContractSection() {
       designation: 'Consultant',
       period: '2020 - 2021',
       highlights: [
-        "Helped made the bond platform (wealth manager) to have more automated bond buying and selling experience, advancing further their digitalization efforts",
-        "Spearheaded new key features of bond buying and selling",
+        "Implemented automated bond buying and selling experience to advance further their digitalization efforts",
+        "Spearheaded frontend developement for buying and selling bonds",
         "Refactored, updated legacy dependencies",
+        "Helped peers to minimize their development deficiencies",
       ],
       technology: ['LoopBack 4', 'React', 'Material-UI', "SOAP", "REST", "Git"]
     },
