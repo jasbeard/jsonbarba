@@ -1,9 +1,7 @@
-import { Fragment } from "react";
 import xsplit from '/public/xsplit.svg';
 import videocom from '/public/videocom.svg';
 import metrobank from '/public/metrobank.svg';
 import pangolin from '/public/pangolin.png';
-import bajetto from '/public/bajetto.svg';
 import asurion from '/public/asurion.png';
 import { StaticImageData } from "next/image";
 import * as WorkCard from "./workcard/WorkCard";
@@ -126,42 +124,6 @@ export function ContractSection() {
             </WorkCard.Root>
           </li>
         </ul>
-    </section>
-  );
-}
-
-export function ProjectSection() {
-  const projectList = [
-    {
-      imageSource: bajetto,
-      name: ['Bajetto'],
-      designation: 'Founder',
-      period: '2023 - present',
-      highlights: [
-        "Responsible for everything 😁",
-      ],
-      technology: ["SwiftUI", "MySQL", "GraphQL", "REST", "Docker", "Git"],
-    },
-  ];
-
-  return (
-    <section className="space-y-4 mt-8 mx-auto">
-      <h1 className={`text-2xl sm:text-3xl font-semibold`}>Projects</h1>
-      <span className="text-xs sm:text-sm text-dark dark:text-white mb-4">List of released and developing projects</span>
-      <div className="grid grid-cols-1 gap-y-4 mt-2">
-        {projectList.map((item, index) => (
-          <Fragment key={index}>
-            <WorkCard.Root
-              className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white"
-              work={item}
-            >
-              <WorkCard.Company className="flex"/>
-              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2"/>
-              <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
-            </WorkCard.Root>
-          </Fragment>
-        ))}
-      </div>
     </section>
   );
 }
