@@ -1,4 +1,4 @@
-const { withContentlayer } = require('next-contentlayer2');
+const { withContentlayer } = require('next-contentlayer2'); // weird parsing error — could be code editor issue, typescript compiles well when running type-check.
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',

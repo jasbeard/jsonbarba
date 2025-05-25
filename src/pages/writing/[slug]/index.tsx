@@ -6,9 +6,30 @@ import { NextSeo } from 'next-seo';
 import type { MDXComponents } from 'mdx/types'
 import Image from 'next/image';
 import { GetStaticPropsContext } from 'next';
+import { useRouter } from 'next/router';
 
-const CustomMdxComponents: MDXComponents =  {
-  img: ({ src, alt }) =>  <Image  src={src as string} alt={alt as string} className="rounded-xl shadow-lg" width={456} height={456}/>
+interface BlogSpecificImageProps {
+  imageSrc: string;
+  imageAlt: string;
+}
+
+const BlogSpecificImage = ({
+  imageSrc,
+  imageAlt
+}: BlogSpecificImageProps) => {
+  const router = useRouter();
+  switch(router.query.slug) {
+    case 'our-intimate-wedding':
+      return <Image  src={imageSrc} alt={imageAlt} className="rounded-xl shadow-lg" width={700} height={700} />;
+    case 'driving-school':
+      return <Image  src={imageSrc} alt={imageAlt} className="rounded-xl shadow-lg" width={456} height={456}/>
+    default:
+      return null;
+  }
+}
+
+const CustomMdxComponents: MDXComponents = {
+  img: ({ src, alt }) =>  <BlogSpecificImage imageSrc={src} imageAlt={alt} />
 }
 
 export async function getStaticPaths() {
@@ -53,7 +74,7 @@ const Content = ({ writing }: { writing: Writing }) => {
             </time>
           </div>
           <div className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose md:prose-lg dark:prose-invert">
-            <MDXContent components={CustomMdxComponents}/>
+            <MDXContent components={CustomMdxComponents} />
           </div>
         </article>
       </MainLayout>
