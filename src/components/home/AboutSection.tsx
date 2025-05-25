@@ -125,7 +125,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
               ${blur.ASURION ? 'blur select-none' : `blur-0 select-auto ${(!blur.ASURION && hover.fifth) && 'text-indigo-300'}`}
             `}
           >
-            &#40;a tech insurance company based in Nashville&#41;
+            &#40;a tech care company based in Nashville&#41;
           </a>{' '}
           <span className={`${blur.ASURION ? 'blur select-none' : `blur-0 select-auto ${hover.fifth && 'text-indigo-400'}`}`}>as a software engineer.</span>
         </span>
