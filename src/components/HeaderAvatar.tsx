@@ -42,7 +42,7 @@ export function HeaderAvatar() {
           <Link href='/'>
             <Avatar.Root className="relative inline-flex items-center justify-center align-middle overflow-hidden select-none w-9 h-9 rounded-full">
               <Image
-                className="w-full h-full object-cover mt-1 select-none"
+                className="w-full h-full object-cover mt-1 select-none bg-gray-300"
                 quality={95}
                 fill
                 sizes="100vw"
