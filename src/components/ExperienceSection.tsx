@@ -6,7 +6,7 @@ import videocom from '/public/videocom.svg';
 import metrobank from '/public/metrobank.svg';
 import pangolin from '/public/pangolin.png';
 import bajetto from '/public/bajetto.svg';
-import asurion from '/public/asurion.svg';
+import asurion from '/public/asurion.png';
 
 export function ContractSection() {
   const workList = [
@@ -15,10 +15,11 @@ export function ContractSection() {
       name: ['Asurion', 'https://asurion.com'],
       designation: 'Software Engineer 3',
       highlights: [
-
+        "Maintain, update and support public facing websites of Asurion domain",
+        "Collaborate on Proof-of-concept efforts for overall operational efficiencies",
       ],
       period: '2023 - present',
-      technology: ["Gatsbyjs", "GraphQL", "Contetful", "Tailwind CSS", "NGINX", "AWS", "Git", "Github Actions"]
+      technology: ["Gatsbyjs", "GraphQL", "Contentful", "Tailwind CSS", "NGINX", "Docker", "AWS", "Git", "Github Actions"]
     },
     {
       imageSource: videocom,
@@ -27,8 +28,8 @@ export function ContractSection() {
       period: '2022 - 2023',
       highlights: [
         "Frontend core team that builds and maintains VideoCom Cloud",
-        "Working with engineering teams organization-wide to ensure implementation details are synched with web and apps",
-        "Working on requirements deliberation with project managers and designers",
+        "Worked with engineering teams organization-wide to ensure implementation details are synched with web and apps",
+        "Worked on requirements deliberation with project managers and designers",
         "Created and maintained several features",
         "Code reviews"
       ],

@@ -20,8 +20,6 @@ export const WorkCard = ({
   highlights,
   technology
 }: WorkCardProps) => {
-  // @ts-ignore
-  const isA = imageSource.src.split('.')[0].split('/').includes('asurion')
   return (
     <div className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white">
       <div className="flex">
@@ -31,7 +29,7 @@ export const WorkCard = ({
             quality={95}
             fill
             sizes="100vw"
-            className={!isA ? "object-cover object-left" : "object-contain object-left"} 
+            className="object-cover object-left rounded" 
             alt="work_image"
           />
         </div>
