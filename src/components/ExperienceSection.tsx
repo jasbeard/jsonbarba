@@ -6,9 +6,20 @@ import videocom from '/public/videocom.svg';
 import metrobank from '/public/metrobank.svg';
 import pangolin from '/public/pangolin.png';
 import bajetto from '/public/bajetto.svg';
+import asurion from '/public/asurion.svg';
 
 export function ContractSection() {
   const workList = [
+    {
+      imageSource: asurion,
+      name: ['Asurion', 'https://asurion.com'],
+      designation: 'Software Engineer 3',
+      highlights: [
+
+      ],
+      period: '2023 - present',
+      technology: ["Gatsbyjs", "GraphQL", "Contetful", "Tailwind CSS", "NGINX", "AWS", "Git", "Github Actions"]
+    },
     {
       imageSource: videocom,
       name: ['VideoCom', 'https://videocom.com'],
