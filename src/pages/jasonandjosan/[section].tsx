@@ -12,6 +12,7 @@ import { noNil } from '@/utils/lib';
 import dynamic from 'next/dynamic';
 import { WeddingHeroSection } from '@/components/wedding/WeddingHeroSection';
 import { NextSeo } from 'next-seo';
+import { Gifts } from '@/components/wedding/Gifts';
 
 export interface GuestData {
   guestName: string;
@@ -26,7 +27,7 @@ export interface CompletionData {
   message: string;
 }
 
-type TabNames = "our_story" | "photos" | "rsvp" | "faq" | "gifts";
+export type TabNames = "our_story" | "photos" | "rsvp" | "faq" | "gifts";
 
 const Rsvp = dynamic(() => import('@/components/wedding/Rsvp/RsvpContent'), {
   ssr: false,
@@ -44,6 +45,22 @@ const Faq = dynamic(() => import('@/components/wedding/Faq'), {
   ssr: false,
 });
 
+export function formatTabName(name: TabNames) {
+  switch(name){
+    case 'our_story':
+      return 'Our Story';
+    case 'photos':
+      return 'Photos';
+    case 'faq':
+      return 'FAQs';
+    case 'rsvp':
+      return 'RSVP';
+    case 'gifts':
+      return 'Gifts';
+    default: '';
+  };
+};
+
 const Page = () => {
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
@@ -52,7 +69,7 @@ const Page = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const tabsTrigger = `p-2 rounded-md data-[state='active']:outline-none
-    data-[state='active']:text-white data-[state='active']:bg-[#AC7914]
+    data-[state='active']:text-white data-[state='active']:bg-golden-amber
   `;
 
   // page theme
@@ -86,22 +103,6 @@ const Page = () => {
     setModalOpen(false);
   }
 
-  function formatTabName(name: TabNames) {
-    switch(name){
-      case 'our_story':
-        return 'Our Story';
-      case 'photos':
-        return 'Photos';
-      case 'faq':
-        return 'FAQs';
-      case 'rsvp':
-        return 'RSVP';
-      case 'gifts':
-        return 'Gifts';
-      default: '';
-    };
-  };
-
   const tabs = [
     {
       label: 'our_story',
@@ -130,7 +131,7 @@ const Page = () => {
     },
     { 
       label: 'gifts',
-      content: 'honeymoon fund placeholder',
+      content: <Gifts />,
     },
   ];
 
@@ -138,7 +139,6 @@ const Page = () => {
     <>
       <div style={{ fontFamily: wedCursive.style.fontFamily }} className="flex flex-col items-center py-8 px-4 text-[#515152] gap-4 mt-20">
         <WeddingHeroSection />
-        <CountdownTimer />
         <div style={{ fontFamily: sans.style.fontFamily }} className="flex-col w-full md:max-w-[47.924rem] mt-2 items-center flex-shrink h-full">
           <Tabs.Root
             defaultValue="our_story"
@@ -173,7 +173,8 @@ const Page = () => {
                 </Tabs.Trigger>
               ))}
             </Tabs.List>
-            <div className={`block mb-8 mt-4 text-center font-semibold text-2xl sm:text-left md:hidden text-[#AC7914] ${wedSerif.className}`}>
+            <div className="border-t bg-stone"/>
+            <div className={`block mb-8 mt-6 text-center font-semibold text-2xl sm:text-left md:hidden text-golden-amber ${wedSerif.className}`}>
               {formatTabName(router.query.section as TabNames) === 'FAQs' ? 'Frequently ask questions' : formatTabName(router.query.section as TabNames)}
             </div>
             <div className="w-full">

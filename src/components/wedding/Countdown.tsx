@@ -47,7 +47,7 @@ export const CountdownTimer = () => {
 
   return (
     <div
-      className="flex shrink w-80 h-16 bg-stone-200 rounded-xl px-4"
+      className="flex shrink w-80 h-16 bg-stone-200 rounded-xl px-4 shadow-md border border-golden-amber"
       style={{ fontFamily: sans.style.fontFamily }}
     >
       <CountdownItem time={"Months"} value={months} />

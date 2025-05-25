@@ -89,7 +89,7 @@ const title = {
 
 const section = {
   padding: "24px",
-  border: "solid 1px #AC7914",
+  border: "solid 1px golden-amber",
   borderRadius: "6px",
   textAlign: "center" as const,
 };

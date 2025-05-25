@@ -1,5 +1,6 @@
 import { direction } from "../EmailTemplate";
 
+
 const FaqItem = ({
   question,
   answer,
@@ -10,7 +11,7 @@ const FaqItem = ({
   isAnswerHref: boolean;
 }) => {
   return (
-    <div className="flex flex-col gap-2 my-2 p-2 rounded">
+    <div className="flex flex-col gap-2 my-2 py-2 rounded">
       <div className="font-medium">Q: {question}</div>
       {isAnswerHref ? (
         <div className="inline">
@@ -28,12 +29,12 @@ const Faq = () => {
   const list = [
     {
       question: "Is there a specific color or dress code for the wedding?",
-      answer: "Yes, please wear white (smart casual - formal)",
+      answer: "We would love to see our guest in white",
       isAnswerHref: false,
     },
     {
       question: "What time will the ceremony begin?",
-      answer: "The whole celebrationn duratrion is 3 hours (11am - 2pm)",
+      answer: "The whole celebration duration is 3 hours (11am - 2pm)",
       isAnswerHref: false,
     },
     {
@@ -48,7 +49,7 @@ const Faq = () => {
     },
   ];
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col py-2">
       {list.map((item, index) => (
         <FaqItem
           key={index}

@@ -13,6 +13,7 @@ module.exports = {
         accent: colors.accent['400'],
         dark: '#2c3136',
         cgray: '#afb9c5',
+        'golden-amber': '#AC7914',
         ...colors,
       },
       screens: {

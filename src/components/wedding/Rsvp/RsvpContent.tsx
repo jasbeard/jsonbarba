@@ -40,7 +40,7 @@ const RsvpContent = ({
           setValidateResponse={setValidateResponse}
         />
       ) : (
-        <div className="break-words mt-4 font-medium">{validateResponse?.message}</div>
+        <div className="break-words mt-6 font-medium">{validateResponse?.message}</div>
       )}
     </>
   );

@@ -17,7 +17,7 @@ async function validateInvitation(req: NextApiRequest, res: NextApiResponse) {
         guestName: name,
         isInvited: true,
         did_confirmed: true,
-        message: `Hey ${name}, you already confirmed your invitation, see you!`
+        message: `Hey ${name}, your invitation has been confirmed. We have reserved a seat for you. See you!`
       });
     }
 

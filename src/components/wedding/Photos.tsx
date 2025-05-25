@@ -56,7 +56,7 @@ const PhotoContentList = React.lazy(() =>
 
 const PhotoListWithSuspense  = () => {
   return (
-    <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-3">
+    <div className="mt-[26px] grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-3">
       <Suspense fallback={Array(9)
       .fill(null)
       .map((_, i) => (

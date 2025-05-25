@@ -29,7 +29,8 @@ export const CompleteRsvp = ({
               inputType="email"
               buttonLoading={loading}
               buttonLoadingText="Completing..."
-              buttonOnClick={async () => {
+              buttonOnClick={async (e) => {
+                e.preventDefault();
                 setCompletionResponse(null);
                 const email = document.getElementById("email_address") as HTMLInputElement;
                 if (email.reportValidity() && email.value) {

@@ -1,4 +1,4 @@
-import { HTMLInputTypeAttribute, MouseEventHandler } from "react";
+import { ComponentPropsWithoutRef, HTMLInputTypeAttribute, MouseEventHandler } from "react";
 
 export const WeddingThemeInputWithButton = ({
   buttonLoading = false,
@@ -7,7 +7,9 @@ export const WeddingThemeInputWithButton = ({
   buttonText,
   buttonLoadingText,
   inputName,
-  inputType = 'text'
+  inputType = 'text',
+  inputRef,
+  ...rest
 }: {
   buttonLoading?: boolean;
   buttonOnClick: MouseEventHandler<HTMLButtonElement> | undefined;
@@ -16,7 +18,8 @@ export const WeddingThemeInputWithButton = ({
   inputPlaceholder: string;
   inputName: string
   inputType?: HTMLInputTypeAttribute;
-}) => {
+  inputRef?: React.RefObject<HTMLInputElement>;
+} & ComponentPropsWithoutRef<'input'>) => {
   return (
     <div className="flex w-full flex-col md:flex-row md:items-center gap-4">
       <div>
@@ -27,12 +30,15 @@ export const WeddingThemeInputWithButton = ({
             id={inputName}
             placeholder={inputPlaceholder}
             className="bg-white outline-none w-full p-0 h-full"
+            ref={inputRef}
+            {...rest}
           />
         </div>
       </div>
       <button
-        className="flex rounded-md font-medium py-1.5 px-4 bg-stone-300 items-center h-10 border border-[#AC7914]"
+        className="flex rounded-md font-medium py-1.5 px-4 bg-stone-300 items-center h-10 border border-golden-amber"
         disabled={buttonLoading}
+        type="submit"
         onClick={buttonOnClick}>
           {buttonLoading && 
             <svg className="animate-spin h-5 w-5 mr-3 text-white" viewBox="0 0 24 24">
