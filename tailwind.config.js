@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        'slideUpAndFade': {
+        'slide-up': {
           from: {
             opacity: '0',
             transform: 'translateY(2px)',
@@ -19,7 +19,7 @@ module.exports = {
           }
         },
 
-        'slideRightAndFade' : {
+        'slide-right' : {
           from: {
             opacity: '0',
             transform: 'translateX(-2px)',
@@ -30,7 +30,7 @@ module.exports = {
           }
         },
 
-        'slideDownAndFade': {
+        'slide-down': {
           from: {
             opacity: '0',
             transform: 'translateY(-2px)',
@@ -41,7 +41,7 @@ module.exports = {
           }
         },
 
-        'slideLeftAndFade': {
+        'slide-left': {
           from: {
             opacity: '0',
             transform: 'translateX(2px)',
@@ -52,6 +52,11 @@ module.exports = {
           }
         
         }
+      },
+
+      animation: {
+        'slide-up': '400ms cubic-bezier(0.16, 1, 0.3, 1) slide-up'
+        // add animation name based on keyframes data as needed
       }
     }
   },
