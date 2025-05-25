@@ -19,7 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <DefaultSeo
           defaultTitle="Jason Barba"
           description="Have a nice day!"
-          canonical="https://jsonbarba.com"
         />
         <Head>
           <meta name="google-site-verification" content="eWe6gVI-N_FNp6_N2Kgegk3bWx-jkoKv028MeG1fEK4" />
