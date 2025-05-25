@@ -6,7 +6,8 @@ async function getPhotos(req: NextApiRequest, res: NextApiResponse) {
   const imageList = rows.map((field) => {
     return {
       id: field.id,
-      url: field.url
+      url: field.url,
+      sequence: field.sequence
     };
   });
   

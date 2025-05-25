@@ -31,7 +31,7 @@ const PhotoContentList = React.lazy(() =>
           <div className="w-full md:w-[244.92px] h-[367.38px]" key={item.id}>
             <Image
               src={item.url}
-              alt={`${item.id}`}
+              alt={`${item.sequence}`}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               style={{
                 width: '100%',
