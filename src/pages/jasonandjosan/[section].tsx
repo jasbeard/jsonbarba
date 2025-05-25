@@ -174,8 +174,8 @@ const Page = () => {
               ))}
             </Tabs.List>
             <div className="border-t bg-stone"/>
-            <div className={`block mb-8 mt-6 text-center font-semibold text-2xl sm:text-left md:hidden text-golden-amber ${wedSerif.className}`}>
-              {formatTabName(router.query.section as TabNames) === 'FAQs' ? 'Frequently ask questions' : formatTabName(router.query.section as TabNames)}
+            <div className={`block mb-6 mt-6 text-center font-semibold text-2xl sm:text-left md:hidden text-golden-amber ${wedSerif.className}`}>
+              {formatTabName(router.query.section as TabNames) === 'FAQs' ? 'Frequently Ask Questions' : formatTabName(router.query.section as TabNames)}
             </div>
             <div className="w-full">
               {tabs.map((item) => (

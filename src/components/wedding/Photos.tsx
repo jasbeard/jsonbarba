@@ -28,7 +28,7 @@ const PhotoContentList = React.lazy(() =>
       return a.sequence - b.sequence;
     });
     /* Returning a component directly since React.lazy expects a module with a default export */
-    console.log(sortedResult)
+
     return {
       default: () => {
     	  const listItems = sortedResult.map((item) => (
@@ -40,11 +40,10 @@ const PhotoContentList = React.lazy(() =>
               style={{
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover'
               }}
               width={1000}
               height={1000}
-              className="border rounded-md shadow-lg"
+              className="border rounded-md shadow-lg object-contain md:object-cover"
             /> 
           </div>
     	  ));

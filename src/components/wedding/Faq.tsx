@@ -29,7 +29,7 @@ const Faq = () => {
   const list = [
     {
       question: "Is there a specific color or dress code for the wedding?",
-      answer: "We would love to see our guest in white",
+      answer: "We would love to see our guest in WHITE",
       isAnswerHref: false,
     },
     {
