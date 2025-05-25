@@ -10,6 +10,7 @@ import { CountdownTimer } from '@/components/wedding/Countdown';
 import { useRouter } from 'next/router';
 import { noNil } from '@/utils/lib';
 import dynamic from 'next/dynamic';
+import { WeddingHeroSection } from '@/components/wedding/WeddingHeroSection';
 
 export interface GuestData {
   guestName: string;
@@ -122,19 +123,11 @@ const Page = () => {
       content: 'honeymoon fund placeholder',
     },
   ];
-  console.log('router: ', router)
+
   return (
     <>
-      <div style={{ fontFamily: wedCursive.style.fontFamily }} className="flex flex-col items-center p-8 text-[#515152] gap-4 mt-20">
-        <span className="text-9xl text-center text-[#AC7914]">Jason &Josan</span>
-        {/* <span className="text-3xl font-semibold text-center" style={{ fontFamily: wedSerif.style.fontFamily }} >JASON & JOSAN</span> */}
-        <span className="w-1/3 text-4xl font-medium text-center">
-          Together with their families invite you to their intimate wedding celebration
-        </span>
-        <div style={{ fontFamily: sans.style.fontFamily }} className="flex flex-col items-center text-center">
-          <span className="font-medium">SUNDAY, OCTOBER 13, 2024</span>
-          <span className="font-medium">LOLA CAFE — TOMAS MORATO, QC</span>
-        </div>
+      <div style={{ fontFamily: wedCursive.style.fontFamily }} className="flex flex-col items-center py-8 px-4 text-[#515152] gap-4 mt-20">
+        <WeddingHeroSection />
         <CountdownTimer />
         <div style={{ fontFamily: sans.style.fontFamily }} className="flex-col w-full md:max-w-[47.924rem] mt-2 items-center flex-shrink h-full">
           <Tabs.Root
@@ -187,7 +180,7 @@ const Page = () => {
           </Tabs.Root>
         </div>
       </div>
-      <div className="fixed top-0 md:hidden mt-4 mx-4 bg-stone-200 px-2 py-2.5 rounded-xl">
+      <div className="fixed top-0 md:hidden mt-4 ml-4 bg-stone-200 px-2 py-2.5 rounded-xl">
         <Dialog.Root modal open={isModalOpen} onOpenChange={setModalOpen}>
           <Dialog.Trigger className="p-4 rounded-full border border-[#515152]">
             <Image
@@ -201,11 +194,15 @@ const Page = () => {
             <Dialog.Overlay className="fixed"/>
             <Dialog.Content className="fixed w-full h-full bg-slate-300 top-0 p-4">
               <div className="relative grid grid-cols-1 mt-20 gap-4 text-[#515152]">
-                <button className="cursor-pointer text-left" onClick={() => handleModalAction('our_story')}>Our Story</button>
-                <button className="cursor-pointer text-left" onClick={() => handleModalAction('photos')}>Photos</button>
-                <button className="cursor-pointer text-left" onClick={() => handleModalAction('qa')}>Q & A</button>
-                <button className="cursor-pointer text-left" onClick={() => handleModalAction('rsvp')}>RSVP</button>
-                <button className="cursor-pointer text-left" onClick={() => handleModalAction('honeymoon_fund')}>Honeymoon fund</button>
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.label}
+                    className="cursor-pointer text-left"
+                    onClick={() => handleModalAction(tab.label)}
+                  >
+                    <span>{formatTabName(tab.label as TabNames)}</span>
+                  </button>
+                ))}
               </div>
               <Dialog.Close className="absolute top-0 p-4 rounded-full mt-4 right-0 mr-4 border border-[#515152]">
                 <div className="w-6 h-6 relative text-[#515152] text-xl">
@@ -253,25 +250,34 @@ function handleIframeOnload() {
   );
 };
 
-const MemoizedIframe = memo(EmbeddedSpotifyPlaylist);
-
-const Wedding = () => {
+const BackgroundImages = () => {
   return (
     <>
       <Image
         quality={95}
         src={flowerTopLeft}
         alt="flower-top-left"
-        className="absolute left-0 top-0 -z-10 w-40 -ml-5 mt-20 hidden contrast-50 md:block md:w-[276px] md:contrast-100 md:m-[unset]"
+        className="absolute left-0 top-0 -z-10 w-40 -ml-5 mt-20 contrast-50 md:contrast-100 md:block md:w-[276px] blur-sm lg:blur-0 md:m-[unset]"
         priority
       />
       <Image
         quality={95}
         src={leavesBottomRight}
         alt="leaver-bottom-right"
-        className="absolute bottom-0 right-0 -mb-20 -z-10 contrast-50 w-40 md:w-[276px] md:contrast-100 md:m-[unset]"
+        className="absolute bottom-0 right-0 -mb-20 -z-10 contrast-50 md:contrast-100 w-40 md:block md:w-[276px] blur-sm lg:blur-0 md:m-[unset]"
         priority
       />
+    </>
+  );
+};
+
+const MemoizedIframe = memo(EmbeddedSpotifyPlaylist); // memoized to keep it being re-rendered when changing sections
+const MemoizedBackgroundImages = memo(BackgroundImages);
+
+const Wedding = () => {
+  return (
+    <>
+      <MemoizedBackgroundImages />
       <Page />
       <MemoizedIframe />
     </>

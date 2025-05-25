@@ -1,4 +1,4 @@
-import { GuestData } from "@/pages/jasonandjosan/[[section]]";
+import { GuestData } from "@/pages/jasonandjosan/[section]";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { ValidateRsvp } from "./ValidateRsvp";
 import { CompleteRsvp } from "./CompleteRsvp";

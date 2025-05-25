@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { WeddingThemeInputWithButton } from "./WeddingThemedInputWithButton";
-import { GuestData } from "@/pages/jasonandjosan/[[section]]";
+import { GuestData } from "@/pages/jasonandjosan/[section]";
 
 export const ValidateRsvp = ({
   isLoading,

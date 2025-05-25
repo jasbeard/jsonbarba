@@ -1,4 +1,4 @@
-import { GuestData } from "@/pages/jasonandjosan/[[section]]";
+import { GuestData } from "@/pages/jasonandjosan/[section]";
 import { WeddingThemeInputWithButton } from "./WeddingThemedInputWithButton";
 
 export const CompleteRsvp = ({ response }: { response: GuestData | null }) => {

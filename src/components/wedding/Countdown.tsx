@@ -1,5 +1,4 @@
 import { sans } from "@/font/fonts";
-import { useState } from "react";
 
 const CountdownItem = ({
   time,
@@ -48,7 +47,7 @@ export const CountdownTimer = () => {
 
   return (
     <div
-      className="flex w-80 h-16 bg-stone-200 rounded-xl"
+      className="flex shrink w-80 h-16 bg-stone-200 rounded-xl px-4"
       style={{ fontFamily: sans.style.fontFamily }}
     >
       <CountdownItem time={"Months"} value={months} />

@@ -31,7 +31,7 @@ export const WeddingThemeInputWithButton = ({
         </div>
       </div>
       <button
-        className="flex rounded-md font-medium py-1.5 px-4 bg-stone-300 items-center h-10"
+        className="flex rounded-md font-medium py-1.5 px-4 bg-stone-300 items-center h-10 border border-[#AC7914]"
         disabled={buttonLoading}
         onClick={buttonOnClick}>
           {buttonLoading && 

@@ -5,7 +5,7 @@ async function validateInvitation(req: NextApiRequest, res: NextApiResponse) {
   const { name } = req.query;
 
   const query = `SELECT * FROM wedding_guest WHERE name_tokens && $1::text[];`;
-  const { rows } = await db.query(query, [(name as string).split(' ')])
+  const { rows } = await db.query(query, [(name as string).toLocaleLowerCase().split(' ')])
 
   // note: make sure name_tokens in db are in lower case
 
@@ -27,7 +27,7 @@ async function validateInvitation(req: NextApiRequest, res: NextApiResponse) {
         guestName: name,
         isInvited: true,
         did_confirmed: false,
-        message: `Hi ${name}, Yep you're invited. Please complete your RSVP by sending in your email to receive updates.`
+        message: `Hi ${name}, Yep you're on the guest list. Please complete your RSVP by sending in your email to receive updates.`
       });
     }
   } else {
@@ -36,7 +36,7 @@ async function validateInvitation(req: NextApiRequest, res: NextApiResponse) {
       guestName: name,
       isInvited: false,
       did_confirmed: false,
-      message: `🫣 It appears that you were not on the list, If you think this is a mistake kindly contact the bride and groom at me@jsonbarba.com.`
+      message: `🫣 It appears that you were not on the guest list, If you think this is a mistake kindly contact the bride and groom at me@jsonbarba.com.`
     });
   }
 };

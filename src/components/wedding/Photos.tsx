@@ -12,16 +12,26 @@ const fetchImages = async () => {
   return response.json();
 };
 
+type PhotosData = {
+  id: number;
+  url: string;
+  sequence: number;
+}[];
+
 const PhotoContentList = React.lazy(() => 
-  fetchImages().then((data) => {
+  fetchImages().then((data: PhotosData) => {
+    const sortedResult = data.sort((a, b) => {
+      return a.sequence - b.sequence;
+    });
     /* Returning a component directly since React.lazy expects a module with a default export */
+    console.log(sortedResult)
     return {
       default: () => {
-    	  const listItems = data.map((url: string, index: number) => (
-          <div className="w-full md:w-[244.92px] h-[367.38px]" key={index}>
+    	  const listItems = sortedResult.map((item) => (
+          <div className="w-full md:w-[244.92px] h-[367.38px]" key={item.id}>
             <Image
-              src={url}
-              alt="34"
+              src={item.url}
+              alt={`${item.id}`}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               style={{
                 width: '100%',
@@ -31,7 +41,6 @@ const PhotoContentList = React.lazy(() =>
               width={1000}
               height={1000}
               className="border rounded-md shadow-lg"
-              key={index}
             /> 
           </div>
     	  ));
