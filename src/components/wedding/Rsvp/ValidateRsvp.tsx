@@ -15,11 +15,11 @@ export const ValidateRsvp = ({
   return (
     <div className="flex flex-col gap-4 py-6">
       <p className="font-medium">
-        Let&apos;s confirm — if your name appears on the guest list.
+        Let&apos;s confirm your name on the guest list.
       </p>
       <WeddingThemeInputWithButton
         inputName="name"
-        inputPlaceholder="Enter your full name"
+        inputPlaceholder="Enter your invitation name"
         buttonLoading={isLoading}
         buttonText="Validate your invitation"
         buttonLoadingText="Validating"
@@ -28,7 +28,7 @@ export const ValidateRsvp = ({
         buttonOnClick={async (e) => {
           e.preventDefault();
           const name = document.getElementById('name') as HTMLInputElement;
-          console.log(name.reportValidity());
+
           if (name.value && name.reportValidity()) {
             setValidateResponse(null);
             setLoading(true);
@@ -44,7 +44,7 @@ export const ValidateRsvp = ({
 
           
         }}
-        pattern="[a-zA-Z]+ [a-zA-Z]+$"
+        pattern="^[a-zA-Z]+( [a-zA-Z]+)+$"
         title="Please enter first name and last name"
       />
     </div> 

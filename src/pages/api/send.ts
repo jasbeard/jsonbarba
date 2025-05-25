@@ -36,7 +36,7 @@ async function send(req: NextApiRequest, res: NextApiResponse) {
 
     return res.status(200).json({
       emailSentData: data,
-      message: `Thanks for completing your RSVP, we have sent reminders to your email at ${email as string}`
+      message: `Thanks for completing your RSVP, we have sent reminders to your email at ${email as string} ❤️`
     });
   }
 

@@ -1,11 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { db } from "@vercel/postgres";
+import { sql } from "@vercel/postgres";
 
 async function validateInvitation(req: NextApiRequest, res: NextApiResponse) {
   const { name } = req.query;
-
-  const query = `SELECT * FROM wedding_guest WHERE name_tokens && $1::text[];`;
-  const { rows } = await db.query(query, [(name as string).toLocaleLowerCase().split(' ')])
+  const pname = (name as string).toLocaleLowerCase();
+  const { rows } = await sql`SELECT * FROM wedding_guest WHERE name=${pname};`
 
   // note: make sure name_tokens in db are in lower case
 
@@ -17,7 +16,7 @@ async function validateInvitation(req: NextApiRequest, res: NextApiResponse) {
         guestName: name,
         isInvited: true,
         did_confirmed: true,
-        message: `Hey ${name}, your invitation has been confirmed. We have reserved a seat for you. See you!`
+        message: `Hey ${name}, your invitation has been confirmed. We have reserved a seat for you. See you! 🥳`
       });
     }
 
@@ -28,7 +27,7 @@ async function validateInvitation(req: NextApiRequest, res: NextApiResponse) {
         isInvited: true,
         did_confirmed: false,
         guest_id: rows[0].id,
-        message: `Hi ${name}, Yep you're on the guest list. Please complete your RSVP by sending in your email to receive updates.`
+        message: `Hi ${name}, Yep you're on the guest list. Please complete your RSVP by sending in your email to receive updates. ❤️`
       });
     }
   } else {
