@@ -6,22 +6,22 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
   const { states:blur, handlers:toggle  } = useBlur();
   const { states:hover, handlers:onMouse } = useHover();
 
-  // TODO: improve blur sequence when it is clicked in between
+  // TODO: improve blur sequence when it is clicked in-between
 
   return (
     <section className="flex flex-col justify-center">
       <p className="text-dark dark:text-gray-200 text-lg !leading-8 md:text-3xl md:!leading-10 font-light tracking-[0.01em] w-full break-keep">
-        <span className="inline">
+        <span className={`inline ${hover.first && 'text-indigo-400'}`}>
           Hey! I&#39;m{' '}
-          <button
-            className="inline-flex rounded-xl bg-indigo-400 dark:text-dark"
-            onClick={toggle.firstBlur}
-            onMouseOver={() => onMouse.firstGroup({ event: 'over' })}
-            onMouseOut={() => onMouse.firstGroup({ event: 'out'})}
-          >
-            <span className="mr-2 ml-2.5 font-medium">JASON</span>
-          </button>{' '}
         </span>{' '}
+        <button
+          className="inline-flex rounded-xl bg-indigo-400 dark:text-dark"
+          onClick={toggle.firstBlur}
+          onMouseOver={() => onMouse.firstGroup({ event: 'over' })}
+          onMouseOut={() => onMouse.firstGroup({ event: 'out'})}
+        >
+          <span className="mr-2 ml-2.5 font-medium">JASON</span>
+        </button>{' '}
 
         <span className={`inline ${blur.first ? 'blur' : `blur-0 ${hover.first && 'text-indigo-400'}`}`}>
           Barba, building things has been a constant fascination for me.{' '}

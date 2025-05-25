@@ -1,5 +1,4 @@
 import { MainLayout } from '@/components/MainLayout';
-import { display } from '@/font/fonts';
 import { allWritings, Writing } from 'contentlayer/generated';
 import { compareDesc, format, parseISO } from 'date-fns';
 import Link from 'next/link';
@@ -13,10 +12,10 @@ function WritingPreview(post: Writing) {
             {post.title}
           </Link>
         </h3>
-        <span className="text-gray-400 text-sm md:text-base">{post.bodyPreview}</span>
+        <span className="text-gray-400 font-light text-sm md:text-base">{post.bodyPreview}</span>
       </div>
       <div className="mt-1">
-        <time dateTime={post.date} className="text-gray-400 text-sm md:text-base">
+        <time dateTime={post.date} className="text-gray-400 font-light text-sm md:text-base">
           {format(parseISO(post.date), 'LLL d, yyyy')}
         </time>
       </div>
@@ -30,7 +29,7 @@ const WritingPage = () => {
     <MainLayout>
       <div className="mt-8">
         <h1 className="font-semibold text-dark text-2xl sm:text-3xl dark:text-white">Writing</h1>
-        <p className="max-w-4xl text-dark dark:text-white mt-4 font-medium leading-8 tracking-[0.01em] text-base sm:text-lg">Life experiences, learnings, values, brain dumps. <br/>Pretty much anything I can think of, and something worthy to share.</p>
+        <p className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg">Life experiences, learnings, values, brain dumps. <br/>Pretty much anything I can think of, and something worthy to share.</p>
       </div>
       <div className="mt-12">
         {posts.map((post, idx) => (

@@ -6,7 +6,7 @@ import { display } from '@/font/fonts';
 export function Header() {
   const router = useRouter();
   return (
-    <header className="px-4 py-2 sticky top-0 z-10 backdrop-blur-[1px]">
+    <header className="px-4 py-2 sticky top-0 z-10 bg-dark md:bg-transparent backdrop-blur-[1px]">
       <nav>
         <div className="flex justify-between">
           <div className={`font-medium gap-2 -mt-2 pr-4 rounded-br bg-white dark:bg-dark ${display.className}`}>
@@ -38,11 +38,11 @@ export function Header() {
               </Link>
             </div>
           </div>
-          <div className="bg-white dark:bg-dark -mt-2 rounded-b ">
+          {/* <div className="bg-white dark:bg-dark -mt-2 rounded-b ">
             <div className="flex items-center justify-center mt-2">
               <ThemeSwitcher />
             </div>
-          </div>
+          </div> */}
         </div>
       </nav>
     </header>

@@ -8,6 +8,7 @@ import asurion from '/public/asurion.png';
 import { StaticImageData } from "next/image";
 import * as WorkCard from "./workcard/WorkCard";
 import { display } from "@/font/fonts";
+import { GithubSection } from "./GithubSection";
 
 export interface WorkListProps {
   imageSource?: StaticImageData;
