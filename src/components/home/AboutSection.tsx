@@ -8,7 +8,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
   const { states:hover, handlers:onMouse } = useHover();
 
   return (
-    <section className="flex flex-col justify-center">
+    <section className="flex flex-col justify-center mt-8 md:mt-0">
       <p className="text-dark dark:text-gray-200 text-lg !leading-8 md:text-3xl md:!leading-10 font-light tracking-[0.01em] w-full break-keep">
         <span className={`tracking-tight inline transition-all duration-500 ${hover.first && 'text-indigo-300'}`}>
           Hey! I&#39;m{' '}
