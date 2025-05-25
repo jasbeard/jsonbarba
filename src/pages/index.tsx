@@ -1,118 +1,146 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { WorkCard, WorkCardGeneral } from '@/components/WorkCard';
+import { HeaderAvatar } from '@/components/HeaderAvatar'; 
+import xsplit from '/public/xsplit.svg';
+import videocom from '/public/videocom.svg';
+import metrobank from '/public/metrobank.svg';
+import pangolin from '/public/pangolin.png';
+import { Fragment, useEffect, useState } from 'react';
+import { NextSeo } from 'next-seo';
+import GitHubCalendar from "react-github-calendar";
+import { useTheme } from 'next-themes';
 
 export default function Home() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
+  const workList = [
+    {
+      imageSource: videocom,
+      name: ['VideoCom', 'https://videocom.com'],
+      designation: 'Senior Software Engineer',
+      period: '2022 - present',
+      highlights: [
+        "One of the core team members that builds and maintains VideoCom Cloud",
+        "Working with engineering teams organization-wide to ensure implementation details are synched with web and apps",
+        "Aid requirements deliberation with project managers"
+      ],
+      technology: ["Nextjs", "TypeScript", "graphql", "REST", "tailwind", "MySQL", "Redis", "Docker", "Kubernetes", "Cloudflare", "Google Cloud", "Git"],
+    },
+    {
+      imageSource: xsplit,
+      name: ['SplitmediaLabs', 'https://xsplit.com'],
+      designation: 'Software Engineer',
+      period: '2021 - 2022',
+      highlights: [
+        "Filled development deficiencies of XSplit Cloud",
+        "Initiated and maintained several cloud features, mostly UIs and several API integrations",
+        "Worked with design teams for technical alignments",
+      ],
+      technology: ["Nextjs", "TypeScript", "graphql", "tailwind", "MySQL", "Redis", "Docker", "Kubernetes", "Cloudflare", "Google Cloud", "Git"],
+    },
+    {
+      imageSource: metrobank,
+      name: ['Metrobank', 'https://metrobank.com.ph'],
+      designation: 'Consultant',
+      period: '2020 - 2021',
+      highlights: [
+        "Helped to make their bond platform (wealth manager) to have more automated bond buying experience to advance further their digitalization efforts",
+        "Spearheaded new key features of bond buying",
+        "Refactored, updated legacy dependencies",
+      ],
+      technology: ['LoopBack 4', 'React', 'Material-UI', "SOAP", "REST", "Git"]
+    },
+    {
+      imageSource: pangolin,
+      name: ['TeamRed Security', 'https://pangolinsecured.com'],
+      designation: 'Software Developer',
+      period: '2019 - 2020',
+      highlights: [
+        "Worked with the founders on mobile designs and technical decisions",
+        "UI migrations from react-native to webview",
+        "Updated mobile codebase and its dependencies",
+      ],
+      technology: ['React Native', 'TypeScript', 'WebView', "Python", "REST", "Jenkins", "Kubernetes", "Git"]
+    },
+  ];
+
+  const legacyWork = {
+    name: ['Various tech companies & endeavours'],
+    designation: 'Developer',
+    period: '2017 - 2019',
+    highlights: [
+      'Created websites, landing pages and web scrapers',
+      'Worked with a financial startup',
+      'Worked for a tech agency',
+      'Worked at a bank (Unionbank of the Philippines)'
+    ],
+    technology: ['PHP', 'JavaScipt', 'TypeScript', 'React', 'Node', 'IBM API Connect', 'Firebase', "Git"]
+  }
+
+  const currentYear = new Date().getFullYear();
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <>
+      <NextSeo
+        title="Jason Barba"
+        description="Website of Jason Barba, here is where you can see details of his commercial experience as a web engineer/developer"
+      />
+      <HeaderAvatar />
+      <div className="md:px-80">
+        <section className="flex justify-center mt-4">
+          <p className="max-w-4xl text-xl text-[#2c3136] dark:text-white font-medium leading-8">
+            Hey 👋 my name is Jason Barba and I am a software engineer - I mainly focus on web frontend development for building software services on the internet. 
+            The technologies I am working with right now are Nextjs, TypeScript, tailwind, GraphQL, Git and Docker.
+          </p>
+        </section>
+        <section className="flex flex-col items-center justify-center mt-4">
+          <h2 className="font-medium text-[#2c3136] dark:text-white mb-4">This year&apos;s ({currentYear}) code contribution so far</h2>
+          <GitHubCalendar username="swoppy" colorScheme={theme === 'dark' ? 'dark' : 'light'} />
+        </section>
+        <section className="flex flex-col justify-center items-center mt-8">
+          <h2 className="font-medium text-[#2c3136] dark:text-white">Commercial Projects & Contracts</h2>
+          <div className="grid grid-cols-1 gap-y-4 mt-2">
+            {workList.map((item, index) => (
+              <Fragment key={index}>
+                <WorkCard
+                  imageSource={item.imageSource}
+                  name={item.name}
+                  designation={item.designation}
+                  period={item.period}
+                  highlights={
+                    item.highlights?.map((exp, i) => (
+                      <ul className="list-disc" key={`h-${i}`}>
+                        <li>{exp}</li>
+                      </ul>
+                    ))
+                  }
+                  technology={item.technology}
+                />
+              </Fragment>
+            ))}
+            <WorkCardGeneral 
+              name={legacyWork.name}
+              designation={legacyWork.designation}
+              period={legacyWork.period}
+              highlights={
+                legacyWork.highlights?.map((exp, index) => (
+                  <ul className="list-disc" key={index}>
+                    <li>{exp}</li>
+                  </ul>
+                ))
+              }
+              technology={legacyWork.technology}
             />
-          </a>
-        </div>
+          </div>
+        </section>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </>
+  );
 }
