@@ -24,7 +24,7 @@ export function HeaderAvatar() {
       label: `link to Jason's linkedin`,
     },
     {
-      href: 'https://twitter.com/heyswoppy',
+      href: 'https://twitter.com/jsonbarba',
       icon: <TwitterLogoIcon {...iconProps} />,
       label: `link to Jason's twitter`,
     },
