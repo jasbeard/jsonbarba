@@ -1,4 +1,4 @@
-import avatarPhoto from '/public/avatar.png';
+import avatarPhoto from '/public/seda-avatar.png';
 import * as Avatar from '@radix-ui/react-avatar';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -42,7 +42,7 @@ export function HeaderAvatar() {
           <Link href='/'>
             <Avatar.Root className="relative inline-flex items-center justify-center align-middle overflow-hidden select-none w-9 h-9 rounded-full">
               <Image
-                className="w-full h-full object-cover mt-1 select-none bg-gray-300"
+                className="w-full h-full object-cover select-none bg-gray-300"
                 quality={95}
                 fill
                 sizes="100vw"

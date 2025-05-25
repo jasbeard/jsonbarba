@@ -42,7 +42,6 @@ export const WorkCard = ({
           ) : (
             <>
               <span className="text-sm font-semibold mt-1">{name[0]}</span>
-              <OpenInNewWindowIcon className="inline ml-1" />
             </>
           )}
           <span className="text-xs dark:text-gray-300 ">{period}</span>
