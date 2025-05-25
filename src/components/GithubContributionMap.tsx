@@ -3,14 +3,27 @@ import * as Tooltip from '@radix-ui/react-tooltip';
 import { ThemeInput } from "react-activity-calendar";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import Colors from '@/components/colors.json';
 
 export function GithubContributionMap() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   const explicitTheme: ThemeInput = {
-    light: ['#f0f0f0', '#b5f0da', '#7ac7c4', '#f73859', '#384259'],
-    dark: ['#383838', '#554575', '#7DB9B6', '#F5E9CF', '#E96479'],
+    light: [
+      Colors.github.light["50"],
+      Colors.github.light["100"],
+      Colors.github.light["200"], 
+      Colors.github.light["300"],
+      Colors.github.light["400"]
+    ],
+    dark: [
+      Colors.github.dark["50"],
+      Colors.github.dark["100"],
+      Colors.github.dark["200"],
+      Colors.github.dark["300"],
+      Colors.github.dark["400"]
+    ],
   };
 
   useEffect(() => {
