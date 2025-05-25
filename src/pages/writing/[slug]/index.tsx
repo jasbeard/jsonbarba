@@ -20,9 +20,9 @@ const BlogSpecificImage = ({
   const router = useRouter();
   switch(router.query.slug) {
     case 'our-intimate-wedding':
-      return <Image  src={imageSrc} alt={imageAlt} className="rounded-xl shadow-lg" width={700} height={700} />;
+      return <Image  src={imageSrc} alt={imageAlt} className="rounded-xl shadow-lg cursor-help" title="Lola Cafe's glass house" width={800} height={700} />;
     case 'driving-school':
-      return <Image  src={imageSrc} alt={imageAlt} className="rounded-xl shadow-lg" width={456} height={456}/>
+      return <Image  src={imageSrc} alt={imageAlt} className="rounded-xl shadow-lg cursor-help" title="Chat with the driving school coordinator" width={456} height={456}/>
     default:
       return null;
   }
