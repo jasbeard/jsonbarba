@@ -63,7 +63,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           <button
             id="moreover"
             className={`
-              inline transition-all duration-500 px-2 w-[108px] md:w-[168px]
+              inline relative transition-all duration-500 px-2 w-[108px] md:w-[168px]
               ${serif.className} ${blur.RECENTLY ? 'blur select-none' :
               'blur-0 selec-auto cursor-pointer rounded-xl font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark'}
             `}
@@ -80,7 +80,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           my background is mostly around web app and UI development.{' '}<br/><br/>
           <button
             className={`
-              inline transition-all duration-500 px-2 w-[212px] md:w-[342px] ${serif.className} 
+              inline relative transition-all duration-500 px-2 w-[212px] md:w-[342px] ${serif.className} 
               ${blur.MOREOVER ? 'blur select-none cursor-text' :
               'blur-0 select-auto cursor-pointer font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark'}
             `}
