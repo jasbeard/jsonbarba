@@ -91,7 +91,7 @@ export function ContractSection() {
                 item.highlights?.map((exp, i) => (
                   <ul key={`h-${i}`}>
                     <li className="flex items-start">
-                      <div><ArrowRightIcon className="-ml-4 mt-[3px]"/></div>
+                      <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
                       <p className="ml-1 text-left">{exp}</p>
                     </li>
                   </ul>
@@ -109,7 +109,7 @@ export function ContractSection() {
             legacyWork.highlights?.map((exp, index) => (
               <ul key={index}>
                 <li className="flex items-start">
-                  <div><ArrowRightIcon className="-ml-4 mt-[3px]"/></div>
+                  <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
                   <p className="ml-1 text-left">{exp}</p>
                 </li>
               </ul>
@@ -152,7 +152,7 @@ export function ProjectSection() {
                 item.highlights?.map((exp, i) => (
                   <ul key={`h-${i}`}>
                     <li className="flex items-start">
-                      <div><ArrowRightIcon className="-ml-4 mt-[3px]"/></div>
+                      <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
                       <p className="ml-1 text-left">{exp}</p>
                     </li>
                   </ul>
