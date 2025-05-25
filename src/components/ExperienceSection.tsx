@@ -7,6 +7,7 @@ import bajetto from '/public/bajetto.svg';
 import asurion from '/public/asurion.png';
 import { StaticImageData } from "next/image";
 import * as WorkCard from "./workcard/WorkCard";
+import { display } from "@/font/fonts";
 
 export interface WorkListProps {
   imageSource?: StaticImageData;
@@ -98,7 +99,7 @@ export function ContractSection() {
 
   return (
     <section className="space-y-4 mt-8 mx-auto" aria-describedby="exp">
-      <h1 className="leading-[50px] font-semibold tracking-wider text-2xl sm:text-3xl">Contracts</h1>
+      <h1 className={` font-semibold text-2xl sm:text-3xl`}>Contracts</h1>
       <span className="text-xs sm:text-sm text-dark dark:text-white mb-4" id="exp">List of commercial experiences</span>
         <ul className="grid grid-cols-1 gap-y-4 mt-2">
         {workList.map((item, index) => (
@@ -144,7 +145,7 @@ export function ProjectSection() {
 
   return (
     <section className="space-y-4 mt-8 mx-auto">
-      <h1 className="text-2xl sm:text-3xl leading-[50px] font-semibold tracking-wider">Projects</h1>
+      <h1 className={`text-2xl sm:text-3xl font-semibold`}>Projects</h1>
       <span className="text-xs sm:text-sm text-dark dark:text-white mb-4">List of released and developing projects</span>
       <div className="grid grid-cols-1 gap-y-4 mt-2">
         {projectList.map((item, index) => (

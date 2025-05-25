@@ -6,6 +6,7 @@ import { TwitterLogoIcon, GitHubLogoIcon, LinkedInLogoIcon, EnvelopeClosedIcon, 
 import { ThemeSwitcher } from './ThemeSwitcher';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useRouter } from 'next/router';
+import { display } from '@/font/fonts';
 
 function HeaderSocials() {
   const iconProps  = {
@@ -117,13 +118,15 @@ export function Header() {
     <header className="px-4 py-2 sticky top-0 z-10 backdrop-blur-[1px]">
       <nav>
         <div className="flex justify-between">
-          <div className="flex items-center text-lg font-medium gap-2">
-            <Link href='/' aria-label="home link of the website" className={router.asPath === '/' ? "underline underline-offset-[3px] decoration-indigo-400" : ""}>
-              Home
-            </Link>
-            <Link href='/writing' aria-label="writing link of the website" className={router.asPath.split('/').includes('writing') ? "underline underline-offset-[3px] decoration-indigo-400" : ""}>
-              Writing
-            </Link>
+          <div className={`font-medium gap-2 -mt-2 pr-4 rounded-br bg-white dark:bg-dark ${display.className}`}>
+            <div className="flex justify-between items-center gap-2 mt-4 font-light">
+              <Link href='/' aria-label="home link of the website" className={router.asPath === '/' ? "underline underline-offset-[3px] decoration-indigo-400" : ""}>
+                Home
+              </Link>
+              <Link href='/writing' aria-label="writing link of the website" className={router.asPath.split('/').includes('writing') ? "underline underline-offset-[3px] decoration-indigo-400" : ""}>
+                Writing
+              </Link>
+            </div>
             {/* <span className="w-0.5 h-10 border-l border-gray-300 inline mx-4"/> */}
             {/* <div className="hidden sm:flex sm:gap-4">
               <ul className="sm:flex sm:gap-4">
@@ -140,8 +143,10 @@ export function Header() {
               <HeaderSocials />
             </div> */}
           </div>
-          <div>
-          <ThemeSwitcher />
+          <div className="bg-white dark:bg-dark -mt-2 rounded-b ">
+            <div className="flex items-center justify-center mt-2">
+              <ThemeSwitcher />
+            </div>
           </div>
         </div>
       </nav>

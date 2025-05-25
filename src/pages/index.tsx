@@ -15,9 +15,9 @@ export default function Home() {
       />
       <MainLayout>
         <AboutSection currentYear={currentYear}/>
-        <GithubSection />
-        <ContractSection />
-        <ProjectSection />
+        {/* <GithubSection /> */}
+        {/* <ContractSection /> */}
+        {/* <ProjectSection /> */}
       </MainLayout>
     </>
   );

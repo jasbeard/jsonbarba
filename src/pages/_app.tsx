@@ -1,18 +1,11 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Noto_Sans } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
 import { Header } from '@/components/Header';
-
-const inter = Noto_Sans({
-  fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
-  weight: "400",
-  subsets: ["latin"]
-})
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -29,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="google-site-verification" content="eWe6gVI-N_FNp6_N2Kgegk3bWx-jkoKv028MeG1fEK4" />
       </Head>
       <ThemeProvider attribute="class">
-        <main className={inter.className}>
+        <main>
           <Header />
           <Component {...pageProps} />
         </main>
