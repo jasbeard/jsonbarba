@@ -27,7 +27,7 @@ export interface CompletionData {
   message: string;
 }
 
-export type TabNames = "our_story" | "photos" | "rsvp" | "faq" | "gifts";
+export type TabNames = "our_story" | "photos" | "rsvp" | "faq" | "gifts" | "event_flow";
 
 const Rsvp = dynamic(() => import('@/components/wedding/Rsvp/RsvpContent'), {
   ssr: false,
@@ -45,6 +45,10 @@ const Faq = dynamic(() => import('@/components/wedding/Faq'), {
   ssr: false,
 });
 
+const Event = dynamic(() => import('@/components/wedding/Event'), {
+  ssr: false,
+})
+
 export function formatTabName(name: TabNames) {
   switch(name){
     case 'our_story':
@@ -57,6 +61,8 @@ export function formatTabName(name: TabNames) {
       return 'RSVP';
     case 'gifts':
       return 'Gifts';
+    case 'event_flow':
+      return 'Event Flow';
     default: '';
   };
 };
@@ -133,6 +139,10 @@ const Page = () => {
       label: 'gifts',
       content: <Gifts />,
     },
+    {
+      label: 'event_flow',
+      content: <Event />
+    },
   ];
 
   return (
@@ -144,7 +154,6 @@ const Page = () => {
             defaultValue="our_story"
             value={router.query.section as string}
             onValueChange={(route) => {
-              console.log('onValueChange: ', route === 'photos')
               startTransition(() => {
                 router.push(
                   {

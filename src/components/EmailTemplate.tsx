@@ -42,7 +42,7 @@ export const CompletedRsvpNotification = ({
   
             <Text style={text}>
               Some reminders for the event. <br />
-              <strong>When:</strong> October 13, 2024<br />
+              <strong>When:</strong> October 13, 2024 <Link style={link} href="https://www.jsonbarba.com/jasonandjosan/event_flow" target="_blank">{`(event flow)`}</Link><br />
               <strong>Where:</strong> Lola Cafe - Tomas Morato QC <Link style={link} href={direction} target="_blank">{`(get directions)`}</Link><br />
               <strong>What:</strong> Jason & Josan Wedding day
             </Text>
@@ -53,8 +53,8 @@ export const CompletedRsvpNotification = ({
             </Text>
   
             <Text style={links}>
-              <Link style={link} href="/jasonandjosan/faq" target="_blank">FAQ</Link> ・{" "}
-              <Link style={link} href="/jasonandjosan/gifts">Gifts</Link>
+              <Link style={link} href="https://www.jsonbarba.com/jasonandjosan/faq" target="_blank">FAQ</Link> ・{" "}
+              <Link style={link} href="https://www.jsonbarba.com/jasonandjosan/gifts">Gifts</Link>
             </Text>
           </Section>
       
