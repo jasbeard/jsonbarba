@@ -16,7 +16,7 @@ export function ContractSection() {
       designation: 'Software Engineer 3',
       highlights: [
         "Maintain, update and support public facing websites of Asurion domain",
-        "Collaborate on Proof-of-concept efforts for overall operational efficiencies",
+        "Collaborate on Proof-of-concept efforts with different teams for overall operational efficiencies",
       ],
       period: '2023 - present',
       technology: ["Gatsbyjs", "GraphQL", "Contentful", "Tailwind CSS", "NGINX", "Docker", "AWS", "Git", "Github Actions"]
