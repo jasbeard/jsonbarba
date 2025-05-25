@@ -4,6 +4,8 @@ import { Noto_Sans } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Noto_Sans({
   fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
@@ -30,6 +32,8 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </main>
       </ThemeProvider>
+      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
