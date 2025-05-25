@@ -15,7 +15,7 @@ export function ContractSection() {
       name: ['Asurion', 'https://asurion.com'],
       designation: 'Software Engineer 3',
       highlights: [
-        "Maintain, update and support public facing websites of Asurion domain",
+        "Maintain and update public facing websites of Asurion domain",
         "Collaborate on Proof-of-concept efforts with different teams for overall operational efficiencies",
         "On call support on incidents covering public websites and its services",
       ],
