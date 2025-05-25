@@ -89,11 +89,11 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
         </button>{' '}
         <span>
           <a
-            href="https://asurion.com"
+            {...(!blur.fifth && { href: "https://asurion.com" })}
             rel="noopener noreferrer"
             target="_blank"
             className={`
-              inline underline decoration-dotted underline-offset-4 decoration-1 hover:decoration-indigo-400 
+              inline underline decoration-dotted underline-offset-4 decoration-1 ${!blur.fifth && 'hover:decoration-indigo-400'}
               ${blur.fifth ? 'blur' : `blur-0 ${(!blur.fifth && hover.fifth) && 'text-indigo-400'}`}
             `}
           >
