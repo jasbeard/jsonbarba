@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 export default function Document() {
   return (
@@ -11,6 +12,10 @@ export default function Document() {
       <body className="dark:bg-dark">
         <Main />
         <NextScript />
+        {/* haki */}
+        <Script id='override-theme' strategy="beforeInteractive">
+          {`localStorage.setItem('theme', 'dark')`}
+        </Script>
       </body>
     </Html>
   )

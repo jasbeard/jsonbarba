@@ -1,6 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { AboutSection, GithubSection } from '@/components';
-import { ContractSection, ProjectSection } from '@/components/ExperienceSection';
+import { AboutSection } from '@/components';
 import { MainLayout } from '@/components/MainLayout';
 
 export default function Home() {
