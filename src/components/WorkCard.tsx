@@ -35,7 +35,7 @@ export const WorkCard = ({
         </div>
         <div className="flex flex-col ml-2 text-xs sm:text-sm">
           {name[1] ? (
-            <a href={name[1]} target="_blank" rel="noopener noreferrer" className="w-fit">
+            <a href={name[1]} target="_blank" rel="noopener noreferrer" className="w-fit hover:underline hover:underline-offset-4">
               <span className="font-semibold mt-1">{name[0]}</span>
               <OpenInNewWindowIcon className="inline ml-1" />
             </a>
