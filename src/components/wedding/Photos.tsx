@@ -32,7 +32,7 @@ const PhotoContentList = React.lazy(() =>
     return {
       default: () => {
     	  const listItems = sortedResult.map((item) => (
-          <div className="w-full md:w-[244.92px] h-[367.38px]" key={item.id}>
+          <div className="w-full h-[480px] md:w-[244.92px] md:h-[367.38px]" key={item.id}>
             <Image
               src={item.url}
               alt={`${item.sequence}`}
@@ -43,7 +43,7 @@ const PhotoContentList = React.lazy(() =>
               }}
               width={1000}
               height={1000}
-              className="border rounded-md shadow-lg object-contain md:object-cover"
+              className="border rounded-md shadow-lg object-cover"
             /> 
           </div>
     	  ));
