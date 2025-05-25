@@ -39,12 +39,19 @@ export const CompletedRsvpNotification = ({
             <Text style={text}>
               Thanks for confirming your invitation.
             </Text>
+            <Text style={text}>
+              Kindly note: Due to limited seating, we are only able to accommodate the guests named on the invitation. We deeply appreciate your support and understanding as we celebrate our union with those closest to us. Thank you for sharing in our special day!
+            </Text>
   
             <Text style={text}>
               Some reminders for the event. <br />
               <strong>When:</strong> October 13, 2024 <Link style={link} href="https://www.jsonbarba.com/jasonandjosan/event_flow" target="_blank">{`(event flow)`}</Link><br />
               <strong>Where:</strong> Lola Cafe - Tomas Morato QC <Link style={link} href={direction} target="_blank">{`(get directions)`}</Link><br />
               <strong>What:</strong> Jason & Josan Wedding day
+            </Text>
+
+            <Text style={text}>
+              {`Feel free to visit our wedding webiste at https://www.jsonbarba.com/jasonandjosan any time to find all the details about our big day!`}
             </Text>
   
             <Text style={text}>
