@@ -1,8 +1,7 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Noto_Sans } from 'next/font/google';
-import { ThemeProvider } from 'next-themes'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 
@@ -31,7 +30,6 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </ThemeProvider>
       </main>
-      <SpeedInsights />
     </>
   );
 }
