@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { TwitterLogoIcon, GitHubLogoIcon, LinkedInLogoIcon, EnvelopeClosedIcon, Cross1Icon } from '@radix-ui/react-icons';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import * as Dialog from '@radix-ui/react-dialog';
+import { useRouter } from 'next/router';
 
 function HeaderSocials() {
   const iconProps  = {
@@ -110,35 +111,21 @@ export function Header() {
     },
   ];
 
+  const router = useRouter();
+
   return (
-    <header>
+    <header className="px-4 py-2">
       <nav>
         <div className="flex justify-between">
-          <div className="flex items-center">
-            <Link href='/' aria-label='home link of the website'>
-              <Avatar.Root className="relative inline-flex items-center justify-center align-middle overflow-hidden select-none w-9 h-9 rounded-full">
-                <Image
-                  className="w-full h-full object-cover select-none bg-gray-300"
-                  quality={95}
-                  fill
-                  sizes="100vw"
-                  src={avatarPhoto}
-                  alt="Jason Barba"
-                />
-                <Avatar.Fallback
-                  className="w-full h-full flex items-center justify-center bg-gray-300 text-purple-500 text-sm leading-none font-medium"
-                >
-                  JB
-                </Avatar.Fallback>
-              </Avatar.Root>
+          <div className="flex items-center text-lg font-medium tracking-[0.02em] gap-2">
+            <Link href='/' aria-label='home link of the website' className={router.asPath === '/' ? "underline underline-offset-[3px] decoration-indigo-500" : ""}>
+              Home
             </Link>
-            <div>
-              <Link href='/writing'>
-                Writing
-              </Link>
-            </div>
-            <span className="w-0.5 h-10 border-l border-gray-300 inline mx-4"/>
-            <div className="hidden sm:flex sm:gap-4">
+            <Link href='/writing' className={router.asPath.split('/').includes('writing') ? "underline underline-offset-[3px] decoration-indigo-500" : ""}>
+              Writing
+            </Link>
+            {/* <span className="w-0.5 h-10 border-l border-gray-300 inline mx-4"/> */}
+            {/* <div className="hidden sm:flex sm:gap-4">
               <ul className="sm:flex sm:gap-4">
               {links.map((item, i) => (
                 <li key={i}>
@@ -151,7 +138,7 @@ export function Header() {
             </div>
             <div className="sm:hidden">
               <HeaderSocials />
-            </div>
+            </div> */}
           </div>
           <div>
           <ThemeSwitcher />

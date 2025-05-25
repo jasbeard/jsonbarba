@@ -6,6 +6,7 @@ import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
+import { Header } from '@/components/Header';
 
 const inter = Noto_Sans({
   fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
@@ -29,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider attribute="class">
         <main className={inter.className}>
+          <Header />
           <Component {...pageProps} />
         </main>
       </ThemeProvider>
