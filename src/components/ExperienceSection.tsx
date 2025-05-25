@@ -7,9 +7,19 @@ import metrobank from '/public/metrobank.svg';
 import pangolin from '/public/pangolin.png';
 import bajetto from '/public/bajetto.svg';
 import asurion from '/public/asurion.png';
+import { StaticImageData } from "next/image";
+
+interface WorkListProps {
+  imageSource: StaticImageData;
+  name: string[];
+  designation: string;
+  highlights: string[];
+  period: string;
+  technology: string[];
+}
 
 export function ContractSection() {
-  const workList = [
+  const workList: WorkListProps[] = [
     {
       imageSource: asurion,
       name: ['Asurion', 'https://asurion.com'],
@@ -20,7 +30,7 @@ export function ContractSection() {
         "On call support on incidents covering public websites and its services",
       ],
       period: '2023 - present',
-      technology: ["Gatsbyjs", "GraphQL", "Contentful", "Tailwind CSS", "NGINX", "Docker", "AWS", "Git", "Github Actions"]
+      technology: ["Gatsbyjs", "GraphQL", "Contentful", "Tailwind CSS", "NGINX", "Docker", "AWS", "Git", "Github Actions"],
     },
     {
       imageSource: videocom,

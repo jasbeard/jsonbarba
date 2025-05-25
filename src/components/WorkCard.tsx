@@ -1,8 +1,8 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { BackpackIcon, OpenInNewWindowIcon } from '@radix-ui/react-icons'
 
-type WorkCardProps = {
-  imageSource: string;
+interface WorkCardProps {
+  imageSource: StaticImageData;
   name: string[]; 
   designation: string;
   period: string
