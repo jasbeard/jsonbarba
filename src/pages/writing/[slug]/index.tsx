@@ -11,7 +11,8 @@ import { calculateReadingTime } from '@/utils/lib';
 type ImageProps = NextImageProps & { title: string };
 
 const CustomMdxComponents: MDXComponents = {
-  img: (props) =>  <Image {...(props as ImageProps)} alt={props.alt} className="rounded-xl shadow-lg cursor-help"  width={800} height={700}/>
+  img: (props) =>  <Image {...(props as ImageProps)} alt={props.alt} className="rounded-xl shadow-lg cursor-help"  width={800} height={700}/>,
+  a: (props) => <a {...props} className="transition-all duration-500 hover:text-indigo-300"/>
 }
 
 export async function getStaticPaths() {
