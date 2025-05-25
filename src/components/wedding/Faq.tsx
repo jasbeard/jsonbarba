@@ -58,7 +58,7 @@ const Faq = () => {
           isAnswerHref={item.isAnswerHref}
         />
       ))}
-      <div className="ml-2 mt-4 font-medium">If you have other questions kindly contact the bride and groom.</div>
+      <div className="mt-4 font-medium">If you have other questions kindly contact the bride and groom.</div>
     </div>
   );
 }
