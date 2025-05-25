@@ -22,24 +22,20 @@ If so, It's surprising that such a limitation could occur, especially considerin
 
 Was it the cashier's mistake, an opportunity for QRph to improve, or both?
 
-<br>
-
-Mitigation
----------------
+### Mitigation
 
 Few strategies came into mind:
 
-- **Clear Transaction Timings:** Implement a system where the payment confirmation from the customer's end synchronizes more closely with the cashier's terminal to avoid premature confirmations.
+- *Enhance Transaction Synchronization —* implement a system where the confirmation process aligns more precisely between the customer's action and the cashier's terminal, preventing premature confirmations.
 
+- *Robust Error Management —* error handling mechanisms that prompt for reconfirmation or alert both parties in case of any discrepancy or premature confirmation.
 
-- **Enhanced Error Handling:** Develop robust error handling mechanisms that prompt for reconfirmation or alert both parties in case of any discrepancy or premature confirmation.
+- *Educational Initiatives —* educate cashiers and users about the potential for timing issues and provide guidance on how to prevent premature confirmations.
 
-- **Improved Communication:** Educate cashiers and users about the potential for timing issues and provide guidance on how to prevent premature confirmations.
+### Awareness
 
-**Awareness**
+In the meantime when using QRph, ensure that your cashier refrains from prematurely hitting the `Confirm Payment` button before you complete the transaction on your end.
 
-For the meantime, when using QRph, make sure your cashier does not "Confirm payment" prematurely before you finalize the payment.
+### Conclusion
 
-**Conclusion**
-
-The amount I paid was credited back into my account after 3 weeks.
+The amount I paid was credited back to my account after 3 weeks.

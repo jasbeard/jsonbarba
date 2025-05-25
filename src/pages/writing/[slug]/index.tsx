@@ -22,11 +22,11 @@ const Content = () => {
       <article className="py-8">
         <div className="mb-10">
           <h1 className="text-3xl font-bold">{post.title}</h1>
-          <time dateTime={post.date} className="mb-1 text-xs text-gray-400">
-            {format(parseISO(post.date), 'LLLL d, yyyy')}
+          <time dateTime={post.date} className="mb-1 text-base text-gray-400">
+            {format(parseISO(post.date), 'LLL d, yyyy')}
           </time>
         </div>
-        <div className="[&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.html }} />
+        <div className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose md:prose-lg dark:prose-invert" dangerouslySetInnerHTML={{ __html: post.body.html }} />
       </article>
     </MainLayout>
   );

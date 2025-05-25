@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import {
-  ArrowRightIcon,
   BackpackIcon,
   OpenInNewWindowIcon
 } from '@radix-ui/react-icons'
@@ -42,6 +41,7 @@ React.HTMLAttributes<HTMLDivElement>
             sizes="100vw"
             className="object-cover object-left rounded" 
             alt="work_image"
+            style={{ filter: "grayscale(90%)" }}
           />
         ) : (
           <BackpackIcon className="w-12 h-12 text-gray-600 dark:text-gray-300"/>
@@ -80,13 +80,10 @@ const Responsibilities = forwardRef<
   const workListContext = useWorkList();
   return (
     <div ref={ref} {...props}>
-      <span className="-ml-4 font-semibold mb-2">{workListContext?.designation}</span>
+      <span className="font-semibold mb-2">{workListContext?.designation}</span>
       {workListContext?.highlights && workListContext?.highlights.map((exp, index) => (
-        <ul key={index}>
-          <li className="flex items-start">
-            <div><ArrowRightIcon className="-ml-4 mt-[3px] w-3 h-3 sm:w-[15px] sm:h-[15px]"/></div>
-            <p className="ml-1 text-left">{exp}</p>
-          </li>
+        <ul key={index} className="list-disc list-inside marker:text-[#d1d5db] dark:marker:text-[#4b5563]">
+          <li>{exp}</li>
         </ul>
       ))}
     </div>

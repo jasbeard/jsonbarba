@@ -38,16 +38,16 @@ export function ThemeSwitcher() {
         >
           <Select.ScrollUpButton />
           <Select.Viewport className='p-1'>
-            <Select.Item value='light' className='flex items-center text-sm leading-none select-none px-4 py-3 data-[state=checked]:text-accent cursor-pointer'>
+            <Select.Item value='light' className='flex items-center text-sm leading-none select-none px-4 py-3 data-[state=checked]:text-indigo-400 cursor-pointer'>
               <SunIcon strokeWidth={6} width={20} height={20} className='mr-2'/>
               <Select.ItemText>Light</Select.ItemText>
             </Select.Item>
-            <Select.Item value='dark' className='flex items-center text-sm leading-none select-none px-4 py-3 data-[state=checked]:text-accent cursor-pointer'>
+            <Select.Item value='dark' className='flex items-center text-sm leading-none select-none px-4 py-3 data-[state=checked]:text-indigo-400 cursor-pointer'>
               <MoonIcon strokeWidth={6} width={20} height={20} className='mr-2' />
               <Select.ItemText>Dark</Select.ItemText>
               <Select.ItemIndicator className='bg-blue'/>
             </Select.Item>
-            <Select.Item value='system' className='flex items-center text-sm leading-none select-none px-4 py-3 data-[state=checked]:text-accent cursor-pointer'>
+            <Select.Item value='system' className='flex items-center text-sm leading-none select-none px-4 py-3 data-[state=checked]:text-indigo-400 cursor-pointer'>
               <GearIcon strokeWidth={6} width={20} height={20} className='mr-2' />
               <Select.ItemText>System</Select.ItemText>
               <Select.ItemIndicator className='bg-blue'/>

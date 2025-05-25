@@ -25,7 +25,7 @@ export function ContractSection() {
       designation: 'Software Engineer 3',
       highlights: [
         "Maintain and update public facing websites of Asurion domain",
-        "Collaborate on devops Proof-of-concept efforts with different teams for overall operational efficiencies",
+        "Join cross-team DevOps POC initiatives to boost operational efficiency.",
         "Support on incidents covering public facing websites breakages",
       ],
       period: '2023 - present',
@@ -38,7 +38,7 @@ export function ContractSection() {
       period: '2022 - 2023',
       highlights: [
         "Frontend core team that builds and maintains VideoCom Cloud",
-        "Worked with engineering teams organization-wide to ensure implementation details are synched with web and apps",
+        "Collaborated across departments to align implementation details for web and app teams.",
         "Worked on requirements deliberation with project managers and designers",
         "Created and maintained several features",
         "Code reviews"
@@ -52,7 +52,7 @@ export function ContractSection() {
       period: '2021 - 2022',
       highlights: [
         "Filled development deficiencies of XSplit Cloud",
-        "Initiated and maintained several cloud features - mostly UIs and several API integrations",
+        "Launched and managed various cloud features, focusing on UIs and API integrations.",
         "Worked with design teams for technical alignments",
       ],
       technology: ["Nextjs", "TypeScript", "GraphQL", "Tailwind CSS", "MySQL", "Redis", "Docker", "Kubernetes", "Cloudflare", "Google Cloud", "Git"],
@@ -63,7 +63,6 @@ export function ContractSection() {
       designation: 'Programmer Analyst',
       period: '2020 - 2021',
       highlights: [
-        "Implemented automated bond buying and selling experience to advance further their digitalization efforts",
         "Spearheaded frontend developement for buying and selling bonds",
         "Refactored, updated legacy dependencies",
         "Helped peers to minimize their development deficiencies",
@@ -109,7 +108,7 @@ export function ContractSection() {
               work={item}
             >
               <WorkCard.Company className="flex"/>
-              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2 px-4"/>
+              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2"/>
               <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
             </WorkCard.Root>
           </li>
@@ -120,7 +119,7 @@ export function ContractSection() {
               work={legacyWork}
             >
               <WorkCard.Company className="flex"/>
-              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2 px-4" />
+              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2" />
               <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
             </WorkCard.Root>
           </li>
@@ -155,7 +154,7 @@ export function ProjectSection() {
               work={item}
             >
               <WorkCard.Company className="flex"/>
-              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2 px-4"/>
+              <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2"/>
               <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
             </WorkCard.Root>
           </Fragment>
