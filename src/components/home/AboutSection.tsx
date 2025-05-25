@@ -24,13 +24,13 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           <span className="mr-2 ml-2.5 font-medium">JASON</span>
         </button>{' '}
 
-        <span className={`inline ${blur.first ? 'blur' : `blur-0 ${hover.first && 'text-indigo-400'}`}`}>
+        <span className={`inline ${blur.JASON ? 'blur' : `blur-0 ${hover.first && 'text-indigo-400'}`}`}>
           Barba, building things has been a constant fascination for me.{' '}
         </span>
-        &nbsp;&nbsp;<span className={`inline ${(hover.first && !blur.first) && 'text-indigo-400'}`}>
+        <span className={`inline ${(hover.first && !blur.JASON) && 'text-indigo-400'}`}>
           I&#39;m based in Metro Manila Philippines.{' '}
           <button
-            className={`inline px-2 w-[98px] md:w-[155px] ${serif.className} ${blur.first ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
+            className={`inline px-2 w-[98px] md:w-[155px] ${serif.className} ${blur.JASON ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
             onClick={toggle.secondBlur}
             onMouseOver={() => onMouse.secondGroup({ event: 'over' })}
             onMouseOut={() => onMouse.secondGroup({ event: 'out' })}
@@ -39,10 +39,10 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           </button>
         </span>{' '}
 
-        <span className={`inline ${blur.second ? 'blur ' : `blur-0 ${hover.second && 'text-indigo-400'}`}`}>
+        <span className={`inline ${blur.RECENTLY ? 'blur ' : `blur-0 ${hover.second && 'text-indigo-400'}`}`}>
           I&#39;ve been dabbling in writing — just checking it out and seeing where it takes me.{' '}
           <button
-            className={`inline px-2 w-[108px] md:w-[168px] ${serif.className} ${blur.second ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
+            className={`inline px-2 w-[108px] md:w-[168px] ${serif.className} ${blur.RECENTLY ? 'blur cursor-text' : 'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 dark:text-dark'}`}
             onClick={toggle.thirdBlur}
             onMouseOver={() => onMouse.thirdGroup({ event: 'over' })}
             onMouseOut={() => onMouse.thirdGroup({ event: 'out' })}
@@ -51,12 +51,12 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           </button>
         </span>{' '}
 
-        <span className={`inline ${blur.third ? 'blur' : `blur-0 ${hover.third && 'text-indigo-400'}`}`}>
+        <span className={`inline ${blur.MOREOVER ? 'blur' : `blur-0 ${hover.third && 'text-indigo-400'}`}`}>
           my background is mostly around web app and UI development.{' '}<br/><br/>
           <button
             className={`
               inline px-2 w-[212px] md:w-[342px] ${serif.className} 
-              ${blur.third ? 'blur cursor-text' : 'blur-0 cursor-pointer font-medium bg-slate-400 dark:text-dark'}
+              ${blur.MOREOVER ? 'blur cursor-text' : 'blur-0 cursor-pointer font-medium bg-slate-400 dark:text-dark'}
             `}
             onClick={toggle.fourthBlur}
             onMouseOver={() => onMouse.fourthGroup({ event: 'over' })}
@@ -66,7 +66,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           </button>{' '}
         </span>
 
-        <span className={`inline ${blur.fourth ? 'blur' : `blur-0 ${hover.fourth && 'text-indigo-400'}`}`}>
+        <span className={`inline ${blur.OVER_THE_LAST ? 'blur' : `blur-0 ${hover.fourth && 'text-indigo-400'}`}`}>
           I&#39;ve navigated various professional landscapes, from startups to midsize and large organizations, with different capacities, gathering insights and expertise along the way.{' '}
         </span><br/><br/>
 
@@ -89,21 +89,21 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
         </button>{' '}
         <span>
           <a
-            {...(!blur.fifth && { href: "https://asurion.com" })}
+            {...(!blur.ASURION && { href: "https://asurion.com" })}
             rel="noopener noreferrer"
             target="_blank"
             className={`
-              inline underline decoration-dotted underline-offset-4 decoration-1 ${!blur.fifth && 'hover:decoration-indigo-400'}
-              ${blur.fifth ? 'blur' : `blur-0 ${(!blur.fifth && hover.fifth) && 'text-indigo-400'}`}
+              inline underline decoration-dotted underline-offset-4 decoration-1 ${!blur.ASURION && 'hover:decoration-indigo-400'}
+              ${blur.ASURION ? 'blur' : `blur-0 ${(!blur.ASURION && hover.fifth) && 'text-indigo-400'}`}
             `}
           >
             &#40;a tech insurance company based in Nashville&#41;
           </a>{' '}
-          <span className={`${blur.fifth ? 'blur' : `blur-0 ${hover.fifth && 'text-indigo-400'}`}`}>as a software engineer.</span>
+          <span className={`${blur.ASURION ? 'blur' : `blur-0 ${hover.fifth && 'text-indigo-400'}`}`}>as a software engineer.</span>
         </span>
         <br/><br/>
 
-        <span>
+        <span className="">
           You can reach me at{' '}
           <a
             href="mailto:me@jsonbarba.com"
@@ -122,7 +122,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             Also,
           </button>{' '}
           <span
-            className={`inline ${blur.sixth ? 'blur' : `blur-0 ${hover.sixth && 'text-indigo-400'}`}`}
+            className={`inline ${blur.ALSO ? 'blur' : `blur-0 ${hover.sixth && 'text-indigo-400'}`}`}
           >
             I&#39;m on{' '}
             <a

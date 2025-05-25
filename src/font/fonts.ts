@@ -1,8 +1,8 @@
-import { Noto_Sans, Roboto_Serif } from "next/font/google";
+import { Roboto_Serif, Montserrat } from "next/font/google";
 
-export const sans = Noto_Sans({
+export const sans = Montserrat({
   fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
-  weight: ["100" , "200" , "300" , "400" , "500" , "600" , "700" , "800" , "900"],
+  weight: ["400" , "500" , "600" , "700" , "800" , "900"],
   subsets: ["latin"],
   variable: "--font-sans"
 })
