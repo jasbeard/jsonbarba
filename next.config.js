@@ -11,8 +11,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['media.giphy.com'],
+    domains: ['media.giphy.com', 'yzft9j8wzzlydetx.public.blob.vercel-storage.com'],
   },
+  transpilePackages: ["@radix-ui/react-moving-focus"],
 }
 
 module.exports = withBundleAnalyzer(withContentlayer(nextConfig));

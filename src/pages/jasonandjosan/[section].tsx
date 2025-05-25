@@ -1,0 +1,281 @@
+import hamburgerMenu from '/public/hamburger-menu.svg';
+import flowerTopLeft from '/public/flower-top-left.png';
+import leavesBottomRight from '/public/leaves-bottom-right.png';
+import Image from 'next/image';
+import { wedCursive, wedSerif, sans } from '@/font/fonts';
+import { memo, startTransition, useEffect, useRef, useState } from 'react';
+import * as Tabs from '@radix-ui/react-tabs';
+import * as Dialog from '@radix-ui/react-dialog';
+import { CountdownTimer } from '@/components/wedding/Countdown';
+import { useRouter } from 'next/router';
+import { noNil } from '@/utils/lib';
+import dynamic from 'next/dynamic';
+
+export interface GuestData {
+  guestName: string;
+  isInvited: boolean;
+  did_confirmed: boolean,
+  message: string;
+}
+
+type TabNames = "our_story" | "photos" | "rsvp" | "qa" | "honeymoon_fund";
+
+const Rsvp = dynamic(() => import('@/components/wedding/Rsvp/RsvpContent'), {
+  ssr: false,
+});
+
+const OurStory = dynamic(() => import('@/components/wedding/OurStory'), {
+  ssr: false,
+});
+
+const PhotoListWithSuspense = dynamic(() => import('@/components/wedding/Photos'), {
+  ssr: false,
+});
+
+const QandaContent = dynamic(() => import('@/components/wedding/Qanda'), {
+  ssr: false,
+});
+
+const Page = () => {
+  const router = useRouter();
+  const [isLoading, setLoading] = useState(false);
+  const [response, setResponse] = useState<GuestData | null>(null);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const tabsTrigger = `p-2 rounded-md hover:outline-[#515152]hover:outline-none
+    data-[state='active']:outline-none data-[state='active']:text-white data-[state='active']:bg-[#515152]
+  `;
+
+  // page theme
+  useEffect(() => {
+    const body = document.getElementsByTagName('body')[0];
+    function updateBodyStyle() {
+      body.style.backgroundColor = '#FFFAF2';
+    }
+
+    updateBodyStyle();
+
+    return () => {
+      body.style.backgroundColor = "rgb(44 49 54 / var(--tw-bg-opacity))";
+    }
+    
+  },[]);
+
+  function handleModalAction(value: string) {
+    startTransition(() => {
+      router.push(
+        {
+          pathname: router.pathname,
+          query: noNil({
+            section: value,
+          }),
+        },
+        undefined,
+        { shallow: true }
+      );
+    });
+    setModalOpen(false);
+  }
+
+  function formatTabName(name: TabNames) {
+    switch(name){
+      case 'our_story':
+        return 'Our Story';
+      case 'photos':
+        return 'Photos';
+      case 'qa':
+        return 'Q and A';
+      case 'rsvp':
+        return 'RSVP';
+      case 'honeymoon_fund':
+        return 'Honeymoon Fund';
+      default: '';
+    };
+  };
+
+  const tabs = [
+    {
+      label: 'our_story',
+      content: <OurStory />,
+    },
+    {
+      label: 'photos',
+      content: <PhotoListWithSuspense />,
+    },
+    {
+      label: 'qa',
+      content: <QandaContent />,
+    },
+    {
+      label: 'rsvp',
+      content: (
+        <Rsvp
+          isLoading={isLoading}
+          setLoading={setLoading}
+          setResponse={setResponse}
+          response={response}
+        />
+      ),
+    },
+    { 
+      label: 'honeymoon_fund',
+      content: 'honeymoon fund placeholder',
+    },
+  ];
+  console.log('router: ', router)
+  return (
+    <>
+      <div style={{ fontFamily: wedCursive.style.fontFamily }} className="flex flex-col items-center p-8 text-[#515152] gap-4 mt-20">
+        <span className="text-9xl text-center text-[#AC7914]">Jason &Josan</span>
+        {/* <span className="text-3xl font-semibold text-center" style={{ fontFamily: wedSerif.style.fontFamily }} >JASON & JOSAN</span> */}
+        <span className="w-1/3 text-4xl font-medium text-center">
+          Together with their families invite you to their intimate wedding celebration
+        </span>
+        <div style={{ fontFamily: sans.style.fontFamily }} className="flex flex-col items-center text-center">
+          <span className="font-medium">SUNDAY, OCTOBER 13, 2024</span>
+          <span className="font-medium">LOLA CAFE — TOMAS MORATO, QC</span>
+        </div>
+        <CountdownTimer />
+        <div style={{ fontFamily: sans.style.fontFamily }} className="flex-col w-full md:max-w-[47.924rem] mt-2 items-center flex-shrink h-full">
+          <Tabs.Root
+            defaultValue="our_story"
+            value={router.query.section as string}
+            onValueChange={(route) => {
+              console.log('onValueChange: ', route === 'photos')
+              startTransition(() => {
+                router.push(
+                  {
+                    pathname: router.pathname,
+                    query: noNil({
+                      section: route,
+                    }),
+                  },
+                  undefined,
+                  { shallow: true }
+                );
+              });
+            }}
+          >
+            <Tabs.List
+              className="fixed top-0 right-0 m-4 gap-4 md:gap-2 mb-4 font-medium hidden md:flex rounded-xl p-4 bg-stone-200"
+              aria-label="our_story"
+            >
+              {tabs.map((item) => (
+                <Tabs.Trigger
+                  key={item.label}
+                  className={tabsTrigger}
+                  value={item.label}
+                >
+                  <span>{formatTabName(item.label as TabNames)}</span>
+                </Tabs.Trigger>
+              ))}
+            </Tabs.List>
+            <div className="block mb-4 text-center font-semibold text-2xl sm:text-left md:hidden">
+              {formatTabName(router.query.section as TabNames)}
+            </div>
+            <div className="w-full">
+              {tabs.map((item) => (
+                <Tabs.Content
+                  key={item.label}
+                  value={item.label}
+                  className="px-2"
+                >
+                  {router.query.section === item.label && item.content}
+                </Tabs.Content>
+              ))}
+            </div>
+          </Tabs.Root>
+        </div>
+      </div>
+      <div className="fixed top-0 md:hidden mt-4 mx-4 bg-stone-200 px-2 py-2.5 rounded-xl">
+        <Dialog.Root modal open={isModalOpen} onOpenChange={setModalOpen}>
+          <Dialog.Trigger className="p-4 rounded-full border border-[#515152]">
+            <Image
+              quality={95}
+              src={hamburgerMenu}
+              alt="hamburgerMenu"
+              className="w-6 h-6 text-[#515152]"
+            />
+          </Dialog.Trigger>
+          <Dialog.Portal>
+            <Dialog.Overlay className="fixed"/>
+            <Dialog.Content className="fixed w-full h-full bg-slate-300 top-0 p-4">
+              <div className="relative grid grid-cols-1 mt-20 gap-4 text-[#515152]">
+                <button className="cursor-pointer text-left" onClick={() => handleModalAction('our_story')}>Our Story</button>
+                <button className="cursor-pointer text-left" onClick={() => handleModalAction('photos')}>Photos</button>
+                <button className="cursor-pointer text-left" onClick={() => handleModalAction('qa')}>Q & A</button>
+                <button className="cursor-pointer text-left" onClick={() => handleModalAction('rsvp')}>RSVP</button>
+                <button className="cursor-pointer text-left" onClick={() => handleModalAction('honeymoon_fund')}>Honeymoon fund</button>
+              </div>
+              <Dialog.Close className="absolute top-0 p-4 rounded-full mt-4 right-0 mr-4 border border-[#515152]">
+                <div className="w-6 h-6 relative text-[#515152] text-xl">
+                  <span className="absolute -top-0.5 left-1.5">X</span>
+                </div>
+              </Dialog.Close>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
+      </div>
+    </>
+  );
+}
+
+const EmbeddedSpotifyPlaylist = () => {
+  let embedRef = useRef(null);
+  let tracks = [
+    "track/1Y3LN4zO1Edc2EluIoSPJN",
+    "track/4PF2XC8shB2w4g66MaXyEH",
+    "track/6ohzjop0VYBRZ12ichlwg5",
+    "track/3PHgxKy3nKy0v9KvUtHl8g",
+  ];
+
+function handleIframeOnload() {
+  if (embedRef) {
+    // goal: auto-play on load, security policy issue
+    // attempt to hack play button
+  }
+}
+
+  return (
+    <div id="iframe-container" className="fixed top-0 right-0 md:right-[unset] md:top-[unset] md:bottom-0 md:left-0 m-4 w-[70%] md:w-[22%]">
+      <iframe
+        id="spotify-embed-iframe"
+        className="rounded-xl"
+        src={`https://open.spotify.com/embed/${tracks[Math.floor(Math.random() * tracks.length)]}?utm_source=generator&theme=0`}
+        width="100%"
+        height="80"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+        loading="lazy"
+        onLoad={handleIframeOnload}
+        ref={embedRef}
+      />
+    </div>
+  );
+};
+
+const MemoizedIframe = memo(EmbeddedSpotifyPlaylist);
+
+const Wedding = () => {
+  return (
+    <>
+      <Image
+        quality={95}
+        src={flowerTopLeft}
+        alt="flower-top-left"
+        className="absolute left-0 top-0 -z-10 w-40 -ml-5 mt-20 hidden contrast-50 md:block md:w-[276px] md:contrast-100 md:m-[unset]"
+        priority
+      />
+      <Image
+        quality={95}
+        src={leavesBottomRight}
+        alt="leaver-bottom-right"
+        className="absolute bottom-0 right-0 -mb-20 -z-10 contrast-50 w-40 md:w-[276px] md:contrast-100 md:m-[unset]"
+        priority
+      />
+      <Page />
+      <MemoizedIframe />
+    </>
+  );
+};
+
+export default Wedding;

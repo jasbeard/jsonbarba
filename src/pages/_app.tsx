@@ -7,8 +7,11 @@ import { Analytics } from '@vercel/analytics/react';
 import { Header } from '@/components/Header';
 import '@/styles/globals.css';
 import { sans, serif } from '@/font/fonts';
+import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  console.log('router.pathname: ', router.pathname)
   return (
     <>
       <DefaultSeo
@@ -33,7 +36,8 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider attribute="class">
         <main>
-          <Header />
+          {/* temp: just for rsvp */}
+          {router.pathname !== '/jasonandjosan/[section]' && <Header />}
           <Component {...pageProps} />
           <Analytics />
           <SpeedInsights />

@@ -36,6 +36,17 @@ export function Header() {
                 >
                 Work
               </Link>
+              <Link
+                href={{
+                  pathname: "/jasonandjosan/photos",
+                }}
+                aria-label="wedding link of the website"
+                className={
+                  router.asPath.split('/').includes('wedding') ?
+                  "underline underline-offset-[3px] decoration-indigo-400" : "hover:underline underline-offset-[3px] decoration-indigo-200"}
+                >
+                Wedding
+              </Link>
             </div>
           </div>
         </div>
