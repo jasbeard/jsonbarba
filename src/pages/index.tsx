@@ -8,8 +8,10 @@ import { Fragment } from 'react';
 import { NextSeo } from 'next-seo';
 import { GithubContributionMap } from '@/components/GithubContributionMap';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 export default function Home() {
+  const [parent] = useAutoAnimate();
   const workList = [
     {
       imageSource: videocom,
@@ -94,7 +96,7 @@ export default function Home() {
                 that make our lives on the internet a little bit cleaner and easier.
             </p>
           </section>
-          <section className="flex flex-col mt-8">
+          <section ref={parent} className="space-y-4 mt-8">
             <h1 className="text-4xl leading-[50px] font-semibold tracking-wider text-[#2c3136] dark:text-white">Github</h1>
             <span className="text-sm text-[#2c3136] dark:text-white mb-4">This year&apos;s ({currentYear}) code contribution</span>
             <GithubContributionMap />
