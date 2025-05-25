@@ -28,3 +28,7 @@ export function pickBy<T extends {}>(
 export function noNil<T extends {}>(obj: T): Partial<T> {
   return pickBy<T>(identity, obj);
 }
+
+export function calculateReadingTime(num: number){
+  return Math.ceil(num / 200);
+}

@@ -6,6 +6,7 @@ import { NextSeo } from 'next-seo';
 import type { MDXComponents } from 'mdx/types'
 import Image, { ImageProps as NextImageProps } from 'next/image';
 import { GetStaticPropsContext } from 'next';
+import { calculateReadingTime } from '@/utils/lib';
 
 type ImageProps = NextImageProps & { title: string };
 
@@ -50,9 +51,13 @@ const Content = ({ writing }: { writing: Writing }) => {
         <article className="py-8">
           <div className="mb-10">
             <h1 className="text-3xl font-bold">{writing.title}</h1>
-            <time dateTime={writing.date} className="mb-1 text-base text-gray-400">
-              {format(parseISO(writing.date), 'LLL d, yyyy')}
-            </time>
+            <div className="flex mb-1 text-base text-gray-400">
+              <time dateTime={writing.date}>
+                {format(parseISO(writing.date), 'LLL. d, yyyy')}
+              </time>
+              <span>&nbsp;∙&nbsp;</span>
+              <div>{`📖 ${calculateReadingTime(writing.wordCount as number)} mins read`}</div>
+            </div>
           </div>
           <div className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose md:prose-lg dark:prose-invert">
             <MDXContent components={CustomMdxComponents} />

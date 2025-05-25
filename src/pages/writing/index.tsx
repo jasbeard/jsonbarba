@@ -17,7 +17,7 @@ function WritingPreview(post: Writing) {
       </div>
       <div className="mt-1">
         <time dateTime={post.date} className="text-gray-400 font-light text-xs md:text-base">
-          {format(parseISO(post.date), 'LLL d, yyyy')}
+          {format(parseISO(post.date), 'LLL. d, yyyy')}
         </time>
       </div>
     </div>
