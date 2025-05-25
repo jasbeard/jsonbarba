@@ -17,6 +17,7 @@ export function ContractSection() {
       highlights: [
         "Maintain, update and support public facing websites of Asurion domain",
         "Collaborate on Proof-of-concept efforts with different teams for overall operational efficiencies",
+        "On call support on incidents covering public websites and its services",
       ],
       period: '2023 - present',
       technology: ["Gatsbyjs", "GraphQL", "Contentful", "Tailwind CSS", "NGINX", "Docker", "AWS", "Git", "Github Actions"]
