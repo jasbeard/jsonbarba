@@ -16,11 +16,11 @@ export default function Home() {
       designation: 'Senior Software Engineer',
       period: '2022 - present',
       highlights: [
-        "One of the core team members that builds and maintains VideoCom Cloud",
+        "One of the frontend core team members that builds and maintains VideoCom Cloud",
         "Working with engineering teams organization-wide to ensure implementation details are synched with web and apps",
         "Aid requirements deliberation with project managers"
       ],
-      technology: ["Nextjs", "TypeScript", "graphql", "REST", "tailwind", "MySQL", "Redis", "Docker", "Kubernetes", "Cloudflare", "Google Cloud", "Git"],
+      technology: ["Nextjs", "TypeScript", "GraphQL", "REST", "Tailwind CSS", "MySQL", "Redis", "Docker", "Kubernetes", "Cloudflare", "Google Cloud", "Git"],
     },
     {
       imageSource: xsplit,
@@ -32,7 +32,7 @@ export default function Home() {
         "Initiated and maintained several cloud features, mostly UIs and several API integrations",
         "Worked with design teams for technical alignments",
       ],
-      technology: ["Nextjs", "TypeScript", "graphql", "tailwind", "MySQL", "Redis", "Docker", "Kubernetes", "Cloudflare", "Google Cloud", "Git"],
+      technology: ["Nextjs", "TypeScript", "GraphQL", "Tailwind CSS", "MySQL", "Redis", "Docker", "Kubernetes", "Cloudflare", "Google Cloud", "Git"],
     },
     {
       imageSource: metrobank,
@@ -84,7 +84,7 @@ export default function Home() {
         <section className="flex justify-center mt-4">
           <p className="max-w-4xl text-xl text-[#2c3136] dark:text-white font-medium leading-8">
             Hey 👋 my name is Jason Barba and I am a software engineer - I mainly focus on web frontend development for building software services on the internet. 
-            The technologies I am working with right now are Nextjs, TypeScript, tailwind, GraphQL, Git and Docker.
+            The technologies I am working with right now are Nextjs, TypeScript, Tailwind CSS, GraphQL, Git and Docker.
           </p>
         </section>
         <section className="flex flex-col items-center justify-center mt-4">

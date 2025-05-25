@@ -21,7 +21,6 @@ export function GithubContributionMap() {
     return null
   }
   const currentYear = new Date().getFullYear();
-  console.log(theme);
   return (
     <>
       <h2 className="font-medium text-[#2c3136] dark:text-white mb-4">This year&apos;s ({currentYear}) code contribution so far</h2>
@@ -48,7 +47,6 @@ export function GithubContributionMap() {
             </Tooltip.Root>
           </Tooltip.Provider>
         )}
-      
       />
     </>
   );
