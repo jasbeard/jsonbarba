@@ -25,11 +25,12 @@ export function ContractSection() {
       designation: 'Software Engineer 3',
       highlights: [
         "Maintain and update public facing websites of Asurion domain",
-        "Join cross-team DevOps POC initiatives to boost operational efficiency.",
         "Support on incidents covering public facing websites breakages",
+        "Feature ownership",
+        "Code reviews",
       ],
       period: '2023 - present',
-      technology: ["Gatsbyjs", "GraphQL", "Contentful", "Tailwind CSS", "NGINX", "Docker", "AWS", "Git", "Github Actions", "Fullstory", "Evidently"],
+      technology: ["Gatsbyjs", "GraphQL", "Nx", "Contentful", "Tailwind CSS", "NGINX", "Docker", "AWS", "Git", "Github Actions", "Fullstory", "Evidently"],
     },
     {
       imageSource: videocom,
