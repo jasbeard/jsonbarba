@@ -1,6 +1,4 @@
 import { Fragment } from "react";
-import { WorkCard, WorkCardGeneral } from "./WorkCard";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
 import xsplit from '/public/xsplit.svg';
 import videocom from '/public/videocom.svg';
 import metrobank from '/public/metrobank.svg';
@@ -8,6 +6,7 @@ import pangolin from '/public/pangolin.png';
 import bajetto from '/public/bajetto.svg';
 import asurion from '/public/asurion.png';
 import { StaticImageData } from "next/image";
+import * as WorkCard from "./WorkCard";
 
 interface WorkListProps {
   imageSource: StaticImageData;
@@ -105,24 +104,44 @@ export function ContractSection() {
         <ul className="grid grid-cols-1 gap-y-4 mt-2">
         {workList.map((item, index) => (
           <li key={index} aria-label="list of companies">
-            <WorkCard
-              imageSource={item.imageSource}
-              name={item.name}
-              designation={item.designation}
-              period={item.period}
-              highlights={item.highlights}
-              technology={item.technology}
-            />
+            <WorkCard.Root
+              className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white"
+            >
+              <WorkCard.Company
+                name={item.name}
+                image={item.imageSource}
+                lengthOfStay={item.period}
+                className="flex"
+              />
+              <WorkCard.Responsibilities
+                items={item.highlights}
+                designation={item.designation}
+                className="flex flex-col text-xs sm:text-sm mt-2 px-4"
+              />
+              <WorkCard.Technology
+                stack={item.technology}
+                className="text-xs sm:text-sm px-4 -ml-4 mt-4"
+              />
+            </WorkCard.Root>
           </li>
         ))}
           <li>
-            <WorkCardGeneral
-              name={legacyWork.name}
-              designation={legacyWork.designation}
-              period={legacyWork.period}
-              highlights={legacyWork.highlights}
-              technology={legacyWork.technology}
-            />
+            <WorkCard.Root className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white">
+              <WorkCard.Company
+                name={legacyWork.name}
+                lengthOfStay={legacyWork.period}
+                className="flex"
+              />
+              <WorkCard.Responsibilities
+                items={legacyWork.highlights}
+                designation={legacyWork.designation}
+                className="flex flex-col text-xs sm:text-sm mt-2 px-4"
+              />
+              <WorkCard.Technology
+                stack={legacyWork.technology}
+                className="text-xs sm:text-sm px-4 -ml-4 mt-4"
+              />
+            </WorkCard.Root>
           </li>
         </ul>
     </section>
@@ -150,14 +169,21 @@ export function ProjectSection() {
       <div className="grid grid-cols-1 gap-y-4 mt-2">
         {projectList.map((item, index) => (
           <Fragment key={index}>
-            <WorkCard
-              imageSource={item.imageSource}
-              name={item.name}
-              designation={item.designation}
-              period={item.period}
-              highlights={item.highlights}
-              technology={item.technology}
-            />
+            <WorkCard.Root
+              className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white"
+            >
+              <WorkCard.Company
+                name={item.name}
+                image={item.imageSource}
+                lengthOfStay={item.period}
+                className="flex"
+              />
+              <WorkCard.Responsibilities
+                items={item.highlights}
+                designation={item.designation}
+                className="flex flex-col text-xs sm:text-sm mt-2 px-4"
+              />
+            </WorkCard.Root>
           </Fragment>
         ))}
       </div>
