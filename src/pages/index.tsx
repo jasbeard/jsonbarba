@@ -17,9 +17,9 @@ export default function Home() {
         title="Jason Barba"
         description="Website of Jason Barba, here is where you can see details of his commercial experience as a web engineer/developer"
       />
-      <div className="m-4">
+      <div className="flex flex-col m-4">
         <HeaderAvatar />
-        <div className="md:px-32 lg:px-80">
+        <div className="md:px-32 lg:w-2/4 lg:self-center lg:px-0">
           <AboutSection />
           <GithubSection />
           <ContractSection />
@@ -88,7 +88,7 @@ function ContractSection() {
       designation: 'Consultant',
       period: '2020 - 2021',
       highlights: [
-        "Helped to make their bond platform (wealth manager) to have more automated bond buying and selling experience to advance further their digitalization efforts",
+        "Helped made the bond platform (wealth manager) to have more automated bond buying and selling experience, advancing further their digitalization efforts",
         "Spearheaded new key features of bond buying and selling",
         "Refactored, updated legacy dependencies",
       ],
@@ -122,7 +122,7 @@ function ContractSection() {
   }
 
   return (
-    <section className="space-y-4 mt-8">
+    <section className="space-y-4 mt-8 mx-auto">
       <h1 className="text-4xl leading-[50px] font-semibold tracking-wider text-[#2c3136] dark:text-white">Contracts</h1>
       <span className="text-sm text-[#2c3136] dark:text-white mb-4">List of commercial experiences</span>
       <div className="grid grid-cols-1 gap-y-4 mt-2">
