@@ -11,7 +11,7 @@ export default Index;
 export const getServerSideProps = (context: GetServerSidePropsContext) => {
   return {
     redirect: {
-      destination: '/jasonandjosan/our_story',
+      destination: '/jasonandjosan/photos',
     }
   };
 }
