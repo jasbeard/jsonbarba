@@ -20,6 +20,7 @@ export const WorkCard = ({
   highlights,
   technology
 }: WorkCardProps) => {
+  let assistiveLabel = name[0] === 'Asurion' ? `Jason's current contract` : `one of Jason's past contract`;
   return (
     <div className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white">
       <div className="flex">
@@ -35,7 +36,13 @@ export const WorkCard = ({
         </div>
         <div className="flex flex-col ml-2 text-xs sm:text-sm">
           {name[1] ? (
-            <a href={name[1]} target="_blank" rel="noopener noreferrer" className="w-fit hover:underline hover:underline-offset-4">
+            <a
+              href={name[1]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-fit hover:underline hover:underline-offset-4"
+              aria-label={`A link to ${name[0]}'s website, ${assistiveLabel}`}
+            >
               <span className="font-semibold mt-1">{name[0]}</span>
               <OpenInNewWindowIcon className="inline ml-1" />
             </a>

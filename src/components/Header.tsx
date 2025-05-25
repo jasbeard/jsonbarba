@@ -111,42 +111,48 @@ export function Header() {
   ];
 
   return (
-    <>
-      <div className="flex justify-between">
-        <div className="flex items-center">
-          <Link href='/'>
-            <Avatar.Root className="relative inline-flex items-center justify-center align-middle overflow-hidden select-none w-9 h-9 rounded-full">
-              <Image
-                className="w-full h-full object-cover select-none bg-gray-300"
-                quality={95}
-                fill
-                sizes="100vw"
-                src={avatarPhoto}
-                alt="Jason Barba"
-              />
-              <Avatar.Fallback
-                className="w-full h-full flex items-center justify-center bg-gray-300 text-purple-500 text-sm leading-none font-medium"
-              >
-                JB
-              </Avatar.Fallback>
-            </Avatar.Root>
-          </Link>
-          <span className="w-0.5 h-10 border-l border-gray-300 inline mx-4"/>
-          <div className="hidden sm:flex sm:gap-4">
-            {links.map((item, i) => (
-              <Link key={i} href={item.href} target="_blank" aria-label={item.label} rel="noopener noreferrer">
-                {item.icon}
-              </Link>
-            ))}
+    <header>
+      <nav>
+        <div className="flex justify-between">
+          <div className="flex items-center">
+            <Link href='/' aria-label='home link of the website'>
+              <Avatar.Root className="relative inline-flex items-center justify-center align-middle overflow-hidden select-none w-9 h-9 rounded-full">
+                <Image
+                  className="w-full h-full object-cover select-none bg-gray-300"
+                  quality={95}
+                  fill
+                  sizes="100vw"
+                  src={avatarPhoto}
+                  alt="Jason Barba"
+                />
+                <Avatar.Fallback
+                  className="w-full h-full flex items-center justify-center bg-gray-300 text-purple-500 text-sm leading-none font-medium"
+                >
+                  JB
+                </Avatar.Fallback>
+              </Avatar.Root>
+            </Link>
+            <span className="w-0.5 h-10 border-l border-gray-300 inline mx-4"/>
+            <div className="hidden sm:flex sm:gap-4">
+              <ul className="sm:flex sm:gap-4">
+              {links.map((item, i) => (
+                <li key={i}>
+                  <Link href={item.href} target="_blank" aria-label={item.label} rel="noopener noreferrer">
+                    {item.icon}
+                  </Link>
+                </li>
+              ))}
+              </ul>
+            </div>
+            <div className="sm:hidden">
+              <HeaderSocials />
+            </div>
           </div>
-          <div className="sm:hidden">
-            <HeaderSocials />
+          <div>
+          <ThemeSwitcher />
           </div>
         </div>
-        <div>
-         <ThemeSwitcher />
-        </div>
-      </div>
-    </>
+      </nav>
+    </header>
   );
 }

@@ -15,12 +15,12 @@ export default function Home() {
       />
       <div className="flex flex-col m-4">
         <Header />
-        <div className="md:px-32 lg:w-2/4 lg:self-center lg:px-0">
-          <AboutSection currentYear={currentYear}/>
-          <GithubSection />
-          <ContractSection />
-          <ProjectSection />
-        </div>
+          <main className="md:px-32 lg:w-2/4 lg:self-center lg:px-0">
+            <AboutSection currentYear={currentYear}/>
+            <GithubSection />
+            <ContractSection />
+            <ProjectSection />
+          </main>
       </div>
     </>
   );
