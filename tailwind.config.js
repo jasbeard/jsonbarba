@@ -22,7 +22,7 @@ module.exports = {
         'slide-up': {
           from: {
             opacity: '0',
-            transform: 'translateY(2px)',
+            transform: 'translateY(4px)',
           },
           to: {
             opacity: '1',
@@ -33,7 +33,7 @@ module.exports = {
         'slide-right' : {
           from: {
             opacity: '0',
-            transform: 'translateX(-2px)',
+            transform: 'translateX(-4px)',
           },
           to: {
             opacity: '1',
@@ -44,7 +44,7 @@ module.exports = {
         'slide-down': {
           from: {
             opacity: '0',
-            transform: 'translateY(-2px)',
+            transform: 'translateY(-4px)',
           },
           to: {
             opacity: '1',
@@ -55,7 +55,7 @@ module.exports = {
         'slide-left': {
           from: {
             opacity: '0',
-            transform: 'translateX(2px)',
+            transform: 'translateX(4px)',
           },
           to: {
             opacity: '1',
@@ -66,10 +66,23 @@ module.exports = {
         
         'slide-up-mobile': {
           from: {
+            opacity: '0',
+            transform: 'translateY(100%)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0)',
+          }
+        },
+
+        'slide-down-mobile': {
+          from: {
+            opacity: '0',
             transform: 'translateY(0)',
           },
           to: {
-            transform: 'translateY(100%)',
+            opacity: '1',
+            transform: 'translateY(100%)'
           }
         }
       },
@@ -83,7 +96,8 @@ module.exports = {
       animation: {
         'slide-up': '400ms cubic-bezier(0, 0, 0, 1) slide-up',
         'slide-down': '400ms cubic-bezier(0, 0, 0, 1) slide-down',
-        'slide-up-mobile': '400ms cubic-bezier(0, 0, 0, 1) slide-up-mobile'
+        'slide-up-mobile': '150ms ease-in slide-up-mobile',
+        'slide-down-mobile': '50ms ease-in-out slide-down-mobile',
         // add animation name based on keyframes data as needed
       }
     }

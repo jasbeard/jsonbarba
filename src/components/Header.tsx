@@ -55,8 +55,10 @@ function HeaderSocials() {
           data-[state=closed]:fade-out data-[state=open]:fade-in"
         >
           <Dialog.Content
-            className="relative rounded-t-2xl h-[calc(100vh-4rem)] mt-[4rem] bg-slate-100 dark:bg-slate-800 w-screen top-full transition-[all .15s ease-in-out] data-[state=open]:top-0
-            data-[state=closed]:animate-out"
+            className="relative rounded-t-2xl h-[calc(100vh-7rem)] mt-[7rem] bg-slate-100 dark:bg-slate-800 w-screen
+            will-change-transform
+            data-[state=open]:animate-slide-up-mobile
+            data-[state=closed]:animate-slide-down-mobile"
           >
             <Dialog.Title className="w-full text-center text-2xl mt-14 mb-4 font-medium text-dark dark:text-gray-300">Contacts</Dialog.Title>
             <div className="grid gap-4 grid-cols-1 px-4 sm:grid-cols-2 sm:px-12">
