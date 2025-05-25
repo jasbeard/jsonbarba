@@ -6,8 +6,8 @@ export function GithubSection() {
   const currentYear = new Date().getFullYear();
   return (
     <section ref={parent} className="space-y-4 mt-8">
-      <h1 className="text-4xl leading-[50px] font-semibold tracking-wider text-dark dark:text-white">Github</h1>
-      <span className="text-sm text-dark dark:text-white mb-4">This year&apos;s ({currentYear}) code contribution</span>
+      <h1 className="leading-[50px] font-semibold tracking-wider text-dark text-2xl sm:text-4xl dark:text-white">Github</h1>
+      <span className="text-xs sm:text-sm text-dark dark:text-white mb-4">This year&apos;s ({currentYear}) code contribution</span>
       <GithubContributionMap />
     </section>
   );

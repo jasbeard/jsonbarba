@@ -55,7 +55,7 @@ function HeaderSocials() {
           data-[state=closed]:fade-out data-[state=open]:fade-in"
         >
           <Dialog.Content
-            className="relative rounded-t-2xl h-[calc(100vh-7rem)] mt-[7rem] bg-slate-100 dark:bg-slate-800 w-screen
+            className="relative rounded-t-2xl h-[calc(100vh-2rem)] mt-[2rem] bg-slate-100 dark:bg-slate-800 w-screen
             will-change-transform
             data-[state=open]:animate-slide-up-mobile
             data-[state=closed]:animate-slide-down-mobile"
@@ -65,7 +65,7 @@ function HeaderSocials() {
               {socials.map((item, i) => (
                 <div key={i} className="h-24 w-full flex justify-center rounded shadow border border-cgray text-dark border-opacity-20 hover:bg-accent dark:hover:bg-accent dark:text-gray-300">
                   <Link href={item.href} target="_blank" aria-label={item.label} rel="noopener noreferrer" className="h-full w-full flex flex-col items-center justify-center gap-1">
-                    {item.icon} <span className="text-sm">{item.name}</span>
+                    {item.icon} <span className="text-xs">{item.name}</span>
                   </Link>
                 </div>
               ))}
