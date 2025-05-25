@@ -29,7 +29,7 @@ export function HeaderAvatar() {
       label: `link to Jason's twitter`,
     },
     {
-      href: 'mailto:json.barba@proton.me',
+      href: 'mailto:me@jsonbarba.com',
       icon: <EnvelopeClosedIcon {...iconProps} />,
       label: `link to Jason's email`,
     },
