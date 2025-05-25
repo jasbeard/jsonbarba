@@ -38,7 +38,7 @@ export function ContractSection() {
     {
       imageSource: metrobank,
       name: ['Metrobank', 'https://metrobank.com.ph'],
-      designation: 'Consultant',
+      designation: 'Programmer Analyst',
       period: '2020 - 2021',
       highlights: [
         "Implemented automated bond buying and selling experience to advance further their digitalization efforts",
