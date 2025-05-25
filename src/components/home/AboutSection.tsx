@@ -211,12 +211,12 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
         <span className="tracking-tight">
           You can reach me at{" "}
           <a
-            href="mailto:me@jsonbarba.com"
+            href="mailto:me@jasonbarba.com"
             rel="noopener noreferrer"
             target="_blank"
             className="text-indigo-400"
           >
-            me@jsonbarba.com
+            me@jasonbarba.com
           </a>{" "}
           <button
             className={`relative transition-all duration-500 w-[60px] md:w-[86px] inline px-2 rounded-xl font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark ${serif.className}`}
