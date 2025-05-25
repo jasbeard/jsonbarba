@@ -17,7 +17,7 @@ async function send(req: NextApiRequest, res: NextApiResponse) {
   const { data, error } = await resend.emails.send({
     from: 'Jason & Josan <me@jsonbarba.com>',
     to: [email as string],
-    subject: 'Jason & Jason Wedding RSVP',
+    subject: 'Jason & Josan Wedding RSVP',
     react: CompletedRsvpNotification({ name: name as string }),
   });
 
