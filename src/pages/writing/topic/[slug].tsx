@@ -11,7 +11,6 @@ function titleCase(tag: string) {
   return splitStr?.join(' '); 
 }
 
-
 const TopicPage = () => {
   const router = useRouter();
   const tag = titleCase(router.query?.slug as string)
@@ -19,6 +18,7 @@ const TopicPage = () => {
   return (
     <MainLayout>
       <h1 className="font-semibold text-dark text-2xl sm:text-3xl dark:text-white">{tag}</h1>
+      <p className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg">Selecting a tag on the blog filters and displays all related post below.</p>
       <div className="mt-12">
         {writingResult.map((blog) => (
           <WritingPreview key={blog.title} {...blog} />

@@ -1,7 +1,7 @@
 export const Tags = ({ list }: { list: string[] }) => {
   if (!list.length) return null;
   return (
-    <div className="flex space-x-2 py-4 mb-2.5 text-xs md:text-sm">
+    <div className="flex space-x-2 pb-4 mb-2.5 text-xs md:text-sm">
       {list.map((tag) => (
         <a
           key={tag}
