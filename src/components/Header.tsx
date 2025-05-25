@@ -132,6 +132,11 @@ export function Header() {
                 </Avatar.Fallback>
               </Avatar.Root>
             </Link>
+            <div>
+              <Link href='/writing'>
+                Writing
+              </Link>
+            </div>
             <span className="w-0.5 h-10 border-l border-gray-300 inline mx-4"/>
             <div className="hidden sm:flex sm:gap-4">
               <ul className="sm:flex sm:gap-4">
