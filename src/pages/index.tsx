@@ -41,8 +41,8 @@ export default function Home() {
       designation: 'Consultant',
       period: '2020 - 2021',
       highlights: [
-        "Helped to make their bond platform (wealth manager) to have more automated bond buying experience to advance further their digitalization efforts",
-        "Spearheaded new key features of bond buying",
+        "Helped to make their bond platform (wealth manager) to have more automated bond buying and selling experience to advance further their digitalization efforts",
+        "Spearheaded new key features of bond buying and selling",
         "Refactored, updated legacy dependencies",
       ],
       technology: ['LoopBack 4', 'React', 'Material-UI', "SOAP", "REST", "Git"]

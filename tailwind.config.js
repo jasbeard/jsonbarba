@@ -55,7 +55,8 @@ module.exports = {
       },
 
       animation: {
-        'slide-up': '400ms cubic-bezier(0.16, 1, 0.3, 1) slide-up'
+        'slide-up': '400ms cubic-bezier(0, 0, 0, 1) slide-up',
+        'slide-down': '400ms cubic-bezier(0, 0, 0, 1) slide-down'
         // add animation name based on keyframes data as needed
       }
     }

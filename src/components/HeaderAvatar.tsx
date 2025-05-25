@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { TwitterLogoIcon, GitHubLogoIcon, LinkedInLogoIcon, EnvelopeClosedIcon } from '@radix-ui/react-icons';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
-
 export function HeaderAvatar() {;
   return (
     <>
@@ -31,16 +30,16 @@ export function HeaderAvatar() {;
           <span className="w-0.5 h-10 border-l border-gray-300 inline mx-4"/>
           <div className="flex gap-2.5">
             <Link href="https://github.com/swoppy" target="_blank">
-              <GitHubLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]" />
+              <GitHubLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#fc9d03] dark:hover:text-[#fc9d03]" />
             </Link>
             <Link href="https://www.linkedin.com/in/jsonbarba/" target="_blank">
-              <LinkedInLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]" />
+              <LinkedInLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#fc9d03] dark:hover:text-[#fc9d03]" />
             </Link>
             <Link href="https://twitter.com/heyswoppy" target="_blank">
-              <TwitterLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]"/>
+              <TwitterLogoIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#fc9d03] dark:hover:text-[#fc9d03]"/>
             </Link>
             <Link href="https://twitter.com/heyswoppy" target="_blank">
-              <EnvelopeClosedIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#03a5fc] dark:hover:text-[#03a5fc]"/>
+              <EnvelopeClosedIcon width={24} height={24} className="text-gray-700 dark:text-gray-300 hover:text-[#fc9d03] dark:hover:text-[#fc9d03]"/>
             </Link>
           </div>
         </div>

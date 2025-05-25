@@ -1,4 +1,4 @@
-import { SunIcon, ChevronDownIcon, MoonIcon, GearIcon } from '@radix-ui/react-icons';
+import { SunIcon, MoonIcon, GearIcon } from '@radix-ui/react-icons';
 import * as Select from '@radix-ui/react-select';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
@@ -18,9 +18,9 @@ export function ThemeSwitcher() {
 
   const valueToIcon = (theme: string | undefined) => {
     switch(theme) {
-      case 'dark': return <MoonIcon width={22} height={22}/>;
-      case 'light': return <SunIcon width={22} height={22}/>;
-      case 'system': return <GearIcon width={22} height={22}/>;
+      case 'dark': return <MoonIcon width={22} height={22} strokeWidth={6}/>;
+      case 'light': return <SunIcon width={22} height={22} strokeWidth={6}/>;
+      case 'system': return <GearIcon width={22} height={22} strokeWidth={6}/>;
       default: null // never
     }
   }
@@ -32,24 +32,23 @@ export function ThemeSwitcher() {
       </Select.Trigger>
       <Select.Portal>
         <Select.Content
-          className='overflow-hidden bg-slate-200 dark:bg-slate-800 rounded shadow-md mt-2'
+          className='overflow-hidden bg-slate-100 dark:bg-slate-800 rounded shadow-md mt-2 duration-500 will-change-transform data-[side=bottom]:animate-slide-down'
           side='bottom'
           position='popper'
         >
           <Select.ScrollUpButton />
           <Select.Viewport className='p-1'>
-            <Select.Item value='light' className='flex items-center text-sm leading-none select-none px-4 py-3 data-highlighted:text-[#03a5fc] cursor-pointer'>
-              <SunIcon width={20} height={20} className='mr-2'/>
+            <Select.Item value='light' className='flex items-center text-sm leading-none select-none px-4 py-3 data-[state=checked]:text-[#fc9d03] cursor-pointer'>
+              <SunIcon strokeWidth={6} width={20} height={20} className='mr-2'/>
               <Select.ItemText>Light</Select.ItemText>
-              <Select.ItemIndicator className='bg-blue'/>
             </Select.Item>
-            <Select.Item value='dark' className='flex items-center text-sm leading-none select-none px-4 py-3 cursor-pointer'>
-              <MoonIcon width={20} height={20} className='mr-2' />
+            <Select.Item value='dark' className='flex items-center text-sm leading-none select-none px-4 py-3 data-[state=checked]:text-[#fc9d03] cursor-pointer'>
+              <MoonIcon strokeWidth={6} width={20} height={20} className='mr-2' />
               <Select.ItemText>Dark</Select.ItemText>
               <Select.ItemIndicator className='bg-blue'/>
             </Select.Item>
-            <Select.Item value='system' className='flex items-center text-sm leading-none select-none px-4 py-3 cursor-pointer'>
-              <GearIcon width={20} height={20} className='mr-2' />
+            <Select.Item value='system' className='flex items-center text-sm leading-none select-none px-4 py-3 data-[state=checked]:text-[#fc9d03] cursor-pointer'>
+              <GearIcon strokeWidth={6} width={20} height={20} className='mr-2' />
               <Select.ItemText>System</Select.ItemText>
               <Select.ItemIndicator className='bg-blue'/>
             </Select.Item>
