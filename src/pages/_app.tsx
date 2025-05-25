@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { Noto_Sans } from 'next/font/google';
 import { ThemeProvider } from 'next-themes'
 import { Analytics } from '@vercel/analytics/react';
+import { DefaultSeo } from 'next-seo';
 
 const inter = Noto_Sans({
   fallback: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
@@ -14,6 +15,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={inter.className}>
       <ThemeProvider attribute="class">
+        <DefaultSeo
+          defaultTitle="Jason Barba"
+          description="Have a nice day!"
+          canonical="https://jsonbarba.com"
+        />
         <Component {...pageProps} />
         <Analytics />
       </ThemeProvider>

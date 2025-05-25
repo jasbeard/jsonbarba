@@ -1,5 +1,4 @@
-export function AboutSection() {
-  const currentYear = new Date().getFullYear();
+export function AboutSection({ currentYear }: { currentYear: number }) {
   return (
     <section className="flex flex-col justify-center mt-8">
       <h1 className="text-4xl leading-[50px] font-semibold tracking-wider text-[#2c3136] dark:text-white">About</h1>
