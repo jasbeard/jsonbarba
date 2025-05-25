@@ -27,6 +27,7 @@ export function ContractSection() {
         "Maintain and update public facing websites of Asurion domain",
         "Support on incidents covering public facing websites breakages",
         "Feature ownership",
+        "Facilitate communications with teams and stakeholders",
         "Code reviews",
       ],
       period: '2023 - present',
