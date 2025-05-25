@@ -9,7 +9,7 @@ function WritingPreview(post: Writing) {
     <div className="flex justify-between mb-8">
       <div>
         <h3 className="mb-1">
-          <Link href={post.url} className="hover:text-indigo-400 text-base sm:text-lg">
+          <Link href={post.url} className="transition-all duration-500 hover:text-indigo-400 text-base sm:text-lg">
             {post.title}
           </Link>
         </h3>

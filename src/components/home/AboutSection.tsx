@@ -10,7 +10,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
   return (
     <section className="flex flex-col justify-center">
       <p className="text-dark dark:text-gray-200 text-lg !leading-8 md:text-3xl md:!leading-10 font-light tracking-[0.01em] w-full break-keep">
-        <span className={`inline ${hover.first && 'text-indigo-400'}`}>
+        <span className={`tracking-tight inline transition-all duration-500 ${hover.first && 'text-indigo-300'}`}>
           Hey! I&#39;m{' '}
         </span>{' '}
         <button
@@ -22,16 +22,16 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           <span className="mr-2 ml-2.5 font-medium">JASON</span>
         </button>{' '}
 
-        <span className={`inline ${blur.JASON ? 'blur select-none' : `blur-0 select-auto ${hover.first && 'text-indigo-400'}`}`}>
-          Barba, building things has been a constant fascination for me.{' '}
-        </span>
-        <span className={`inline ${(hover.first && !blur.JASON) && 'text-indigo-400'}`}>
+        <span className={`tracking-tight inline transition-all duration-400 ${blur.JASON ? 'blur select-none' : `blur-0 select-auto ${hover.first && 'text-indigo-300'}`}`}>
+          Barba, building things has been a constant fascination for me. My journey in the world of creation has been an exciting blend of curiosity, learning, and hands-on experience.{' '}
+        </span><br /><br />
+        <span className={`tracking-tight inline transition-all duration-500 ${(hover.first && !blur.JASON) && 'text-indigo-200'}`}>
           I&#39;m based in Metro Manila Philippines.{' '}
           <button
             className={`
               inline px-2 w-[98px] md:w-[155px] ${serif.className}
               ${blur.JASON ? 'blur cursor-text' :
-              'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark'}
+              'blur-0 cursor-pointer rounded-xl font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 transition-colors duration-500 dark:text-dark'}
             `}
             {...(!blur.JASON && { onClick: toggle.secondBlur })}
             onMouseOver={() => onMouse.secondGroup({ event: 'over' })}
@@ -41,11 +41,11 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           </button>
         </span>{' '}
 
-        <span className={`inline ${blur.RECENTLY ? 'blur select-none' : `blur-0 selec-auto ${hover.second && 'text-indigo-400'}`}`}>
+        <span className={`inline transition-all duration-500 ${blur.RECENTLY ? 'blur select-none' : `blur-0 selec-auto ${hover.second && 'text-indigo-300'}`}`}>
           I&#39;ve been dabbling in writing — just checking it out and seeing where it takes me.{' '}
           <button
             className={`
-              inline px-2 w-[108px] md:w-[168px]
+              inline transition-all duration-500 px-2 w-[108px] md:w-[168px]
               ${serif.className} ${blur.RECENTLY ? 'blur select-none' :
               'blur-0 selec-auto cursor-pointer rounded-xl font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark'}
             `}
@@ -57,11 +57,11 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           </button>
         </span>{' '}
 
-        <span className={`inline ${blur.MOREOVER ? 'blur select-none' : `blur-0 select-auto ${hover.third && 'text-indigo-400'}`}`}>
+        <span className={`tracking-tight inline transition-all duration-400 ${blur.MOREOVER ? 'blur select-none' : `blur-0 select-auto ${hover.third && 'text-indigo-300'}`}`}>
           my background is mostly around web app and UI development.{' '}<br/><br/>
           <button
             className={`
-              inline px-2 w-[212px] md:w-[342px] ${serif.className} 
+              inline transition-all duration-500 px-2 w-[212px] md:w-[342px] ${serif.className} 
               ${blur.MOREOVER ? 'blur select-none cursor-text' :
               'blur-0 select-auto cursor-pointer font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark'}
             `}
@@ -73,11 +73,11 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           </button>{' '}
         </span>
 
-        <span className={`inline ${blur.OVER_THE_LAST ? 'blur select-none' : `blur-0 select-auto ${hover.fourth && 'text-indigo-400'}`}`}>
+        <span className={`tracking-tight inline transition-all duration-500 ${blur.OVER_THE_LAST ? 'blur select-none' : `blur-0 select-auto ${hover.fourth && 'text-indigo-300'}`}`}>
           I&#39;ve navigated various professional landscapes, from startups to midsize and large organizations, with different capacities, gathering insights and expertise along the way.{' '}
         </span><br/><br/>
 
-        <span className={`blur-0 ${hover.fifth && 'text-indigo-400'}`}>
+        <span className={`tracking-tight blur-0 transition-all duration-500 ${hover.fifth && 'text-indigo-300'}`}>
           Currently, I{' '}
           <Link
             href="/work"
@@ -87,7 +87,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           </Link> at{' '}
         </span>
         <button
-          className={`w-[86px] md:w-[134px] inline px-2 rounded-xl font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark ${serif.className}`}
+          className={`transition-all duration-500 w-[86px] md:w-[134px] inline px-2 rounded-xl font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark ${serif.className}`}
           onClick={toggle.fifthBlur}
           onMouseOver={() => onMouse.fifthGroup({ event: 'over' })}
           onMouseOut={() => onMouse.fifthGroup({ event: 'out' })}
@@ -100,8 +100,8 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             rel="noopener noreferrer"
             target="_blank"
             className={`
-              inline underline decoration-dashed underline-offset-4 decoration-1 ${!blur.ASURION && 'hover:decoration-indigo-400 focus:decoration-indigo-400'}
-              ${blur.ASURION ? 'blur select-none' : `blur-0 select-auto ${(!blur.ASURION && hover.fifth) && 'text-indigo-400'}`}
+              tracking-tight transition-all duration-400 inline underline decoration-dashed underline-offset-4 decoration-1 ${!blur.ASURION && 'hover:decoration-indigo-400 focus:decoration-indigo-400'}
+              ${blur.ASURION ? 'blur select-none' : `blur-0 select-auto ${(!blur.ASURION && hover.fifth) && 'text-indigo-300'}`}
             `}
           >
             &#40;a tech insurance company based in Nashville&#41;
@@ -110,7 +110,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
         </span>
         <br/><br/>
 
-        <span className="">
+        <span className="tracking-tight">
           You can reach me at{' '}
           <a
             href="mailto:me@jsonbarba.com"
@@ -121,7 +121,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             me@jsonbarba.com
           </a>{' '}
           <button
-            className={`w-[60px] md:w-[86px] inline px-2 rounded-xl font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark ${serif.className}`}
+            className={`transition-all duration-500 w-[60px] md:w-[86px] inline px-2 rounded-xl font-medium bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 dark:text-dark ${serif.className}`}
             onClick={toggle.sixthBlur}
             onMouseOver={() => onMouse.sixthGroup({ event: 'over' })}
             onMouseOut={() => onMouse.sixthGroup({ event: 'out' })}
@@ -129,7 +129,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             Also,
           </button>{' '}
           <span
-            className={`inline ${blur.ALSO ? 'blur select-none' : `blur-0 select-auto ${hover.sixth && 'text-indigo-400'}`}`}
+            className={`inline transition-all duration-500 ${blur.ALSO ? 'blur select-none' : `blur-0 select-auto ${hover.sixth && 'text-indigo-300'}`}`}
           >
             I&#39;m on{' '}
             <a
