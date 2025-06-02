@@ -69,7 +69,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             out: () => onMouse.thirdGroup({ event: "out" }),
             over: () => onMouse.thirdGroup({ event: "over" }),
           }}
-          buttonClassName={`w-[108px] md:w-[168px] ${
+          buttonClassName={`w-[112px] md:w-[168px] ${
             blur.SPENT
               ? "blur cursor-text bg-[unset] dark:text-gray-400"
               : "blur-0 cursor-pointer rounded-xl bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 transition-colors duration-500 dark:text-dark w-[98px] md:w-[155px]"
@@ -86,7 +86,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             out: () => onMouse.fourthGroup({ event: "out" }),
             over: () => onMouse.fourthGroup({ event: "over" }),
           }}
-          buttonClassName={`w-[60px] md:w-[94px] ${
+          buttonClassName={`w-[62px] md:w-[94px] ${
             blur.CURRENTLY
               ? "blur cursor-text bg-[unset] dark:text-gray-400"
               : "blur-0 cursor-pointer rounded-xl bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 transition-colors duration-500 dark:text-dark w-[98px] md:w-[155px]"
