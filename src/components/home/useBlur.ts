@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-enum Pills {
-  FIRST = 'JASON',
-  SECOND = 'RECENTLY',
-  THIRD = 'MOREOVER',
-  FOURTH = 'OVER_THE_LAST',
-  FIFTH = 'ASURION',
-  SIXTH = 'ALSO',
+export enum Pills {
+  FIRST = "JASON",
+  SECOND = "RECENTLY",
+  THIRD = "MOREOVER",
+  FOURTH = "OVER_THE_LAST",
+  FIFTH = "ASURION",
+  SIXTH = "ALSO",
 }
 
 type BlurStates = Record<Pills, boolean>;
@@ -18,27 +18,27 @@ export const useBlur = () => {
     [Pills.THIRD]: true,
     [Pills.FOURTH]: true,
     [Pills.FIFTH]: true,
-    [Pills.SIXTH]: true
+    [Pills.SIXTH]: true,
   });
 
   const firstBlur = () => {
-    if(!isBlur.JASON) {
+    if (!isBlur.JASON) {
       setBlur((previousStates) => {
         return {
           ...previousStates,
           [Pills.SECOND]: true,
           [Pills.THIRD]: true,
-          [Pills.FOURTH]: true
-        }
+          [Pills.FOURTH]: true,
+        };
       });
     }
     setBlur((previousStates) => {
       return {
-      ...previousStates,
-      [Pills.FIRST]: !previousStates.JASON,
-      }
+        ...previousStates,
+        [Pills.FIRST]: !previousStates.JASON,
+      };
     });
-  }
+  };
 
   const secondBlur = () => {
     if (!isBlur.RECENTLY) {
@@ -46,61 +46,61 @@ export const useBlur = () => {
         return {
           ...previousStates,
           [Pills.THIRD]: true,
-          [Pills.FOURTH]: true
-        }
+          [Pills.FOURTH]: true,
+        };
       });
     }
     setBlur((previousStates) => {
       return {
-      ...previousStates,
-      [Pills.SECOND]: !previousStates.RECENTLY,
-      }
+        ...previousStates,
+        [Pills.SECOND]: !previousStates.RECENTLY,
+      };
     });
-  }
+  };
 
   const thirdBlur = () => {
     if (!isBlur.MOREOVER) {
       setBlur((previousStates) => {
         return {
           ...previousStates,
-          [Pills.FOURTH]: true
-        }
+          [Pills.FOURTH]: true,
+        };
       });
     }
-   setBlur((previousStates) => {
+    setBlur((previousStates) => {
       return {
-      ...previousStates,
-      [Pills.THIRD]: !previousStates.MOREOVER,
-      }
+        ...previousStates,
+        [Pills.THIRD]: !previousStates.MOREOVER,
+      };
     });
-  }
+  };
 
   const fourthBlur = () => {
     setBlur((previousStates) => {
       return {
-      ...previousStates,
-      [Pills.FOURTH]: !previousStates.OVER_THE_LAST,
-      }
+        ...previousStates,
+        [Pills.FOURTH]: !previousStates.OVER_THE_LAST,
+      };
     });
-  }
+  };
 
   const fifthBlur = () => {
     setBlur((previousStates) => {
       return {
-      ...previousStates,
-      [Pills.FIFTH]: !previousStates.ASURION,
-      }
+        ...previousStates,
+        [Pills.FIFTH]: !previousStates.ASURION,
+      };
     });
-  }
+  };
 
   const sixthBlur = () => {
     setBlur((previousStates) => {
       return {
-      ...previousStates,
-      [Pills.SIXTH]: !previousStates.ALSO,
-      }
+        ...previousStates,
+        [Pills.SIXTH]: !previousStates.ALSO,
+      };
     });
-  }
+  };
 
   return {
     states: { ...isBlur },
@@ -110,7 +110,7 @@ export const useBlur = () => {
       thirdBlur,
       fourthBlur,
       fifthBlur,
-      sixthBlur
-    }
-  }
-}
+      sixthBlur,
+    },
+  };
+};
