@@ -34,9 +34,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           }}
           buttonClassName="rounded-xl"
           buttonContent="JASON"
-          blurContent="Barba, building things has been a constant fascination for me. My
-          journey in the world of creation has been an exciting blend of
-          curiosity, learning, and hands-on experience."
+          blurContent="Barba, a software engineer passionate about building impactful digital experiences. Based in Manila, Philippines."
         />
         <br />
         <br />
@@ -44,81 +42,74 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           className={`tracking-tight inline transition-all duration-500 ${
             hover.first && !blur.JASON && "text-indigo-200"
           }`}
-        >
-          I&#39;m based in Metro Manila Philippines.{" "}
-        </span>
+        ></span>
         <InteractiveSentence
-          id="recently"
+          id="spent"
           hover={hover.second}
-          blur={blur.RECENTLY}
+          blur={blur.SPENT}
           {...(!blur.JASON && { toggle: () => toggle.secondBlur() })}
           onMouse={{
             out: () => onMouse.secondGroup({ event: "out" }),
             over: () => onMouse.secondGroup({ event: "over" }),
           }}
-          buttonClassName={`w-[98px] md:w-[155px] ${
+          buttonClassName={`${
             blur.JASON
               ? "blur cursor-text bg-[unset] dark:text-gray-400"
               : "blur-0 cursor-pointer rounded-xl bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 transition-colors duration-500 dark:text-dark"
           }`}
-          buttonContent="Recently,"
-          blurContent="I&#39;ve been dabbling in writing — just checking it out and seeing where it takes me.&nbsp;"
-        />
+          buttonContent={`I've spent the last ${currentYear - 2018} years`}
+          blurContent={`crafting web apps. My experience spans across startups, midsize companies, and large enterprises, giving me a unique perspective on different development approaches and team dynamics.`}
+        />{" "}
         <InteractiveSentence
-          id="moreover"
+          id="Currently"
           hover={hover.third}
-          blur={blur.MOREOVER}
-          {...(!blur.RECENTLY && { toggle: () => toggle.thirdBlur() })}
+          blur={blur.CURRENTLY}
+          {...(!blur.SPENT && { toggle: () => toggle.thirdBlur() })}
           onMouse={{
             out: () => onMouse.thirdGroup({ event: "out" }),
             over: () => onMouse.thirdGroup({ event: "over" }),
           }}
           buttonClassName={`w-[108px] md:w-[168px] ${
-            blur.RECENTLY
+            blur.SPENT
               ? "blur cursor-text bg-[unset] dark:text-gray-400"
               : "blur-0 cursor-pointer rounded-xl bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 transition-colors duration-500 dark:text-dark w-[98px] md:w-[155px]"
           }`}
-          buttonContent="Moreover,"
-          blurContent="my background is mostly around web app and UI development."
-        />
-        <br />
-        <br />
+          buttonContent="Currently,"
+          blurContent={`I'm a software engineer at Asurion, a tech care company based in Nashville.`}
+        />{" "}
         <InteractiveSentence
-          id="overthelast"
+          id="here"
           hover={hover.fourth}
-          blur={blur.OVER_THE_LAST}
-          {...(!blur.MOREOVER && { toggle: () => toggle.fourthBlur() })}
+          blur={blur.HERE}
+          {...(!blur.CURRENTLY && { toggle: () => toggle.fourthBlur() })}
           onMouse={{
             out: () => onMouse.fourthGroup({ event: "out" }),
             over: () => onMouse.fourthGroup({ event: "over" }),
           }}
-          buttonClassName={`w-[212px] md:w-[342px] ${
-            blur.MOREOVER
+          buttonClassName={`w-[60px] md:w-[94px] ${
+            blur.CURRENTLY
               ? "blur cursor-text bg-[unset] dark:text-gray-400"
-              : "blur-0 cursor-pointer bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 transition-colors duration-500 dark:text-dark w-[98px] md:w-[155px]"
+              : "blur-0 cursor-pointer rounded-xl bg-slate-400 hover:bg-indigo-400 focus:bg-indigo-400 transition-colors duration-500 dark:text-dark w-[98px] md:w-[155px]"
           }`}
-          buttonContent={`Over the last ${currentYear - 2018} years,`}
-          blurContent="I&#39;ve navigated various professional landscapes, from startups to
-          midsize and large organizations, with different capacities, gathering
-          insights and expertise along the way."
+          buttonContent="Here,"
+          blurContent={`I lead efforts through feature ownership, manage incident responses, and drive security best practices while mentoring fellow devs through code reviews.`}
         />
         <br />
         <br />
-        <span
-          className={`tracking-tight blur-0 transition-all duration-500 ${
-            hover.fifth && "text-indigo-300"
-          }`}
-        >
-          Currently, I{" "}
-          <Link
-            href="/work"
-            className="inline underline decoration-solid underline-offset-4 decoration-1 hover:decoration-indigo-400 focus:decoration-indigo-400"
-          >
-            work
-          </Link>{" "}
-          at{" "}
-        </span>
         <InteractiveSentence
+          id="beyond"
+          hover={hover.fifth}
+          blur={blur.BEYOND}
+          toggle={() => toggle.fifthBlur()}
+          onMouse={{
+            out: () => onMouse.fifthGroup({ event: "out" }),
+            over: () => onMouse.fifthGroup({ event: "over" }),
+          }}
+          // buttonClassName={`w-[312px] md:w-[472px]`}
+          buttonContent={`Beyond my day-to-day work,`}
+          blurContent="I&#39;m exploring the world of blogging and photography, sharing some experiences on the internet."
+        />
+        {/* <InteractiveSentence
           id="asurion"
           hover={hover.fifth}
           blur={blur.ASURION}
@@ -130,7 +121,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           buttonClassName={`w-[86px] md:w-[134px] rounded-xl`}
           buttonContent="Asurion"
           blurContent="&#40;a tech care company based in Nashville&#41; as a software engineer."
-        />
+        /> */}
         <br />
         <br />
         <span className="tracking-tight">

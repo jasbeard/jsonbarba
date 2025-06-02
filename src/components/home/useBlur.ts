@@ -2,10 +2,10 @@ import { useState } from "react";
 
 export enum Pills {
   FIRST = "JASON",
-  SECOND = "RECENTLY",
-  THIRD = "MOREOVER",
-  FOURTH = "OVER_THE_LAST",
-  FIFTH = "ASURION",
+  SECOND = "SPENT",
+  THIRD = "CURRENTLY",
+  FOURTH = "HERE",
+  FIFTH = "BEYOND",
   SIXTH = "ALSO",
 }
 
@@ -41,7 +41,7 @@ export const useBlur = () => {
   };
 
   const secondBlur = () => {
-    if (!isBlur.RECENTLY) {
+    if (!isBlur.SPENT) {
       setBlur((previousStates) => {
         return {
           ...previousStates,
@@ -53,13 +53,13 @@ export const useBlur = () => {
     setBlur((previousStates) => {
       return {
         ...previousStates,
-        [Pills.SECOND]: !previousStates.RECENTLY,
+        [Pills.SECOND]: !previousStates.SPENT,
       };
     });
   };
 
   const thirdBlur = () => {
-    if (!isBlur.MOREOVER) {
+    if (!isBlur.CURRENTLY) {
       setBlur((previousStates) => {
         return {
           ...previousStates,
@@ -70,7 +70,7 @@ export const useBlur = () => {
     setBlur((previousStates) => {
       return {
         ...previousStates,
-        [Pills.THIRD]: !previousStates.MOREOVER,
+        [Pills.THIRD]: !previousStates.CURRENTLY,
       };
     });
   };
@@ -79,7 +79,7 @@ export const useBlur = () => {
     setBlur((previousStates) => {
       return {
         ...previousStates,
-        [Pills.FOURTH]: !previousStates.OVER_THE_LAST,
+        [Pills.FOURTH]: !previousStates.HERE,
       };
     });
   };
@@ -88,7 +88,7 @@ export const useBlur = () => {
     setBlur((previousStates) => {
       return {
         ...previousStates,
-        [Pills.FIFTH]: !previousStates.ASURION,
+        [Pills.FIFTH]: !previousStates.BEYOND,
       };
     });
   };
