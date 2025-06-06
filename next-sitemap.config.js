@@ -1,13 +1,9 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://jsonbarba.com',
+  siteUrl: "https://jasonbarba.com",
   generateRobotsTxt: true,
   robotsTxtOptions: {
-    policies: [
-      { userAgent: '*', allow: '/' },
-    ],
+    policies: [{ userAgent: "*", allow: "/" }],
   },
-  exclude: [
-    '/404',
-  ],
-}
+  exclude: ["/404"],
+};

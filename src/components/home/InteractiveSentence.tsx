@@ -28,7 +28,7 @@ export const InteractiveSentence = ({
     <>
       <button
         id={id}
-        className={`inline-flex relative px-2 font-medium bg-indigo-400 dark:text-dark ${serif.className} ${buttonClassName}`}
+        className={`px-2 font-medium dark:text-dark outline-offset-2 ${serif.className} ${buttonClassName}`}
         {...(toggle && { onClick: toggle })}
         onMouseOver={onMouse.over}
         onMouseOut={onMouse.out}
@@ -67,7 +67,7 @@ export const InteractiveSentenceWithLink = ({
     <>
       <button
         id={id}
-        className={`inline-flex relative px-2 font-medium bg-indigo-400 dark:text-dark ${serif.className} ${buttonClassName}`}
+        className={`relative px-2 font-medium bg-indigo-400 dark:text-dark ${serif.className} ${buttonClassName}`}
         {...(toggle && { onClick: toggle })}
         onMouseOver={onMouse.over}
         onMouseOut={onMouse.out}
