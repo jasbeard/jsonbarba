@@ -11,7 +11,7 @@ export function Header() {
           <div
             className={`font-medium gap-2 -mt-2 pr-4 rounded-br bg-white dark:bg-dark`}
           >
-            <div className="flex justify-between items-center gap-2 mt-4 font-light">
+            <div className="flex justify-between items-center gap-4 mt-4 font-light">
               <Link
                 href="/"
                 aria-label="home link of the website"
