@@ -9,6 +9,7 @@ interface InteractiveSentenceProps {
     out: () => void;
   };
   hover: boolean;
+  disableShine?: boolean;
   buttonContent: string;
   blurContent: string;
   buttonClassName?: string;
@@ -23,6 +24,7 @@ export const InteractiveSentence = ({
   hover,
   blurContent,
   buttonClassName,
+  disableShine = true,
 }: InteractiveSentenceProps) => {
   return (
     <>
@@ -33,7 +35,12 @@ export const InteractiveSentence = ({
         onMouseOver={onMouse.over}
         onMouseOut={onMouse.out}
       >
-        <span>{buttonContent}</span>
+        <Shiny
+          text={buttonContent}
+          speed={1.5}
+          className="text-gray-200/70"
+          disabled={disableShine}
+        />
       </button>{" "}
       <span
         className={`tracking-tight inline transition-all duration-400 ${
@@ -62,17 +69,23 @@ export const InteractiveSentenceWithLink = ({
   hover,
   children,
   buttonClassName,
+  disableShine,
 }: InteractiveSentenceWithLinkProps) => {
   return (
     <>
       <button
         id={id}
-        className={`relative px-2 font-medium bg-indigo-400 dark:text-dark ${serif.className} ${buttonClassName}`}
+        className={`relative px-2 font-medium dark:text-dark ${serif.className} ${buttonClassName}`}
         {...(toggle && { onClick: toggle })}
         onMouseOver={onMouse.over}
         onMouseOut={onMouse.out}
       >
-        <span>{buttonContent}</span>
+        <Shiny
+          text={buttonContent}
+          speed={1.5}
+          className="text-gray-200/70"
+          disabled={disableShine}
+        />
       </button>{" "}
       <span
         className={`tracking-tight inline transition-all duration-400 ${
@@ -84,5 +97,38 @@ export const InteractiveSentenceWithLink = ({
         {children}
       </span>
     </>
+  );
+};
+
+interface ShinyProps {
+  text: string;
+  disabled?: boolean;
+  speed?: number;
+  className?: string;
+}
+
+export const Shiny = ({
+  text,
+  disabled = false,
+  speed = 5,
+  className = "",
+}: ShinyProps) => {
+  const animationDuration = `${speed}s`;
+
+  return (
+    <div
+      className={`text-[#b5b5b5a4] bg-clip-text inline-block ${
+        disabled ? "" : "animate-shine"
+      } ${className}`}
+      style={{
+        backgroundImage:
+          "linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)",
+        backgroundSize: "200% 100%",
+        WebkitBackgroundClip: "text",
+        animationDuration: animationDuration,
+      }}
+    >
+      {text}
+    </div>
   );
 };
