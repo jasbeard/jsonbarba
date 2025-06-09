@@ -1,3 +1,4 @@
+import React, { useRef, useState } from "react";
 import xsplit from "/public/xsplit.svg";
 import videocom from "/public/videocom.svg";
 import metrobank from "/public/metrobank.svg";
@@ -164,27 +165,98 @@ export function ContractSection() {
       <ul className="grid grid-cols-1 gap-y-4 mt-2">
         {workList.map((item, index) => (
           <li key={index} aria-label="list of companies">
+            <SpotlightCard spotlightColor="rgba(99, 102, 241, 0.4)">
+              <WorkCard.Root
+                className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white"
+                work={item}
+              >
+                <WorkCard.Company className="flex" />
+                <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2" />
+                <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
+              </WorkCard.Root>
+            </SpotlightCard>
+          </li>
+        ))}
+        <li>
+          <SpotlightCard spotlightColor="rgba(99, 102, 241, 0.4)">
             <WorkCard.Root
               className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white"
-              work={item}
+              work={legacyWork}
             >
               <WorkCard.Company className="flex" />
               <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2" />
               <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
             </WorkCard.Root>
-          </li>
-        ))}
-        <li>
-          <WorkCard.Root
-            className="w-full p-4 rounded-sm shadow border border-cgray border-opacity-20 relative text-dark dark:text-white"
-            work={legacyWork}
-          >
-            <WorkCard.Company className="flex" />
-            <WorkCard.Responsibilities className="flex flex-col text-xs sm:text-sm mt-2" />
-            <WorkCard.Technology className="text-xs sm:text-sm px-4 -ml-4 mt-4" />
-          </WorkCard.Root>
+          </SpotlightCard>
         </li>
       </ul>
     </section>
   );
 }
+
+interface Position {
+  x: number;
+  y: number;
+}
+
+interface SpotlightCardProps extends React.PropsWithChildren {
+  className?: string;
+  spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`;
+}
+
+const SpotlightCard: React.FC<SpotlightCardProps> = ({
+  children,
+  className = "",
+  spotlightColor = "rgba(255, 255, 255, 0.25)",
+}) => {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState<number>(0);
+
+  const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    if (!divRef.current || isFocused) return;
+
+    const rect = divRef.current.getBoundingClientRect();
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    setOpacity(0.6);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    setOpacity(0);
+  };
+
+  const handleMouseEnter = () => {
+    setOpacity(0.6);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
+  };
+
+  return (
+    <div
+      ref={divRef}
+      onMouseMove={handleMouseMove}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`relative overflow-hidden ${className}`}
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out"
+        style={{
+          opacity,
+          background: `radial-gradient(circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,
+        }}
+      />
+      {children}
+    </div>
+  );
+};
