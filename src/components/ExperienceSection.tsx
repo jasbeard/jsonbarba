@@ -24,7 +24,7 @@ export function ContractSection() {
       designation: "Software Engineer 3",
       highlights: [
         "Maintain Asurion's public websites",
-        "Handle public websites incident support",
+        "Handle public website incidents support",
         "Coordinate team and stakeholder communications",
         "Feature ownership",
         "Code reviews",
