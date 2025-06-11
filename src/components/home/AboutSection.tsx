@@ -140,7 +140,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             buttonContent="Also,"
             buttonClassName="rounded-xl border hover:bg-indigo-500/80"
           >
-            <ContactLinks blur={!blur.ALSO} />
+            <ContactLinks />
           </InteractiveSentenceWithLink>
         </span>
       </p>

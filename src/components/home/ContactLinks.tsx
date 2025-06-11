@@ -1,9 +1,10 @@
-export const ContactLinks = ({ blur }: { blur: boolean }) => {
+export const ContactLinks = () => {
   return (
     <>
       I&#39;m on{" "}
       <a
-        {...(blur && { href: "https://github.com/swoppy" })}
+        href="https://github.com/swoppy"
+        title="Jason's github page"
         rel="noopener noreferrer"
         target="_blank"
         className="inline underline decoration-dashed underline-offset-4 decoration-1 hover:decoration-indigo-400 focus:decoration-indigo-400"
@@ -11,9 +12,8 @@ export const ContactLinks = ({ blur }: { blur: boolean }) => {
         Github,
       </a>{" "}
       <a
-        {...(blur && {
-          href: "https://www.linkedin.com/in/jsonbarba/",
-        })}
+        href="https://www.linkedin.com/in/jsonbarba/"
+        title="Jason's linkedin page"
         rel="noopener noreferrer"
         target="_blank"
         className="inline underline decoration-dashed underline-offset-4 decoration-1 hover:decoration-indigo-400 focus:decoration-indigo-400"
@@ -22,7 +22,8 @@ export const ContactLinks = ({ blur }: { blur: boolean }) => {
       </a>{" "}
       and{" "}
       <a
-        {...(blur && { href: "https://x.com/jsonbarba" })}
+        href="https://x.com/jsonbarba"
+        title="Jason's x page"
         rel="noopener noreferrer"
         target="_blank"
         className="inline underline decoration-dashed underline-offset-4 decoration-1 hover:decoration-indigo-400 focus:decoration-indigo-400"
