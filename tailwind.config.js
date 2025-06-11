@@ -11,7 +11,7 @@ module.exports = {
     extend: {
       colors: {
         accent: colors.accent["400"],
-        dark: "#2c3136",
+        dark: "#000",
         cgray: "#afb9c5",
         "golden-amber": "#AC7914",
         ...colors,

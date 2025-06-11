@@ -32,7 +32,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             over: () => onMouse.firstGroup({ event: "over" }),
           }}
           disableShine={!blur.JASON}
-          buttonClassName="rounded-xl border hover:bg-indigo-500/80"
+          buttonClassName="outline-none rounded-xl border focus:bg-indigo-500/80 hover:bg-indigo-500/80"
           buttonContent="JASON"
           blurContent="Barba, a software engineer passionate about building impactful digital experiences. Based in Manila, Philippines."
         />
@@ -53,7 +53,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             out: () => onMouse.secondGroup({ event: "out" }),
             over: () => onMouse.secondGroup({ event: "over" }),
           }}
-          buttonClassName={`border ${
+          buttonClassName={`border outline-none focus:bg-indigo-500/80 ${
             blur.JASON
               ? "blur cursor-text bg-transparent dark:text-gray-300 "
               : "blur-0 cursor-pointer rounded-xl hover:bg-indigo-500/80 transition-colors duration-500 dark:text-dark"
@@ -71,7 +71,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             out: () => onMouse.thirdGroup({ event: "out" }),
             over: () => onMouse.thirdGroup({ event: "over" }),
           }}
-          buttonClassName={`border ${
+          buttonClassName={`border outline-none focus:bg-indigo-500/80 ${
             blur.SPENT
               ? "blur cursor-text bg-transparent dark:text-gray-300"
               : "blur-0 cursor-pointer rounded-xl hover:bg-indigo-500/80 transition-colors duration-500 dark:text-dark"
@@ -89,7 +89,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             out: () => onMouse.fourthGroup({ event: "out" }),
             over: () => onMouse.fourthGroup({ event: "over" }),
           }}
-          buttonClassName={`border ${
+          buttonClassName={`border outline-none focus:bg-indigo-500/80 ${
             blur.CURRENTLY
               ? "blur cursor-text bg-transparent dark:text-gray-300"
               : "blur-0 cursor-pointer rounded-xl hover:bg-indigo-500/80 transition-colors duration-500 dark:text-dark"
@@ -109,7 +109,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
             out: () => onMouse.fifthGroup({ event: "out" }),
             over: () => onMouse.fifthGroup({ event: "over" }),
           }}
-          buttonClassName="border hover:bg-indigo-500/80"
+          buttonClassName="rounded-xl border hover:bg-indigo-500/80 outline-none focus:bg-indigo-500/80"
           buttonContent={`Beyond my day-to-day work,`}
           blurContent="I&#39;m exploring the world of blogging and photography, sharing some experiences on the internet."
         />
@@ -138,7 +138,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
               over: () => onMouse.sixthGroup({ event: "over" }),
             }}
             buttonContent="Also,"
-            buttonClassName="rounded-xl border hover:bg-indigo-500/80"
+            buttonClassName="rounded-xl border hover:bg-indigo-500/80 outline-none focus:bg-indigo-500/80"
           >
             <ContactLinks />
           </InteractiveSentenceWithLink>
