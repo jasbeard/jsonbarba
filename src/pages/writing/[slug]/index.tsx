@@ -76,7 +76,7 @@ const Content = ({ writing }: { writing: Writing }) => {
         themeColor="dark"
       />
       <MainLayout>
-        <article className="pb-8">
+        <article className="pb-8 mt-10">
           <div className="mb-10">
             <Tags list={writing.tags as string[]} />
             <h1 className="text-3xl font-bold">{writing.title}</h1>
