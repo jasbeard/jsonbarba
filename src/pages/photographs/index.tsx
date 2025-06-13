@@ -82,7 +82,7 @@ const PhotographsPage = () => {
     <>
       <NextSeo title="Jason Barba | Photographs" />
       <MainLayout>
-        <section className="mx-auto" aria-describedby="shooting">
+        <section className="mx-auto mt-20" aria-describedby="shooting">
           <h1 className={` font-semibold text-2xl sm:text-3xl`}>Photographs</h1>
           <p
             className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg"

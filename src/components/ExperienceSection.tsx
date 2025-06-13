@@ -154,7 +154,7 @@ export function ContractSection() {
   };
 
   return (
-    <section className="space-y-4 mx-auto" aria-describedby="exp">
+    <section className="space-y-4 mx-auto mt-20" aria-describedby="exp">
       <h1 className={` font-semibold text-2xl sm:text-3xl`}>Work</h1>
       <p
         className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg"

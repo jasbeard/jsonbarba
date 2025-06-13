@@ -13,7 +13,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
   // TODO: improve button focus on events
 
   return (
-    <section className="flex flex-col justify-center mt-8 md:mt-0">
+    <section className="flex flex-col justify-center mt-10 md:mt-20">
       <p className="text-dark dark:text-gray-200 text-lg !leading-8 md:text-3xl md:!leading-10 font-light tracking-[0.01em] w-full break-keep">
         <span
           className={`tracking-tight inline transition-all duration-500 ${
