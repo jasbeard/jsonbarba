@@ -41,7 +41,7 @@ export function Header() {
             </Link>
             <Link
               href="/photographs"
-              aria-label="work link of the website"
+              aria-label="photographs link of the website"
               className={
                 router.asPath.split("/").includes("photographs")
                   ? "underline underline-offset-[3px] decoration-indigo-400"
