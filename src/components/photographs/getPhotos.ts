@@ -10,7 +10,11 @@ import pocketPark from "/public/photographs/portraits/pocket_park.jpg";
 import catwalk from "/public/photographs/portraits/catwalk.jpg";
 import glassy from "/public/photographs/portraits/glassy.jpg";
 import cornerCat from "/public/photographs/portraits/corner_cat.jpg";
-import uptownMallBridge from "/public/photographs/portraits/uptown_mall_bridge.jpg";
+import uptownMallBridge from "/public/photographs/portraits/traffic.jpg";
+import highStreetCat from "/public/photographs/portraits/high_street_cat_2.jpg";
+import pedxing from "/public/photographs/portraits/pedxing.jpg";
+import alley from "/public/photographs/portraits/some_alley.jpg";
+import tower from "/public/photographs/portraits/tower.jpg";
 
 export {
   // Landscape exports
@@ -26,4 +30,8 @@ export {
   glassy,
   cornerCat,
   uptownMallBridge,
+  highStreetCat,
+  pedxing,
+  alley,
+  tower,
 };

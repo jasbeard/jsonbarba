@@ -11,42 +11,38 @@ import {
   glassy,
   cornerCat,
   uptownMallBridge,
+  highStreetCat,
+  pedxing,
+  alley,
+  tower,
 } from "@/components/photographs/getPhotos";
 import Image, { StaticImageData } from "next/image";
 
 interface landscapeImagesProps {
   src: StaticImageData;
-  blurDataUrl: string;
   alt?: string;
 }
 
 const PhotographsPage = () => {
-  const blurDataUrl =
-    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMM8PGpBwADRQFp5BFVGgAAAABJRU5ErkJggg==";
   const landscapeImages: landscapeImagesProps[] = [
     {
       src: nearCiti,
-      blurDataUrl: blurDataUrl,
       alt: "Near citi building",
     },
     {
       src: oreCentral,
-      blurDataUrl: blurDataUrl,
       alt: "ore central building",
     },
     {
       src: nearMytown,
-      blurDataUrl: blurDataUrl,
       alt: "near mytown",
     },
     {
       src: nearGym,
-      blurDataUrl: blurDataUrl,
       alt: "this area is where my gym is located",
     },
     {
       src: walkway,
-      blurDataUrl: blurDataUrl,
       alt: "a walkway",
     },
   ];
@@ -54,28 +50,39 @@ const PhotographsPage = () => {
   const portraits: landscapeImagesProps[] = [
     {
       src: uptownMallBridge,
-      blurDataUrl: blurDataUrl,
       alt: "uptown mall bridge",
     },
     {
       src: cornerCat,
-      blurDataUrl: blurDataUrl,
       alt: "corner cat",
     },
     {
       src: pocketPark,
-      blurDataUrl: blurDataUrl,
       alt: "pocket park",
     },
     {
       src: catwalk,
-      blurDataUrl: blurDataUrl,
       alt: "cat walk",
     },
     {
       src: glassy,
-      blurDataUrl: blurDataUrl,
       alt: "glassly",
+    },
+    {
+      src: highStreetCat,
+      alt: "high street cat",
+    },
+    {
+      src: pedxing,
+      alt: "crossing",
+    },
+    {
+      src: alley,
+      alt: "some corner",
+    },
+    {
+      src: tower,
+      alt: "construction",
     },
   ];
   return (
@@ -115,7 +122,8 @@ const PhotographsPage = () => {
               {`Some portraits for ya'll`}
             </h1>
             <p className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg">
-              Somewhere in the streets, just passing by.
+              {`Somewhere in the streets, just passing by. (this section will be
+              updated periodically)`}
             </p>
           </div>
           <ul className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] xl:grid-cols-[repeat(5,_1fr)] gap-4 md:gap-2 mt-8">
