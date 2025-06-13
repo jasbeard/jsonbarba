@@ -5,13 +5,17 @@ import { serif } from "@/font/fonts";
 export function Header() {
   const router = useRouter();
   return (
-    <header className="px-4 py-2 sticky top-0 z-10 bg-dark md:bg-transparent backdrop-blur-[1px]">
+    <header className="sticky top-0 z-10 bg-dark">
       <nav>
-        <div className={`flex justify-between ${serif.className}`}>
-          <div
-            className={`font-medium gap-2 -mt-2 pr-4 rounded-br bg-white dark:bg-dark`}
-          >
-            <div className="flex justify-between items-center gap-4 mt-4 font-light">
+        <div
+          className="w-full h-[100px] fixed pointer-events-none select-none -z-10"
+          style={{
+            backgroundImage: "linear-gradient(180deg, #000 20%, transparent)",
+          }}
+        ></div>
+        <div className={`flex justify-between ml-4 mt-2 ${serif.className}`}>
+          <div className=" font-normal tracking-wide text-base gap-2 -mt-2 pr-4 rounded-br bg-white dark:bg-dark">
+            <div className="flex justify-between items-center gap-4 mt-4">
               <Link
                 href="/"
                 aria-label="home link of the website"
@@ -33,6 +37,17 @@ export function Header() {
                 }
               >
                 Writing
+              </Link>
+              <Link
+                href="/photographs"
+                aria-label="work link of the website"
+                className={
+                  router.asPath.split("/").includes("work")
+                    ? "underline underline-offset-[3px] decoration-indigo-400"
+                    : "hover:underline underline-offset-[3px] decoration-indigo-200"
+                }
+              >
+                Photographs
               </Link>
               <Link
                 href="/work"
