@@ -88,13 +88,13 @@ const PhotographsPage = () => {
             className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg"
             id="shooting"
           >
-            I’m capturing the world with Sony A6400, starting off with the kit
+            {`I’m capturing the world with Sony A6400, starting off with the kit
             lens that came with it. Here are some vibe landscape shots if you
-            will.
+            will.`}
           </p>
           <ul className="flex flex-col my-8 gap-4 list-none">
             {landscapeImages.map((item) => (
-              <li>
+              <li key={item.alt}>
                 <Image
                   src={item.src}
                   alt={item.alt ?? "a picture"}
@@ -112,7 +112,7 @@ const PhotographsPage = () => {
         <div className="my-24">
           <div className="md:px-32 lg:self-center lg:px-0 lg:w-[50%] mx-auto">
             <h1 className={` font-semibold text-2xl sm:text-3xl`}>
-              Some portraits for ya'll
+              {`Some portraits for ya'll`}
             </h1>
             <p className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg">
               Somewhere in the streets, just passing by.
@@ -120,7 +120,7 @@ const PhotographsPage = () => {
           </div>
           <ul className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] xl:grid-cols-[repeat(5,_1fr)] gap-4 md:gap-2 mt-8">
             {portraits.map((item) => (
-              <li className="relative aspect-[3/4]">
+              <li className="relative aspect-[3/4]" key={item.alt}>
                 <Image
                   src={item.src}
                   alt={item.alt ?? "a picture"}
