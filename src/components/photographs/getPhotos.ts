@@ -15,6 +15,11 @@ import highStreetCat from "/public/photographs/portraits/high_street_cat_2.jpg";
 import pedxing from "/public/photographs/portraits/pedxing.jpg";
 import alley from "/public/photographs/portraits/some_alley.jpg";
 import tower from "/public/photographs/portraits/tower.jpg";
+import bgcParkFam from "/public/photographs/portraits/bgc_park_fam.jpg";
+import kidPet from "/public/photographs/portraits/kid_pet.jpg";
+import maInPark from "/public/photographs/portraits/ma_in_park2.jpg";
+import tree from "/public/photographs/portraits/tree_2.jpg";
+import wife from "/public/photographs/portraits/wife.jpg";
 
 export {
   // Landscape exports
@@ -34,4 +39,9 @@ export {
   pedxing,
   alley,
   tower,
+  bgcParkFam,
+  kidPet,
+  maInPark,
+  tree,
+  wife,
 };

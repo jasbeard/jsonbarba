@@ -15,6 +15,11 @@ import {
   pedxing,
   alley,
   tower,
+  kidPet,
+  bgcParkFam,
+  tree,
+  maInPark,
+  wife,
 } from "@/components/photographs/getPhotos";
 import Image, { StaticImageData } from "next/image";
 
@@ -84,6 +89,26 @@ const PhotographsPage = () => {
       src: tower,
       alt: "construction",
     },
+    {
+      src: kidPet,
+      alt: "some kid",
+    },
+    {
+      src: bgcParkFam,
+      alt: "people",
+    },
+    {
+      src: tree,
+      alt: "a tree",
+    },
+    {
+      src: maInPark,
+      alt: "m",
+    },
+    {
+      src: wife,
+      alt: "w",
+    },
   ];
   return (
     <>
@@ -115,7 +140,7 @@ const PhotographsPage = () => {
           </ul>
         </section>
       </MainLayout>
-      <section className="w-full px-4 md:px-2">
+      <section className="w-full px-4 md:px-4">
         <div className="my-24">
           <div className="md:px-32 lg:self-center lg:px-0 lg:w-[50%] mx-auto">
             <h1 className={` font-semibold text-2xl sm:text-3xl`}>
@@ -126,7 +151,7 @@ const PhotographsPage = () => {
               updated periodically)`}
             </p>
           </div>
-          <ul className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] xl:grid-cols-[repeat(5,_1fr)] gap-4 md:gap-2 mt-8">
+          <ul className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] xl:grid-cols-[repeat(4,_1fr)] gap-4 md:gap-4 mt-8">
             {portraits.map((item) => (
               <li className="relative aspect-[3/4]" key={item.alt}>
                 <Image
