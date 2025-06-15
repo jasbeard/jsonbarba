@@ -20,6 +20,8 @@ import {
   tree,
   maInPark,
   wife,
+  mc,
+  cyberTruck,
 } from "@/components/photographs/getPhotos";
 import Image, { StaticImageData } from "next/image";
 
@@ -108,6 +110,14 @@ const PhotographsPage = () => {
     {
       src: wife,
       alt: "w",
+    },
+    {
+      src: mc,
+      alt: "motorcycle",
+    },
+    {
+      src: cyberTruck,
+      alt: "a cybertruck at noon",
     },
   ];
   return (

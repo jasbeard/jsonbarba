@@ -20,6 +20,8 @@ import kidPet from "/public/photographs/portraits/kid_pet.jpg";
 import maInPark from "/public/photographs/portraits/ma_in_park2.jpg";
 import tree from "/public/photographs/portraits/tree_2.jpg";
 import wife from "/public/photographs/portraits/wife.jpg";
+import mc from "/public/photographs/portraits/mc.jpg";
+import cyberTruck from "/public/photographs/portraits/cybertruck.jpg";
 
 export {
   // Landscape exports
@@ -44,4 +46,6 @@ export {
   maInPark,
   tree,
   wife,
+  mc,
+  cyberTruck,
 };
