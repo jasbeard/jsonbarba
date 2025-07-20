@@ -15,7 +15,7 @@ export function Header() {
       <div
         className={`fixed flex top-0 left-0 right-0 justify-between ml-4 mt-2 ${serif.className}`}
       >
-        <div className="w-full font-normal tracking-wide text-base gap-2 -mt-2 pr-4 rounded-br bg-white dark:bg-dark">
+        <div className="w-full font-normal tracking-wide text-sm gap-2 -mt-2 pr-4 rounded-br bg-white dark:bg-dark">
           <div className="flex items-center gap-4 mt-4 shadow-2xl">
             <Link
               href="/"

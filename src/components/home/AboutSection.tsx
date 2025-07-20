@@ -111,7 +111,7 @@ export function AboutSection({ currentYear }: { currentYear: number }) {
           }}
           buttonClassName="rounded-xl border hover:bg-indigo-500/80 outline-none focus:bg-indigo-500/80"
           buttonContent={`Beyond my day-to-day work,`}
-          blurContent="I&#39;m exploring the world of blogging and photography, sharing some experiences on the internet."
+          blurContent="I&#39;m exploring the world of writing and photography, sharing some experiences on the internet."
         />
         <br />
         <br />

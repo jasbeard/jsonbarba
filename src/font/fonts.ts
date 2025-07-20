@@ -1,7 +1,4 @@
 import { Roboto_Serif, Montserrat } from "next/font/google";
-import localFont from "next/font/local";
-
-export const wedSerif = localFont({ src: "./amsterdam_one_400.ttf" });
 
 export const sans = Montserrat({
   fallback: [
