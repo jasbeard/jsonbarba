@@ -18,6 +18,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "yzft9j8wzzlydetx.public.blob.vercel-storage.com",
       },
+      {
+        protocol: "https",
+        hostname: "1fjnp8gfmpn2zccc.public.blob.vercel-storage.com",
+      },
     ],
   },
   transpilePackages: ["@radix-ui/react-moving-focus"],
