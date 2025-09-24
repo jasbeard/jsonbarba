@@ -7,8 +7,14 @@ import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/Header";
 import "@/styles/globals.css";
 import { sans, serif } from "@/font/fonts";
+import { initMixpanel } from "@/lib/mixpanelClient";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    initMixpanel(); // Initialize Mixpanel
+    console.log("asdasd");
+  }, []);
   return (
     <>
       <DefaultSeo defaultTitle="Jason Barba" description="Have a nice day!" />

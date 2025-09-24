@@ -31,6 +31,7 @@ export const InteractiveSentence = ({
     <>
       <button
         id={id}
+        data-analytics-id={id}
         className={`px-2 font-medium dark:text-dark outline-offset-2 ${serif.className} ${buttonClassName}`}
         onClick={composeEventHandlers(toggle, () => onMouse.over())}
         onBlur={onMouse.out}
@@ -78,6 +79,7 @@ export const InteractiveSentenceWithLink = ({
     <>
       <button
         id={id}
+        data-analytics-id={id}
         className={`relative px-2 font-medium dark:text-dark ${serif.className} ${buttonClassName}`}
         {...(toggle && { onClick: toggle })}
         onMouseOver={onMouse.over}
