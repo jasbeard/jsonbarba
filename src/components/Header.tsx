@@ -14,7 +14,7 @@ export function Header() {
       ></div>
       <div className={`fixed w-full mt-2 ${serif.className}`}>
         <div className="w-full flex justify-center font-normal tracking-wide text-sm gap-2 rounded-br bg-white dark:bg-dark">
-          <div className="flex items-center gap-8 py-4 shadow-2xl">
+          <div className="flex items-center gap-4 md:gap-8 py-4 shadow-2xl">
             <Link
               href="/"
               aria-label="home link of the website"
