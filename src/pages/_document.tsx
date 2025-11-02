@@ -1,5 +1,5 @@
-import { Html, Head, Main, NextScript } from 'next/document';
-import Script from 'next/script';
+import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -9,14 +9,14 @@ export default function Document() {
         <link rel="shortcut icon" href="/favicon.png" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
       </Head>
-      <body className="dark:bg-dark">
+      <body className="bg-gofuniro">
         <Main />
         <NextScript />
         {/* haki */}
-        <Script id='override-theme' strategy="beforeInteractive">
+        {/* <Script id='override-theme' strategy="beforeInteractive">
           {`localStorage.setItem('theme', 'dark')`}
-        </Script>
+        </Script> */}
       </body>
     </Html>
-  )
+  );
 }

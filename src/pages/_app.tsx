@@ -13,7 +13,6 @@ import { useEffect } from "react";
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     initMixpanel(); // Initialize Mixpanel
-    console.log("asdasd");
   }, []);
   return (
     <>
@@ -39,14 +38,14 @@ export default function App({ Component, pageProps }: AppProps) {
           content="eWe6gVI-N_FNp6_N2Kgegk3bWx-jkoKv028MeG1fEK4"
         />
       </Head>
-      <ThemeProvider attribute="class">
-        <main>
-          <Header />
-          <Component {...pageProps} />
-          <Analytics />
-          <SpeedInsights />
-        </main>
-      </ThemeProvider>
+      {/* <ThemeProvider attribute="class"> */}
+      <main>
+        <Header />
+        <Component {...pageProps} />
+        <Analytics />
+        <SpeedInsights />
+      </main>
+      {/* </ThemeProvider> */}
     </>
   );
 }

@@ -1,6 +1,6 @@
-import { Roboto_Serif, Montserrat } from "next/font/google";
+import { Instrument_Serif, DM_Sans } from "next/font/google";
 
-export const sans = Montserrat({
+export const sans = DM_Sans({
   fallback: [
     "-apple-system",
     "BlinkMacSystemFont",
@@ -14,9 +14,9 @@ export const sans = Montserrat({
   variable: "--font-sans",
 });
 
-export const serif = Roboto_Serif({
+export const serif = Instrument_Serif({
   fallback: ["-apple-system", "BlinkMacSystemFont", "sans-serif"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400"],
   subsets: ["latin"],
   variable: "--font-serif",
 });

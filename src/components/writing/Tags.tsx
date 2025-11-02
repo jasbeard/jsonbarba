@@ -5,7 +5,7 @@ export const Tags = ({ list }: { list: string[] }) => {
       {list.map((tag) => (
         <a
           key={tag}
-          className="whitespace-nowrap !mx-0 py-1 px-4 font-medium border rounded-xl border-gray-500 text-gray-200 transition-all duration-500 hover:bg-indigo-500 cursor-pointer"
+          className="whitespace-nowrap !mx-0 py-1 px-4 font-medium border rounded-xl border-gray-500 text-gray-500 hover:bg-gray-200 cursor-pointer"
           href={`/writing/topic/${tag.toLowerCase()}`}
         >
           {tag}

@@ -30,12 +30,12 @@ interface landscapeImagesProps {
   alt?: string;
 }
 
-const PhotographsPage = () => {
+const PictorailPage = () => {
   const landscapeImages: landscapeImagesProps[] = [
-    {
-      src: nearCiti,
-      alt: "Near citi building",
-    },
+    // {
+    //   src: nearCiti,
+    //   alt: "Near citi building",
+    // },
     {
       src: oreCentral,
       alt: "ore central building",
@@ -122,18 +122,15 @@ const PhotographsPage = () => {
   ];
   return (
     <>
-      <NextSeo title="Jason Barba | Photographs" />
+      <NextSeo title="Pictorial" />
       <MainLayout>
-        <section className="mx-auto mt-20" aria-describedby="shooting">
-          <h1 className={` font-semibold text-2xl sm:text-3xl`}>Photographs</h1>
-          <p
-            className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg"
-            id="shooting"
-          >
+        <section className="mx-auto mt-20" aria-describedby="pictorial">
+          <h1 className={`font-semibold text-3xl`}>Pictorial</h1>
+          {/* <p className="max-w-4xl mt-4">
             {`I’m capturing the world with Sony A6400, starting off with the kit
             lens that came with it. Here are some vibe landscape shots if you
             will.`}
-          </p>
+          </p> */}
           <ul className="flex flex-col my-8 gap-4 list-none">
             {landscapeImages.map((item) => (
               <li key={item.alt}>
@@ -161,7 +158,7 @@ const PhotographsPage = () => {
               updated periodically)`}
             </p>
           </div>
-          <ul className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] xl:grid-cols-[repeat(4,_1fr)] gap-4 md:gap-4 mt-8">
+          {/* <ul className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] xl:grid-cols-[repeat(4,_1fr)] gap-4 md:gap-4 mt-8">
             {portraits.map((item) => (
               <li className="relative aspect-[3/4]" key={item.alt}>
                 <Image
@@ -179,11 +176,11 @@ const PhotographsPage = () => {
                 />
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </section>
     </>
   );
 };
 
-export default PhotographsPage;
+export default PictorailPage;

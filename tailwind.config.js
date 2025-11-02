@@ -14,6 +14,8 @@ module.exports = {
         dark: "#000",
         cgray: "#afb9c5",
         "golden-amber": "#AC7914",
+        gofuniro: "#f3f3f5",
+        tokyo: "#a7a7a7",
         ...colors,
       },
       screens: {

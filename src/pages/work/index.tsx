@@ -5,7 +5,7 @@ import { NextSeo } from "next-seo";
 const WorkPage = () => {
   return (
     <>
-      <NextSeo title="Jason Barba | Work" />
+      <NextSeo title="Work" />
       <MainLayout>
         <ContractSection />
       </MainLayout>

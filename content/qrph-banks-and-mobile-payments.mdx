@@ -1,43 +1,37 @@
 ---
 title: QRph, banks and mobile payments
 date: 2023-11-25
-bodyPreview: Today, QRph didn’t function properly.
+bodyPreview: Needs improvement.
 wordCount: 390
 tags: ["Financial Services"]
 ---
 
-Today, QRph didn’t function properly.
+Today, QRph failed me at the grocery store.
 
-I went out to buy groceries, relying on QRph for payments. It had been working flawlessly for few months until this incident occurred.
+I had been using QRph for payments without issues for months. But when I completed a payment, the cashier showed me their terminal report—no transaction appeared, despite my confirmation.
 
-At the cashier, I made a payment, but the cashier insisted they hadn’t received it. She even showed me a detailed report from their checkout terminal, which didn’t display my transaction despite my successful payment on my end.
+I returned the items and requested proof of the missing transaction. Through my bank's app, customer service responded three hours later: the money was sent but floating, and investigation could take 3–4 weeks.
 
-With no other option, I returned the items, requested proof of the missing transaction on their end, and tried to gather my thoughts about what had just transpired.
+Later, I realized the cashier had pressed "Confirm payment" seconds before I finalized the transaction. Could a simple timing mismatch cause funds to disappear into limbo?
 
-Later, I reached out to my bank through their app and received a response about three hours later — not too bad. The customer service confirmed that the money had been sent to the recipient bank. They assured me they would conduct a thorough investigation since I provided evidence that the transaction hadn’t appeared at the recipient bank. According to them, it was in a floating status, and their investigation might take 3 to 4 weeks to complete.
+If so, this is a critical flaw for a system aiming for widespread adoption. It could happen daily if cashiers aren't meticulous.
 
-Shorty after, I decided to head back home.
-
-Upon returning, it struck me that the cashier had pressed the "Confirm payment" button on their terminal just seconds before I could finalize sending the amount. Could that be the reason?
-
-If so, It's surprising that such a limitation could occur, especially considering the widespread adoption QRph aims to achieve. I mean it could happen everyday if cashiers are not thorough.
-
-Was it the cashier's mistake, an opportunity for QRph to improve, or both?
+Was it the cashier's mistake, a system limitation, or both?
 
 ## <span id="mitigation">[Mitigation](#mitigation)</span>
 
-Few strategies came into mind:
+Three strategies could prevent this:
 
-- _Enhance Transaction Synchronization —_ implement a system where the confirmation process aligns more precisely between the customer's action and the cashier's terminal, preventing premature confirmations.
+- **Enhanced Transaction Synchronization** — Align confirmation between customer action and cashier terminal to prevent premature confirmations.
 
-- _Robust Error Management —_ error handling mechanisms that prompt for reconfirmation or alert both parties in case of any discrepancy or premature confirmation.
+- **Robust Error Handling** — Prompt for reconfirmation or alert both parties when discrepancies or premature confirmations occur.
 
-- _Educational Initiatives —_ educate cashiers and users about the potential for timing issues and provide guidance on how to prevent premature confirmations.
+- **Educational Initiatives** — Train cashiers and users about timing issues and prevention.
 
 ## <span id="awareness">[Awareness](#awareness)</span>
 
-In the meantime when using QRph, ensure that your cashier refrains from prematurely hitting the `Confirm Payment` button before you complete the transaction on your end.
+Until these improvements are implemented, ensure cashiers wait until you've completed your transaction before pressing "Confirm Payment."
 
 ## <span id="conclusion">[Conclusion](#conclusion)</span>
 
-The amount I paid was credited back to my account after 3 weeks.
+Three weeks later, the money was credited back. But the experience exposed a critical weakness in QRph's design—one that shouldn't exist in a payment system built for scale.

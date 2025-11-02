@@ -1,6 +1,6 @@
 import { NextSeo } from "next-seo";
-import { AboutSection } from "@/components";
 import { MainLayout } from "@/components/MainLayout";
+import { AboutSectionNew } from "@/components/home/AboutSectionNew";
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
@@ -13,10 +13,9 @@ export default function Home() {
           currentYear - 2017
         } years working with various tech startups, mid-stage organizations and even some larger ones. He likes to work on projects
         that make our lives a bit better and easier.`}
-        themeColor="dark"
       />
       <MainLayout>
-        <AboutSection currentYear={currentYear} />
+        <AboutSectionNew />
       </MainLayout>
     </>
   );

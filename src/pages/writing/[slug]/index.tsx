@@ -22,16 +22,13 @@ const CustomMdxComponents: MDXComponents = {
     <Image
       {...(props as ImageProps)}
       alt={props.alt}
-      className="transition-all drop-shadow-lg rounded-xl shadow-lg"
+      className="drop-shadow-lg rounded-xl shadow-lg my-8"
       width={800}
       height={700}
     />
   ),
   a: (props) => (
-    <AnchorWithLinkDisplay
-      {...props}
-      className="transition-all duration-500 hover:text-indigo-300 underline-offset-2"
-    />
+    <AnchorWithLinkDisplay {...props} className="underline-offset-2" />
   ),
   ExternalLink: (props) => (
     <ExternalLink
@@ -39,7 +36,10 @@ const CustomMdxComponents: MDXComponents = {
       className="transition-all duration-500 hover:text-indigo-300 underline-offset-2"
     />
   ),
-  h2: (props) => <h2 {...props} className="!text-[1.3333333em]" />,
+  h2: (props) => <h2 {...props} className="text-[1.75rem] italic" />,
+  ul: (props) => <ul {...props} className="list-['—']" />,
+  li: (props) => <li {...props} className="ml-4 pl-2" />,
+  strong: (props) => <strong {...props} className="font-[550]" />,
 };
 
 function getPrevNextPathsByDate(
@@ -91,7 +91,7 @@ export async function getStaticPaths() {
   const paths = allWritings.map((post) => ({
     params: { slug: post._raw.flattenedPath },
   }));
-
+  console.log(paths);
   return { paths, fallback: false };
 }
 
@@ -140,8 +140,8 @@ const Content = ({
         <article className="pb-8 mt-20">
           <div className="mb-10">
             <Tags list={writing.tags as string[]} />
-            <h1 className="text-3xl font-bold">{writing.title}</h1>
-            <div className="flex mb-1 text-base text-gray-400">
+            <h1 className="text-3xl font-semibold">{writing.title}</h1>
+            <div className="flex mb-1 text-base text-gray-500">
               <time dateTime={writing.date}>
                 {format(parseISO(writing.date), "LLL. d, yyyy")}
               </time>
@@ -151,29 +151,29 @@ const Content = ({
               )} mins read`}</div>
             </div>
           </div>
-          <div className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose md:prose-lg dark:prose-invert">
+          <div className="[&>*]:mb-3 [&>*:last-child]:mb-0">
             <MDXContent components={CustomMdxComponents} />
           </div>
         </article>
-        <Separator className="bg-gray-700 mb-4" />
+        <Separator className="bg-gray-300 mb-4" />
         <div className={`flex ${prev ? "justify-between" : "justify-end"}`}>
           {prev && (
             <Link
               href={prev.path}
-              className={`flex flex-col text-sm md:w-auto min-w-0 shrink-0 ${
+              className={`flex gap-1 flex-col text-sm md:w-auto min-w-0 shrink-0 ${
                 next ? "w-[48%]" : "w-[90%]"
               }`}
             >
-              <span className="text-gray-400">Previous</span>
+              <span className="text-gray-500">Previous</span>
               <span className="min-w-0 max-w-full truncate">{prev?.title}</span>
             </Link>
           )}
           {next && (
             <Link
               href={next.path}
-              className="flex flex-col text-sm w-[48%] md:w-auto min-w-0 shrink-0"
+              className="flex gap-1 flex-col text-sm w-[48%] md:w-auto min-w-0 shrink-0"
             >
-              <span className="text-right text-gray-400">Next</span>
+              <span className="text-right text-gray-500">Next</span>
               <span className="text-right min-w-0 max-w-full truncate">
                 {next?.title}
               </span>
