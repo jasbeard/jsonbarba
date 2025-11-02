@@ -2,27 +2,18 @@ import { MainLayout } from "@/components/MainLayout";
 import { NextSeo } from "next-seo";
 import {
   nearGym,
-  nearCiti,
-  nearMytown,
   oreCentral,
-  walkway,
-  pocketPark,
-  catwalk,
-  glassy,
+  fansipan,
+  sapaHotel,
   cornerCat,
-  uptownMallBridge,
   highStreetCat,
   pedxing,
-  alley,
   tower,
-  kidPet,
-  bgcParkFam,
   tree,
-  maInPark,
-  wife,
-  mc,
   cyberTruck,
-} from "@/components/photographs/getPhotos";
+  sapaStreets,
+  sapaStation,
+} from "@/components/pictorial/getPhotos";
 import Image, { StaticImageData } from "next/image";
 
 interface landscapeImagesProps {
@@ -32,48 +23,36 @@ interface landscapeImagesProps {
 
 const PictorailPage = () => {
   const landscapeImages: landscapeImagesProps[] = [
-    // {
-    //   src: nearCiti,
-    //   alt: "Near citi building",
-    // },
     {
       src: oreCentral,
       alt: "ore central building",
-    },
-    {
-      src: nearMytown,
-      alt: "near mytown",
     },
     {
       src: nearGym,
       alt: "this area is where my gym is located",
     },
     {
-      src: walkway,
-      alt: "a walkway",
+      src: fansipan,
+      alt: "sapa",
+    },
+    {
+      src: sapaHotel,
+      alt: "hotel view at sapa",
     },
   ];
 
   const portraits: landscapeImagesProps[] = [
     {
-      src: uptownMallBridge,
-      alt: "uptown mall bridge",
+      src: sapaStreets,
+      alt: "sapa streets",
     },
     {
       src: cornerCat,
       alt: "corner cat",
     },
     {
-      src: pocketPark,
-      alt: "pocket park",
-    },
-    {
-      src: catwalk,
-      alt: "cat walk",
-    },
-    {
-      src: glassy,
-      alt: "glassly",
+      src: sapaStation,
+      alt: "sapa station",
     },
     {
       src: highStreetCat,
@@ -84,36 +63,12 @@ const PictorailPage = () => {
       alt: "crossing",
     },
     {
-      src: alley,
-      alt: "some corner",
-    },
-    {
       src: tower,
       alt: "construction",
     },
     {
-      src: kidPet,
-      alt: "some kid",
-    },
-    {
-      src: bgcParkFam,
-      alt: "people",
-    },
-    {
       src: tree,
       alt: "a tree",
-    },
-    {
-      src: maInPark,
-      alt: "m",
-    },
-    {
-      src: wife,
-      alt: "w",
-    },
-    {
-      src: mc,
-      alt: "motorcycle",
     },
     {
       src: cyberTruck,
@@ -125,7 +80,7 @@ const PictorailPage = () => {
       <NextSeo title="Pictorial" />
       <MainLayout>
         <section className="mx-auto mt-20" aria-describedby="pictorial">
-          <h1 className={`font-semibold text-3xl`}>Pictorial</h1>
+          <h1 className="text-3xl text-gray-950 font-[550]">Pictorial</h1>
           {/* <p className="max-w-4xl mt-4">
             {`I’m capturing the world with Sony A6400, starting off with the kit
             lens that came with it. Here are some vibe landscape shots if you
@@ -133,14 +88,15 @@ const PictorailPage = () => {
           </p> */}
           <ul className="flex flex-col my-8 gap-4 list-none">
             {landscapeImages.map((item) => (
-              <li key={item.alt}>
+              <li key={item.alt} className="rounded">
                 <Image
                   src={item.src}
                   alt={item.alt ?? "a picture"}
                   placeholder="blur"
-                  width={1600}
+                  width={1800}
                   height={1062}
                   style={{ color: "transparent", position: "relative" }}
+                  className="rounded aspect-video"
                 />
               </li>
             ))}
@@ -150,15 +106,13 @@ const PictorailPage = () => {
       <section className="w-full px-4 md:px-4">
         <div className="my-24">
           <div className="md:px-32 lg:self-center lg:px-0 lg:w-[50%] mx-auto">
-            <h1 className={` font-semibold text-2xl sm:text-3xl`}>
-              {`Some portraits for ya'll`}
-            </h1>
+            <h1 className={`text-3xl`}>{`Some portraits for ya'll`}</h1>
             <p className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg">
               {`Somewhere in the streets, just passing by. (this section will be
               updated periodically)`}
             </p>
           </div>
-          {/* <ul className="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] xl:grid-cols-[repeat(4,_1fr)] gap-4 md:gap-4 mt-8">
+          <ul className="grid grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] xl:grid-cols-[repeat(4,_1fr)] gap-4 md:gap-4 mt-8">
             {portraits.map((item) => (
               <li className="relative aspect-[3/4]" key={item.alt}>
                 <Image
@@ -172,11 +126,12 @@ const PictorailPage = () => {
                     position: "absolute",
                     color: "transparent",
                   }}
+                  className="rounded"
                   fill
                 />
               </li>
             ))}
-          </ul> */}
+          </ul>
         </div>
       </section>
     </>

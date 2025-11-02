@@ -18,13 +18,13 @@ const WritingPage = () => {
       />
       <MainLayout>
         <div className="mt-20">
-          <h1 className="text-3xl">Writing</h1>
-          <p className="max-w-4xl mt-4">
+          <h1 className="text-3xl text-gray-950 font-[550]">Writing</h1>
+          <p className="max-w-2xl mt-4">
             Life experiences, learnings, values, brain dumps. Pretty much
             anything I can think of, and something worthy to share.
           </p>
         </div>
-        <div className="mt-12">
+        <div className="mt-8">
           {posts.map((post, idx) => (
             <WritingPreview key={idx} {...post} />
           ))}

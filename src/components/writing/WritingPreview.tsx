@@ -6,14 +6,14 @@ export const WritingPreview = (post: Writing) => {
   return (
     <Link
       href={post.url}
-      className="flex flex-col md:justify-between md:flex-row mb-4 hover:bg-gray-200 p-4 rounded"
+      className="flex flex-col md:justify-between md:flex-row hover:bg-gray-200 p-4 rounded md:-ml-4"
     >
       <div className="flex flex-col">
-        <span>{post.title}</span>
-        <span className="text-gray-500">{post.bodyPreview}</span>
+        <span className="text-gray-950">{post.title}</span>
+        <span className="text-gray-600">{post.bodyPreview}</span>
       </div>
       <div className="mt-1 text-sm">
-        <time dateTime={post.date} className="text-gray-500">
+        <time dateTime={post.date} className="text-gray-600">
           {format(parseISO(post.date), "LL.dd.yyyy")}
         </time>
       </div>

@@ -1,51 +1,33 @@
 // Landscape imports
-import nearGym from "/public/photographs/landscapes/an_area_where_I_go_to_the_gym.jpg";
-import nearCiti from "/public/photographs/landscapes/near_citi.jpg";
-import nearMytown from "/public/photographs/landscapes/near_mytown.jpg";
-import oreCentral from "/public/photographs/landscapes/ore_central.jpg";
-import walkway from "/public/photographs/landscapes/walkway.jpg";
+import nearGym from "/public/pictorial/landscapes/an_area_where_I_go_to_the_gym.jpg";
+import oreCentral from "/public/pictorial/landscapes/ore_central.jpg";
+import fansipan from "/public/pictorial/landscapes/fansipan.jpg";
+import sapaHotel from "/public/pictorial/landscapes/sapa.jpg";
 
 // Portrait imports
-import pocketPark from "/public/photographs/portraits/pocket_park.jpg";
-import catwalk from "/public/photographs/portraits/catwalk.jpg";
-import glassy from "/public/photographs/portraits/glassy.jpg";
-import cornerCat from "/public/photographs/portraits/corner_cat.jpg";
-import uptownMallBridge from "/public/photographs/portraits/traffic.jpg";
-import highStreetCat from "/public/photographs/portraits/high_street_cat_2.jpg";
-import pedxing from "/public/photographs/portraits/pedxing.jpg";
-import alley from "/public/photographs/portraits/some_alley.jpg";
-import tower from "/public/photographs/portraits/tower.jpg";
-import bgcParkFam from "/public/photographs/portraits/bgc_park_fam.jpg";
-import kidPet from "/public/photographs/portraits/kid_pet.jpg";
-import maInPark from "/public/photographs/portraits/ma_in_park2.jpg";
-import tree from "/public/photographs/portraits/tree_2.jpg";
-import wife from "/public/photographs/portraits/wife.jpg";
-import mc from "/public/photographs/portraits/mc.jpg";
-import cyberTruck from "/public/photographs/portraits/cybertruck.jpg";
+import cornerCat from "/public/pictorial/portraits/corner_cat.jpg";
+import highStreetCat from "/public/pictorial/portraits/high_street_cat_2.jpg";
+import pedxing from "/public/pictorial/portraits/pedxing.jpg";
+import tower from "/public/pictorial/portraits/tower.jpg";
+import tree from "/public/pictorial/portraits/tree_2.jpg";
+import cyberTruck from "/public/pictorial/portraits/cybertruck.jpg";
+import sapaStreets from "/public/pictorial/portraits/sapa_streets.jpg";
+import sapaStation from "/public/pictorial/portraits/sapa_station.jpg";
 
 export {
   // Landscape exports
   nearGym,
-  nearCiti,
-  nearMytown,
   oreCentral,
-  walkway,
+  fansipan,
+  sapaHotel,
 
   // Portrait exports
-  pocketPark,
-  catwalk,
-  glassy,
   cornerCat,
-  uptownMallBridge,
   highStreetCat,
   pedxing,
-  alley,
   tower,
-  bgcParkFam,
-  kidPet,
-  maInPark,
   tree,
-  wife,
-  mc,
   cyberTruck,
+  sapaStreets,
+  sapaStation,
 };

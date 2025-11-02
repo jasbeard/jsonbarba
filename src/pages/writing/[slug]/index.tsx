@@ -36,7 +36,7 @@ const CustomMdxComponents: MDXComponents = {
       className="transition-all duration-500 hover:text-indigo-300 underline-offset-2"
     />
   ),
-  h2: (props) => <h2 {...props} className="text-[1.75rem] italic" />,
+  h2: (props) => <h2 {...props} className="text-2xl text-gray-950 italic" />,
   ul: (props) => <ul {...props} className="list-['—']" />,
   li: (props) => <li {...props} className="ml-4 pl-2" />,
   strong: (props) => <strong {...props} className="font-[550]" />,
@@ -91,7 +91,7 @@ export async function getStaticPaths() {
   const paths = allWritings.map((post) => ({
     params: { slug: post._raw.flattenedPath },
   }));
-  console.log(paths);
+
   return { paths, fallback: false };
 }
 
