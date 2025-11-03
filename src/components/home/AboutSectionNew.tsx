@@ -17,7 +17,7 @@ export function AboutSectionNew() {
         </div>
 
         <span
-          className="mt-2 animate-fade-in"
+          className=" animate-fade-in"
           style={{
             animationDelay: "100ms",
             animationFillMode: "both",
@@ -109,7 +109,7 @@ export function AboutSectionNew() {
         }}
       >
         <h2 className="text-xl font-[550] text-gray-950 italic">Social.</h2>
-        <div className="flex flex-wrap gap-2 mt-4">
+        <div className="flex flex-wrap gap-2 mt-2">
           <Link
             href="mailto:me@jasonbarba.com"
             className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
