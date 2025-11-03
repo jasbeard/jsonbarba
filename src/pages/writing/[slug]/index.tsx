@@ -137,48 +137,57 @@ const Content = ({
         themeColor="dark"
       />
       <MainLayout>
-        <article className="pb-8 mt-20 max-w-3xl">
-          <div className="mb-10">
-            <Tags list={writing.tags as string[]} />
-            <h1 className="text-3xl font-semibold">{writing.title}</h1>
-            <div className="flex mb-1 text-base text-gray-500">
-              <time dateTime={writing.date}>
-                {format(parseISO(writing.date), "LLL. d, yyyy")}
-              </time>
-              <span>&nbsp;∙&nbsp;</span>
-              <div>{`📖 ${calculateReadingTime(
-                writing.wordCount as number
-              )} mins read`}</div>
+        <div
+          className="animate-fade-in"
+          style={{
+            animationFillMode: "both",
+          }}
+        >
+          <article className="pb-8 mt-20 max-w-3xl">
+            <div className="mb-10">
+              <Tags list={writing.tags as string[]} />
+              <h1 className="text-3xl font-semibold">{writing.title}</h1>
+              <div className="flex mb-1 text-base text-gray-500">
+                <time dateTime={writing.date}>
+                  {format(parseISO(writing.date), "LLL. d, yyyy")}
+                </time>
+                <span>&nbsp;∙&nbsp;</span>
+                <div>{`📖 ${calculateReadingTime(
+                  writing.wordCount as number
+                )} mins read`}</div>
+              </div>
             </div>
+            <div className="[&>*]:mb-3 [&>*:last-child]:mb-0">
+              <MDXContent components={CustomMdxComponents} />
+            </div>
+          </article>
+          <Separator className="bg-gray-300 mb-4" />
+          <div className={`flex ${prev ? "justify-between" : "justify-end"}`}>
+            {prev && (
+              <Link
+                href={prev.path}
+                className={`flex gap-1 flex-col text-sm md:w-auto min-w-0 shrink-0 ${
+                  next ? "w-[48%]" : "w-[90%]"
+                }`}
+              >
+                <span className="text-gray-500">Previous</span>
+                <span className="min-w-0 max-w-full truncate">
+                  {prev?.title}
+                </span>
+              </Link>
+            )}
+            {next && (
+              <Link
+                href={next.path}
+                className="flex gap-1 flex-col text-sm w-[48%] md:w-auto min-w-0 shrink-0"
+              >
+                <span className="text-right text-gray-500">Next</span>
+                <span className="text-right min-w-0 max-w-full truncate">
+                  {next?.title}
+                </span>
+              </Link>
+            )}
           </div>
-          <div className="[&>*]:mb-3 [&>*:last-child]:mb-0">
-            <MDXContent components={CustomMdxComponents} />
-          </div>
-        </article>
-        <Separator className="bg-gray-300 mb-4" />
-        <div className={`flex ${prev ? "justify-between" : "justify-end"}`}>
-          {prev && (
-            <Link
-              href={prev.path}
-              className={`flex gap-1 flex-col text-sm md:w-auto min-w-0 shrink-0 ${
-                next ? "w-[48%]" : "w-[90%]"
-              }`}
-            >
-              <span className="text-gray-500">Previous</span>
-              <span className="min-w-0 max-w-full truncate">{prev?.title}</span>
-            </Link>
-          )}
-          {next && (
-            <Link
-              href={next.path}
-              className="flex gap-1 flex-col text-sm w-[48%] md:w-auto min-w-0 shrink-0"
-            >
-              <span className="text-right text-gray-500">Next</span>
-              <span className="text-right min-w-0 max-w-full truncate">
-                {next?.title}
-              </span>
-            </Link>
-          )}
         </div>
       </MainLayout>
     </>

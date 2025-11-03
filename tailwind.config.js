@@ -87,6 +87,16 @@ module.exports = {
             transform: "translateY(100%)",
           },
         },
+        "fade-in": {
+          from: {
+            opacity: "0",
+            transform: "translateY(12px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
         shine: {
           "0%": { "background-position": "100%" },
           "100%": { "background-position": "-100%" },
@@ -104,8 +114,18 @@ module.exports = {
         "slide-down": "400ms cubic-bezier(0, 0, 0, 1) slide-down",
         "slide-up-mobile": "150ms ease-in slide-up-mobile",
         "slide-down-mobile": "50ms ease-in-out slide-down-mobile",
+        "fade-in": "800ms cubic-bezier(0.16, 1, 0.3, 1) fade-in",
+        "fade-in-slow": "1000ms cubic-bezier(0.16, 1, 0.3, 1) fade-in",
         shine: "shine 5s linear infinite",
         // add animation name based on keyframes data as needed
+      },
+      animationDelay: {
+        0: "0ms",
+        100: "100ms",
+        200: "200ms",
+        300: "300ms",
+        400: "400ms",
+        500: "500ms",
       },
     },
   },

@@ -100,8 +100,11 @@ const PictorailPage = () => {
       <NextSeo title="Pictorial" />
       <MainLayout>
         <section
-          className="mx-auto mt-20 max-w-3xl"
+          className="mx-auto mt-20 max-w-3xl animate-fade-in"
           aria-describedby="pictorial"
+          style={{
+            animationFillMode: "both",
+          }}
         >
           <h1 className="text-3xl text-gray-950 font-[550]">Pictorial</h1>
           <p className="mt-4">
@@ -124,7 +127,12 @@ const PictorailPage = () => {
           </ul>
         </section>
       </MainLayout>
-      <section className="w-full px-4 md:px-4">
+      <section
+        className="w-full px-4 md:px-4 animate-fade-in"
+        style={{
+          animationFillMode: "both",
+        }}
+      >
         <div className="mt-4 md:mt-24 mb-4">
           <div className="md:px-32 lg:self-center lg:px-0 lg:w-[50%] mx-auto">
             <h1 className="text-3xl text-gray-950 font-[550]">{`Some portraits for ya'll`}</h1>

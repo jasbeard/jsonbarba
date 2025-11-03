@@ -31,7 +31,12 @@ const TopicPage = () => {
         themeColor="dark"
       />
       <MainLayout>
-        <div className="mt-20 max-w-3xl">
+        <div
+          className="mt-20 max-w-3xl animate-fade-in"
+          style={{
+            animationFillMode: "both",
+          }}
+        >
           <h1 className="text-3xl text-gray-950 font-[550]">{tag}</h1>
           <p className=" text-gray-600 mt-4">
             Life experiences, learnings, values, brain dumps. Pretty much

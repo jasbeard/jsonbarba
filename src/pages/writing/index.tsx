@@ -17,17 +17,22 @@ const WritingPage = () => {
         themeColor="dark"
       />
       <MainLayout>
-        <div className="mt-20">
+        <div
+          className="mt-20 animate-fade-in"
+          style={{
+            animationFillMode: "both",
+          }}
+        >
           <h1 className="text-3xl text-gray-950 font-[550]">Writing</h1>
           <p className="max-w-3xl mt-4">
             Life experiences, learnings, values, brain dumps. Pretty much
             anything I can think of, and something worthy to share.
           </p>
-        </div>
-        <div className="mt-8">
-          {posts.map((post, idx) => (
-            <WritingPreview key={idx} {...post} />
-          ))}
+          <div className="mt-8">
+            {posts.map((post, idx) => (
+              <WritingPreview key={idx} {...post} />
+            ))}
+          </div>
         </div>
       </MainLayout>
     </>
