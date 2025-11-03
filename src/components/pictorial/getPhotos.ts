@@ -6,13 +6,17 @@ import sapaHotel from "/public/pictorial/landscapes/sapa.jpg";
 
 // Portrait imports
 import cornerCat from "/public/pictorial/portraits/corner_cat.jpg";
-import highStreetCat from "/public/pictorial/portraits/high_street_cat_2.jpg";
-import pedxing from "/public/pictorial/portraits/pedxing.jpg";
 import tower from "/public/pictorial/portraits/tower.jpg";
 import tree from "/public/pictorial/portraits/tree_2.jpg";
-import cyberTruck from "/public/pictorial/portraits/cybertruck.jpg";
 import sapaStreets from "/public/pictorial/portraits/sapa_streets.jpg";
 import sapaStation from "/public/pictorial/portraits/sapa_station.jpg";
+import sapaHouse from "/public/pictorial/portraits/sapa-house.jpg";
+import fansipanStatues from "/public/pictorial/portraits/fansipan_statues.jpg";
+import sapaLeading from "/public/pictorial/portraits/sapa_leading.jpg";
+import sapaTown from "/public/pictorial/portraits/sapa_town.jpg";
+import congcaphe from "/public/pictorial/portraits/congcaphe.jpg";
+import hoalo from "/public/pictorial/portraits/hoalo.jpg";
+import incense from "/public/pictorial/portraits/incense.jpg";
 
 export {
   // Landscape exports
@@ -23,11 +27,15 @@ export {
 
   // Portrait exports
   cornerCat,
-  highStreetCat,
-  pedxing,
   tower,
   tree,
-  cyberTruck,
   sapaStreets,
   sapaStation,
+  sapaHouse,
+  fansipanStatues,
+  sapaLeading,
+  sapaTown,
+  congcaphe,
+  hoalo,
+  incense,
 };

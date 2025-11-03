@@ -137,7 +137,7 @@ const Content = ({
         themeColor="dark"
       />
       <MainLayout>
-        <article className="pb-8 mt-20">
+        <article className="pb-8 mt-20 max-w-3xl">
           <div className="mb-10">
             <Tags list={writing.tags as string[]} />
             <h1 className="text-3xl font-semibold">{writing.title}</h1>

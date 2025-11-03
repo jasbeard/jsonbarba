@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { allWritings } from "contentlayer/generated";
 import { WritingPreview } from "@/components/writing";
 import { compareDesc } from "date-fns";
+import { NextSeo } from "next-seo";
 
 function titleCase(tag: string) {
   var splitStr = tag?.toLowerCase().split(" ");
@@ -23,22 +24,27 @@ const TopicPage = () => {
     (blog) => blog.tags?.includes(tag) && blog
   );
   return (
-    <MainLayout>
-      <div className="mt-20">
-        <h1 className="font-semibold text-dark text-2xl sm:text-3xl dark:text-white">
-          {tag}
-        </h1>
-        <p className="max-w-4xl text-dark dark:text-white mt-4 font-light leading-8 tracking-[0.01em] text-base sm:text-lg">
-          Selecting a tag on the blog filters and displays all related post
-          below.
-        </p>
-        <div className="mt-12">
-          {writingResult.map((blog) => (
-            <WritingPreview key={blog.title} {...blog} />
-          ))}
+    <>
+      <NextSeo
+        title="Blog search"
+        description="Life experiences, learnings, values, brain dumps. Pretty much anything I can think of, and something worthy to share."
+        themeColor="dark"
+      />
+      <MainLayout>
+        <div className="mt-20 max-w-3xl">
+          <h1 className="text-3xl text-gray-950 font-[550]">{tag}</h1>
+          <p className=" text-gray-600 mt-4">
+            Life experiences, learnings, values, brain dumps. Pretty much
+            anything I can think of, and something worthy to share.
+          </p>
+          <div className="mt-8">
+            {writingResult.map((blog) => (
+              <WritingPreview key={blog.title} {...blog} />
+            ))}
+          </div>
         </div>
-      </div>
-    </MainLayout>
+      </MainLayout>
+    </>
   );
 };
 
