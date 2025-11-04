@@ -100,7 +100,7 @@ const PictorailPage = () => {
       <NextSeo title="Pictorial" />
       <MainLayout>
         <section
-          className="mx-auto mt-20 max-w-3xl animate-fade-in"
+          className="mx-auto mt-20 max-w-2xl animate-fade-in"
           aria-describedby="pictorial"
           style={{
             animationFillMode: "both",

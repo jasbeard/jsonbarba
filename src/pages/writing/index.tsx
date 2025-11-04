@@ -24,7 +24,7 @@ const WritingPage = () => {
           }}
         >
           <h1 className="text-3xl text-gray-950 font-[550]">Writing</h1>
-          <p className="max-w-3xl mt-4">
+          <p className="max-w-2xl mt-4">
             Life experiences, learnings, values, brain dumps. Pretty much
             anything I can think of, and something worthy to share.
           </p>

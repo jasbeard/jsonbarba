@@ -32,7 +32,7 @@ const TopicPage = () => {
       />
       <MainLayout>
         <div
-          className="mt-20 max-w-3xl animate-fade-in"
+          className="mt-20 max-w-2xl animate-fade-in"
           style={{
             animationFillMode: "both",
           }}

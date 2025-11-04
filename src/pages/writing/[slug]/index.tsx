@@ -33,7 +33,7 @@ const CustomMdxComponents: MDXComponents = {
   ExternalLink: (props) => (
     <ExternalLink
       {...props}
-      className="transition-all duration-500 hover:text-indigo-300 underline-offset-2"
+      className="underline underline-offset-2 decoration-gray-400 decoration-dashed"
     />
   ),
   h2: (props) => <h2 {...props} className="text-2xl text-gray-950 italic" />,
@@ -143,7 +143,7 @@ const Content = ({
             animationFillMode: "both",
           }}
         >
-          <article className="pb-8 mt-20 max-w-3xl">
+          <article className="pb-8 mt-20 max-w-2xl">
             <div className="mb-10">
               <Tags list={writing.tags as string[]} />
               <h1 className="text-3xl font-semibold">{writing.title}</h1>

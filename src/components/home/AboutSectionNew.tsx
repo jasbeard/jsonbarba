@@ -4,7 +4,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 export function AboutSectionNew() {
   return (
     <>
-      <div className="flex flex-col w-full max-w-3xl mt-20">
+      <div className="flex flex-col w-full max-w-2xl mt-20">
         <div
           className="text-gray-950 font-medium animate-fade-in"
           style={{
