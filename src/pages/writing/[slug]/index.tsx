@@ -19,13 +19,18 @@ type ImageProps = NextImageProps & { title: string };
 
 const CustomMdxComponents: MDXComponents = {
   img: (props) => (
-    <Image
-      {...(props as ImageProps)}
-      alt={props.alt}
-      className="drop-shadow-lg rounded-xl shadow-lg my-8"
-      width={800}
-      height={700}
-    />
+    <div className="flex flex-col">
+      <Image
+        {...(props as ImageProps)}
+        alt={props.alt}
+        className="rounded-xl mt-8"
+        width={800}
+        height={700}
+      />
+      <span className="text-center text-xs my-2 text-gray-500">
+        {props.alt}
+      </span>
+    </div>
   ),
   a: (props) => (
     <AnchorWithLinkDisplay {...props} className="underline-offset-2" />
@@ -33,10 +38,10 @@ const CustomMdxComponents: MDXComponents = {
   ExternalLink: (props) => (
     <ExternalLink
       {...props}
-      className="underline underline-offset-2 decoration-gray-400 decoration-dashed"
+      className="underline underline-offset-2 decoration-gray-400 decoration-dashed italic"
     />
   ),
-  h2: (props) => <h2 {...props} className="text-2xl text-gray-950 italic" />,
+  h2: (props) => <h2 {...props} className="text-2xl text-gray-950" />,
   ul: (props) => <ul {...props} className="list-['—']" />,
   li: (props) => <li {...props} className="ml-4 pl-2" />,
   strong: (props) => <strong {...props} className="font-[550]" />,

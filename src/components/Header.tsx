@@ -7,9 +7,9 @@ export function Header() {
   return (
     <header className="w-full fixed top-0 z-10">
       <div
-        className="w-full h-[120px] md:h-[160px] pointer-events-none select-none fixed top-0"
+        className="w-full h-[124px] md:h-[160px] pointer-events-none select-none fixed top-0"
         style={{
-          backgroundImage: "linear-gradient(180deg, #f3f3f5 25%, transparent)",
+          backgroundImage: "linear-gradient(180deg, #f3f3f5 30%, transparent)",
         }}
       ></div>
       <div className={`fixed w-full mt-2 ${serif.className}`}>

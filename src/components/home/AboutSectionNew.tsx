@@ -41,14 +41,14 @@ export function AboutSectionNew() {
       </div>
       {/* Experience */}
       <div
-        className="mt-8 animate-fade-in"
+        className="mt-10 animate-fade-in"
         style={{
           animationDelay: "300ms",
           animationFillMode: "both",
         }}
       >
-        <h2 className="text-xl font-[550] text-gray-950 italic">Experience.</h2>
-        <div className="mt-2">
+        <h2 className="text-xl font-[550] text-gray-950">Experience.</h2>
+        <div className="mt-4">
           <div className="flex gap-1">
             <div className="">
               <Link
@@ -102,14 +102,14 @@ export function AboutSectionNew() {
       </div>
       {/* Contact */}
       <div
-        className="mt-8 animate-fade-in"
+        className="mt-10 animate-fade-in pb-4"
         style={{
           animationDelay: "400ms",
           animationFillMode: "both",
         }}
       >
-        <h2 className="text-xl font-[550] text-gray-950 italic">Social.</h2>
-        <div className="flex flex-wrap gap-2 mt-2">
+        <h2 className="text-xl font-[550] text-gray-950">Social.</h2>
+        <div className="flex flex-wrap gap-2 mt-4">
           <Link
             href="mailto:me@jasonbarba.com"
             className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
