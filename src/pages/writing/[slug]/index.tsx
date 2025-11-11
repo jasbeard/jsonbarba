@@ -167,7 +167,9 @@ const Content = ({
             </div>
           </article>
           <Separator className="bg-gray-300 mb-4" />
-          <div className={`flex ${prev ? "justify-between" : "justify-end"}`}>
+          <div
+            className={`flex mb-4 ${prev ? "justify-between" : "justify-end"}`}
+          >
             {prev && (
               <Link
                 href={prev.path}
