@@ -113,6 +113,7 @@ export function AboutSectionNew() {
           <Link
             href="mailto:me@jasonbarba.com"
             className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+            target="_blank"
           >
             <div>me@jasonbarba.com</div>
             <ArrowUpRightIcon
@@ -121,8 +122,9 @@ export function AboutSectionNew() {
             />
           </Link>
           <Link
-            href="https://github.com/swoppy"
+            href="https://github.com/jasbeard"
             className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+            target="_blank"
           >
             <div>github.com</div>
             <ArrowUpRightIcon
@@ -131,8 +133,9 @@ export function AboutSectionNew() {
             />
           </Link>
           <Link
-            href="https://x.com/jsonbarba"
+            href="https://x.com/jasbeardtech"
             className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+            target="_blank"
           >
             <div>x.com</div>
             <ArrowUpRightIcon
