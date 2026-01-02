@@ -30,14 +30,14 @@
     "next-sitemap": "^4.1.8",
     "next-themes": "^0.4.6",
     "postcss": "8.4.31",
-    "react": "^19.0.0",
+    "react": "^19.2.3",
     "react-dom": "^19.0.0",
     "remeda": "^2.30.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^24.10.0",
-    "@types/react": "^19.0.11",
+    "@types/react": "^19.2.7",
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "10.4.21",
     "eslint-config-next": "15.3.4",
