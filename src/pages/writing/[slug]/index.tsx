@@ -4,33 +4,24 @@ import { useMDXComponent } from "next-contentlayer2/hooks";
 import { MainLayout } from "@/components/MainLayout";
 import { NextSeo } from "next-seo";
 import type { MDXComponents } from "mdx/types";
-import Image, { ImageProps as NextImageProps } from "next/image";
 import { GetStaticPropsContext } from "next";
 import { calculateReadingTime } from "@/utils/lib";
 import {
   AnchorWithLinkDisplay,
   Tags,
   ExternalLink,
+  OptimizedMDXImage,
 } from "@/components/writing";
 import { Separator } from "@/components/Separator";
 import Link from "next/link";
 
-type ImageProps = NextImageProps & { title: string };
-
 const CustomMdxComponents: MDXComponents = {
   img: (props) => (
-    <span className="flex flex-col">
-      <Image
-        {...(props as ImageProps)}
-        alt={props.alt}
-        className="rounded-xl mt-8"
-        width={800}
-        height={700}
-      />
-      <span className="text-center text-xs my-2 text-gray-500">
-        {props.alt}
-      </span>
-    </span>
+    <OptimizedMDXImage
+      src={props.src ?? ""}
+      alt={props.alt ?? ""}
+      title={props.title}
+    />
   ),
   a: (props) => (
     <AnchorWithLinkDisplay {...props} className="underline-offset-2" />

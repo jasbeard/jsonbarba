@@ -8,7 +8,12 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    imgOptTimeoutInSeconds: 60,
+    imgOptConcurrency: 1,
+  },
   images: {
+    qualities: [75, 82],
     remotePatterns: [
       {
         protocol: "https",
