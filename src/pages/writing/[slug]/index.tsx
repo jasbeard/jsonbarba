@@ -19,7 +19,7 @@ type ImageProps = NextImageProps & { title: string };
 
 const CustomMdxComponents: MDXComponents = {
   img: (props) => (
-    <div className="flex flex-col">
+    <span className="flex flex-col">
       <Image
         {...(props as ImageProps)}
         alt={props.alt}
@@ -30,7 +30,7 @@ const CustomMdxComponents: MDXComponents = {
       <span className="text-center text-xs my-2 text-gray-500">
         {props.alt}
       </span>
-    </div>
+    </span>
   ),
   a: (props) => (
     <AnchorWithLinkDisplay {...props} className="underline-offset-2" />
@@ -41,6 +41,14 @@ const CustomMdxComponents: MDXComponents = {
       className="underline underline-offset-2 decoration-gray-400 decoration-dashed italic"
     />
   ),
+  SimpleLink: (props: { href?: string; children?: React.ReactNode }) => (
+    <Link
+      href={props.href ?? "/"}
+      className="underline underline-offset-2 decoration-indigo-400"
+    >
+      {props.children}
+    </Link>
+  ),
   h2: (props) => <h2 {...props} className="text-2xl text-gray-950" />,
   ul: (props) => <ul {...props} className="list-['—']" />,
   li: (props) => <li {...props} className="ml-4 pl-2" />,
@@ -49,7 +57,7 @@ const CustomMdxComponents: MDXComponents = {
 
 function getPrevNextPathsByDate(
   slug: string,
-  writings: Writing[]
+  writings: Writing[],
 ): {
   prev?: { title: string; path: string } | null;
   next?: { title: string; path: string } | null;
@@ -103,12 +111,12 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: GetStaticPropsContext) {
   // Find the post for the current page.
   const writing = allWritings.find(
-    (post) => post._raw.flattenedPath === context.params?.slug
+    (post) => post._raw.flattenedPath === context.params?.slug,
   );
 
   const { prev, next } = getPrevNextPathsByDate(
     context.params?.slug as string,
-    allWritings
+    allWritings,
   );
 
   // Return notFound if the post does not exist.
@@ -158,7 +166,7 @@ const Content = ({
                 </time>
                 <span>&nbsp;∙&nbsp;</span>
                 <div>{`📖 ${calculateReadingTime(
-                  writing.wordCount as number
+                  writing.wordCount as number,
                 )} mins read`}</div>
               </div>
             </div>

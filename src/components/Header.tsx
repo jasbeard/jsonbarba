@@ -20,8 +20,8 @@ export function Header() {
               aria-label="home link of the website"
               className={
                 router.asPath === "/"
-                  ? "underline underline-offset-[2px] decoration-indigo-400"
-                  : "hover:underline underline-offset-[2px] decoration-indigo-200"
+                  ? "underline underline-offset-2 decoration-indigo-400"
+                  : "hover:underline underline-offset-2 decoration-indigo-200"
               }
             >
               Home
