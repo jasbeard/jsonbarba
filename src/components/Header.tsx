@@ -31,8 +31,8 @@ export function Header() {
               aria-label="writing link of the website"
               className={
                 router.asPath.split("/").includes("writing")
-                  ? "underline underline-offset-[2px] decoration-indigo-400"
-                  : "hover:underline underline-offset-[2px] decoration-indigo-200"
+                  ? "underline underline-offset-2 decoration-indigo-400"
+                  : "hover:underline underline-offset-2 decoration-indigo-200"
               }
             >
               Writing
@@ -42,8 +42,8 @@ export function Header() {
               aria-label="pictorial link of the website"
               className={
                 router.asPath.split("/").includes("pictorial")
-                  ? "underline underline-offset-[2px] decoration-indigo-400"
-                  : "hover:underline underline-offset-[2px] decoration-indigo-200"
+                  ? "underline underline-offset-2 decoration-indigo-400"
+                  : "hover:underline underline-offset-2 decoration-indigo-200"
               }
             >
               Pictorial

@@ -161,7 +161,7 @@ const Content = ({
                 )} mins read`}</div>
               </div>
             </div>
-            <div className="[&>*]:mb-3 [&>*:last-child]:mb-0">
+            <div className="*:mb-3 [&>*:last-child]:mb-0">
               <MDXContent components={CustomMdxComponents} />
             </div>
           </article>
