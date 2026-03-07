@@ -34,7 +34,7 @@
     "remeda": "^2.33.6"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/postcss": "^4.2.1",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^25.2.2",
     "@types/react": "^19.0.11",
