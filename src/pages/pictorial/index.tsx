@@ -2,8 +2,6 @@ import { MainLayout } from "@/components/MainLayout";
 import { NextSeo } from "next-seo";
 import {
   nearGym,
-  oreCentral,
-  fansipan,
   sapaHotel,
   cornerCat,
   tower,
@@ -17,6 +15,10 @@ import {
   congcaphe,
   hoalo,
   incense,
+  osakaCastle,
+  katsuoji,
+  umeda,
+  tsutenkaku,
 } from "@/components/pictorial/getPhotos";
 import Image, { StaticImageData } from "next/image";
 
@@ -28,71 +30,79 @@ interface landscapeImagesProps {
 const PictorailPage = () => {
   const landscapeImages: landscapeImagesProps[] = [
     {
-      src: oreCentral,
-      alt: "ore central building",
+      src: osakaCastle,
+      alt: "Osaka Castle, Japan",
+    },
+    {
+      src: tsutenkaku,
+      alt: "Tsutenkaku View Deck, Japan",
+    },
+    {
+      src: katsuoji,
+      alt: "Katsuo-ji Temple, Japan",
+    },
+    {
+      src: umeda,
+      alt: "Umeda Sky, Japan",
     },
     {
       src: nearGym,
-      alt: "this area is where my gym is located",
-    },
-    {
-      src: fansipan,
-      alt: "sapa",
+      alt: "Somewhere in BGC, Philippines",
     },
     {
       src: sapaHotel,
-      alt: "hotel view at sapa",
+      alt: "Hotel view at Sapa, Vietnam",
     },
   ];
 
   const portraits: landscapeImagesProps[] = [
     {
       src: sapaStreets,
-      alt: "sapa streets",
+      alt: "Sapa Random Streets",
     },
     {
       src: congcaphe,
-      alt: "sapa streets",
+      alt: "At Cộng Cà Phê",
     },
     {
       src: cornerCat,
-      alt: "corner cat",
+      alt: "A Corner Cat",
     },
     {
       src: sapaStation,
-      alt: "sapa station",
+      alt: "Sapa Station",
     },
     {
       src: sapaHouse,
-      alt: "sapa house",
+      alt: "Sapa Station Midway",
     },
     {
       src: fansipanStatues,
-      alt: "fansipan statues",
+      alt: "At Fansipan",
     },
     {
       src: incense,
-      alt: "incense village",
+      alt: "Incense Village",
     },
     {
       src: tower,
-      alt: "construction",
+      alt: "Some Construction at BGC",
     },
     {
       src: tree,
-      alt: "a tree",
+      alt: "Cental Square",
     },
     {
       src: sapaLeading,
-      alt: "sapa walkway",
+      alt: "Along Sapa Station",
     },
     {
       src: sapaTown,
-      alt: "sapa town",
+      alt: "Sapa Town Center",
     },
     {
       src: hoalo,
-      alt: "outside hoalo",
+      alt: "Outside Hoalo Prison Museum",
     },
   ];
   return (
@@ -112,16 +122,21 @@ const PictorailPage = () => {
           </p>
           <ul className="flex flex-col my-8 gap-4 list-none">
             {landscapeImages.map((item) => (
-              <li key={item.alt} className="rounded">
+              <li key={item.alt} className="rounded relative">
                 <Image
                   src={item.src}
                   alt={item.alt ?? "a picture"}
                   placeholder="blur"
                   width={1800}
-                  height={1062}
+                  height={1061}
                   style={{ color: "transparent", position: "relative" }}
-                  className="aspect-video"
+                  className="aspect-auto z-0"
                 />
+                <div className="absolute bg-white/60 ml-2 -mt-8 z-20 text-gray-950 backdrop-opacity-30 backdrop-blur-sm rounded-full">
+                  <div className="text-xs py-1 px-2">
+                    <span>{item.alt}</span>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>
@@ -157,7 +172,13 @@ const PictorailPage = () => {
                     display: "block",
                   }}
                   fill
+                  className="relative"
                 />
+                <div className="absolute bottom-3 bg-white/60 ml-2 z-20 text-gray-950 backdrop-opacity-30 backdrop-blur-sm rounded-full">
+                  <div className="text-xs py-1 px-2">
+                    <span>{item.alt}</span>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>

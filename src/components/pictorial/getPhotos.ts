@@ -1,8 +1,10 @@
 // Landscape imports
 import nearGym from "/public/pictorial/landscapes/an_area_where_I_go_to_the_gym.jpg";
-import oreCentral from "/public/pictorial/landscapes/ore_central.jpg";
-import fansipan from "/public/pictorial/landscapes/fansipan.jpg";
 import sapaHotel from "/public/pictorial/landscapes/sapa.jpg";
+import osakaCastle from "/public/pictorial/landscapes/osaka_castle.jpg";
+import katsuoji from "/public/pictorial/landscapes/katsuoji.jpg";
+import umeda from "/public/pictorial/landscapes/umeda.jpg";
+import tsutenkaku from "/public/pictorial/landscapes/tsutenkaku.jpg";
 
 // Portrait imports
 import cornerCat from "/public/pictorial/portraits/corner_cat.jpg";
@@ -21,9 +23,11 @@ import incense from "/public/pictorial/portraits/incense.jpg";
 export {
   // Landscape exports
   nearGym,
-  oreCentral,
-  fansipan,
   sapaHotel,
+  osakaCastle,
+  katsuoji,
+  umeda,
+  tsutenkaku,
 
   // Portrait exports
   cornerCat,
