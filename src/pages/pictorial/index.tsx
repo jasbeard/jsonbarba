@@ -1,5 +1,6 @@
 import { MainLayout } from "@/components/MainLayout";
 import { NextSeo } from "next-seo";
+import { useState } from "react";
 import {
   nearGym,
   sapaHotel,
@@ -32,7 +33,15 @@ interface landscapeImagesProps {
   alt?: string;
 }
 
+const getImageKey = (item: landscapeImagesProps) => item.alt ?? item.src.src;
+
 const PictorailPage = () => {
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  const handleImageLoad = (key: string) => {
+    setLoadedImages((prev) => new Set(prev).add(key));
+  };
+
   const landscapeImages: landscapeImagesProps[] = [
     {
       src: osakaCastle,
@@ -147,7 +156,7 @@ const PictorailPage = () => {
           </p>
           <ul className="flex flex-col my-8 gap-4 list-none">
             {landscapeImages.map((item) => (
-              <li key={item.alt} className="rounded relative">
+              <li key={getImageKey(item)} className="rounded relative">
                 <Image
                   src={item.src}
                   alt={item.alt ?? "a picture"}
@@ -156,8 +165,15 @@ const PictorailPage = () => {
                   height={1061}
                   style={{ color: "transparent", position: "relative" }}
                   className="aspect-auto z-0"
+                  onLoad={() => handleImageLoad(getImageKey(item))}
                 />
-                <div className="absolute bg-white/60 ml-2 -mt-8 z-20 text-gray-950 backdrop-opacity-30 backdrop-blur-sm rounded-full">
+                <div
+                  className={`absolute bg-white/60 ml-2 -mt-8 z-20 text-gray-950 backdrop-opacity-30 backdrop-blur-sm rounded-full transition-opacity duration-300 ${
+                    loadedImages.has(getImageKey(item))
+                      ? "opacity-100"
+                      : "opacity-0 pointer-events-none"
+                  }`}
+                >
                   <div className="text-xs py-1 px-2">
                     <span>{item.alt}</span>
                   </div>
@@ -183,7 +199,7 @@ const PictorailPage = () => {
           </div>
           <ul className="grid grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] xl:grid-cols-[repeat(4,_1fr)] gap-4 mt-8">
             {portraits.map((item) => (
-              <li className="relative aspect-[.662727]" key={item.alt}>
+              <li className="relative aspect-[.662727]" key={getImageKey(item)}>
                 <Image
                   src={item.src}
                   alt={item.alt ?? "a picture"}
@@ -198,8 +214,15 @@ const PictorailPage = () => {
                   }}
                   fill
                   className="relative"
+                  onLoad={() => handleImageLoad(getImageKey(item))}
                 />
-                <div className="absolute bottom-3 bg-white/60 ml-2 z-20 text-gray-950 backdrop-opacity-30 backdrop-blur-sm rounded-full">
+                <div
+                  className={`absolute bottom-3 bg-white/60 ml-2 z-20 text-gray-950 backdrop-opacity-30 backdrop-blur-sm rounded-full transition-opacity duration-300 ${
+                    loadedImages.has(getImageKey(item))
+                      ? "opacity-100"
+                      : "opacity-0 pointer-events-none"
+                  }`}
+                >
                   <div className="text-xs py-1 px-2">
                     <span>{item.alt}</span>
                   </div>
