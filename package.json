@@ -43,7 +43,7 @@
     "eslint-config-next": "16.1.6",
     "next-seo": "^6.0.0",
     "tailwindcss": "4.1.18",
-    "typescript": "^5.7.3"
+    "typescript": "^5.9.3"
   },
   "volta": {
     "node": "22.12.0",
