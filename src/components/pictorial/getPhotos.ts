@@ -5,6 +5,7 @@ import osakaCastle from "/public/pictorial/landscapes/osaka_castle.jpg";
 import katsuoji from "/public/pictorial/landscapes/katsuoji.jpg";
 import umeda from "/public/pictorial/landscapes/umeda.jpg";
 import tsutenkaku from "/public/pictorial/landscapes/tsutenkaku.jpg";
+import usj from "/public/pictorial/landscapes/usj.jpg";
 
 // Portrait imports
 import cornerCat from "/public/pictorial/portraits/corner_cat.jpg";
@@ -19,6 +20,10 @@ import sapaTown from "/public/pictorial/portraits/sapa_town.jpg";
 import congcaphe from "/public/pictorial/portraits/congcaphe.jpg";
 import hoalo from "/public/pictorial/portraits/hoalo.jpg";
 import incense from "/public/pictorial/portraits/incense.jpg";
+import namba from "/public/pictorial/portraits/namba.jpg";
+import kyoto from "/public/pictorial/portraits/kyoto.jpg";
+import osakaCastle2 from "/public/pictorial/portraits/osaka_castle.jpg";
+import nambaSubway from "/public/pictorial/portraits/namba_subway.jpg";
 
 export {
   // Landscape exports
@@ -28,6 +33,7 @@ export {
   katsuoji,
   umeda,
   tsutenkaku,
+  usj,
 
   // Portrait exports
   cornerCat,
@@ -42,4 +48,8 @@ export {
   congcaphe,
   hoalo,
   incense,
+  namba,
+  kyoto,
+  osakaCastle2,
+  nambaSubway,
 };

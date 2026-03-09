@@ -23,7 +23,10 @@ export function AboutSectionNew() {
             animationFillMode: "both",
           }}
         >
-          Currently, I work at Asurion. Previously at Videocom.
+          Currently building{" "}
+          <span className="text-gray-950 font-medium">slugshift.com</span>, a
+          URL redirect management platform for marketing teams. Previously SE3
+          at Asurion.
         </span>
         <div
           className="mt-6 animate-fade-in"
@@ -58,7 +61,7 @@ export function AboutSectionNew() {
                 Asurion
               </Link>
             </div>
-            <div>2023-Now</div>
+            <div>2023-2026</div>
           </div>
           <div className="">
             Building & maintaining features, on-call & incident monitoring.

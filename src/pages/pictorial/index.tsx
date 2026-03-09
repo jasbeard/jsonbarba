@@ -19,6 +19,11 @@ import {
   katsuoji,
   umeda,
   tsutenkaku,
+  usj,
+  namba,
+  kyoto,
+  osakaCastle2,
+  nambaSubway,
 } from "@/components/pictorial/getPhotos";
 import Image, { StaticImageData } from "next/image";
 
@@ -53,6 +58,10 @@ const PictorailPage = () => {
       src: sapaHotel,
       alt: "Hotel view at Sapa, Vietnam",
     },
+    {
+      src: usj,
+      alt: "Universal Studios, Japan",
+    },
   ];
 
   const portraits: landscapeImagesProps[] = [
@@ -71,6 +80,22 @@ const PictorailPage = () => {
     {
       src: sapaStation,
       alt: "Sapa Station",
+    },
+    {
+      src: namba,
+      alt: "Hey",
+    },
+    {
+      src: kyoto,
+      alt: "Kyoto",
+    },
+    {
+      src: osakaCastle2,
+      alt: "Osaka Castle",
+    },
+    {
+      src: nambaSubway,
+      alt: "Namba Subway Entrance",
     },
     {
       src: sapaHouse,
