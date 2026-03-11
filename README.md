@@ -1,38 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# jsonbarba
 
-## Getting Started
+Personal website for Jason Barba, built with Next.js.  
+It includes:
 
-First, run the development server:
+- a home/about page
+- a writing section powered by MDX + Contentlayer
+- a pictorial page for travel/life photography
+
+## Stack
+
+- Next.js (Pages Router) + React + TypeScript
+- Contentlayer (`contentlayer2` + `next-contentlayer2`) for MDX content
+- Tailwind CSS
+- `next-seo`, Vercel Analytics, and Vercel Speed Insights
+
+## Prerequisites
+
+- Node.js `22.12.0` (see `volta` in `package.json`)
+- Yarn `1.22.19` (recommended for consistency with lockfile)
+
+## Local Development
+
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+yarn
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the development server:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Open [http://localhost:3000](http://localhost:3000).
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `yarn dev` - Start Next.js dev server
+- `yarn build` - Build Contentlayer content, then build the app
+- `yarn start` - Start production server
+- `yarn lint` - Run ESLint
+- `yarn type-check` - Run TypeScript checks
+- `yarn analyze` - Build with bundle analyzer enabled
 
-## Learn More
+## Content Authoring (Writing)
 
-To learn more about Next.js, take a look at the following resources:
+Writing entries live in `content/*.mdx` and are indexed by Contentlayer.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Each MDX file should include frontmatter like:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```md
+---
+title: My Post Title
+date: 2026-03-11
+bodyPreview: Short summary text
+wordCount: 500
+tags: ["Tag A", "Tag B"]
+---
+```
 
-## Deploy on Vercel
+Key behavior:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Writing list page: `/writing`
+- Writing detail pages: `/writing/[slug]`
+- Tag filtering page: `/writing/topic/[slug]`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Route Overview
+
+- `/` - Home / about
+- `/writing` - Articles and notes
+- `/pictorial` - Photo gallery
+
+## Project Structure
+
+- `src/pages` - Next.js routes
+- `src/components` - UI components and page sections
+- `content` - MDX writing content
+- `public/pictorial` - Photo assets used in the pictorial page
+- `contentlayer.config.ts` - Content schema and source config
+
+## Deployment
+
+The app is configured for Vercel (includes analytics and speed insights), but can be deployed to any platform that supports Next.js.
