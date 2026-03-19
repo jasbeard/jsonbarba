@@ -9,11 +9,11 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    imgOptTimeoutInSeconds: 60,
-    imgOptConcurrency: 1,
+    imgOptTimeoutInSeconds: 120,
+    imgOptConcurrency: 8,
   },
   images: {
-    qualities: [75, 82],
+    qualities: [75, 82, 95],
     remotePatterns: [
       {
         protocol: "https",
@@ -26,6 +26,11 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "1fjnp8gfmpn2zccc.public.blob.vercel-storage.com",
+      },
+      {
+        protocol: "https",
+        hostname: "for0bdxigfuzkgzs.public.blob.vercel-storage.com",
+        pathname: "/pictorial/**",
       },
     ],
   },

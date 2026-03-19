@@ -1,144 +1,15 @@
 import { MainLayout } from "@/components/MainLayout";
 import { NextSeo } from "next-seo";
-import { useState } from "react";
 import {
-  nearGym,
-  sapaHotel,
-  cornerCat,
-  tower,
-  tree,
-  sapaStreets,
-  sapaStation,
-  sapaHouse,
-  fansipanStatues,
-  sapaLeading,
-  sapaTown,
-  congcaphe,
-  hoalo,
-  incense,
-  osakaCastle,
-  katsuoji,
-  umeda,
-  tsutenkaku,
-  usj,
-  namba,
-  kyoto,
-  osakaCastle2,
-  nambaSubway,
-} from "@/components/pictorial/getPhotos";
-import Image, { StaticImageData } from "next/image";
+  landscapeImages,
+  portraits,
+  type PictorialImage,
+} from "@/components/pictorial/pictorialPhotos";
+import { OptimizedPictorialImage } from "@/components/pictorial/OptimizedPictorialImage";
 
-interface landscapeImagesProps {
-  src: StaticImageData;
-  alt?: string;
-}
-
-const getImageKey = (item: landscapeImagesProps) => item.alt ?? item.src.src;
+const getImageKey = (item: PictorialImage) => item.alt;
 
 const PictorailPage = () => {
-  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
-
-  const handleImageLoad = (key: string) => {
-    setLoadedImages((prev) => new Set(prev).add(key));
-  };
-
-  const landscapeImages: landscapeImagesProps[] = [
-    {
-      src: osakaCastle,
-      alt: "Osaka Castle, Japan",
-    },
-    {
-      src: tsutenkaku,
-      alt: "Tsutenkaku View Deck, Japan",
-    },
-    {
-      src: katsuoji,
-      alt: "Katsuo-ji Temple, Japan",
-    },
-    {
-      src: umeda,
-      alt: "Umeda Sky, Japan",
-    },
-    {
-      src: nearGym,
-      alt: "Somewhere in BGC, Philippines",
-    },
-    {
-      src: sapaHotel,
-      alt: "Hotel view at Sapa, Vietnam",
-    },
-    {
-      src: usj,
-      alt: "Universal Studios, Japan",
-    },
-  ];
-
-  const portraits: landscapeImagesProps[] = [
-    {
-      src: sapaStreets,
-      alt: "Sapa Random Streets",
-    },
-    {
-      src: congcaphe,
-      alt: "At Cộng Cà Phê",
-    },
-    {
-      src: cornerCat,
-      alt: "A Corner Cat",
-    },
-    {
-      src: sapaStation,
-      alt: "Sapa Station",
-    },
-    {
-      src: namba,
-      alt: "Hey",
-    },
-    {
-      src: kyoto,
-      alt: "Kyoto",
-    },
-    {
-      src: osakaCastle2,
-      alt: "Osaka Castle",
-    },
-    {
-      src: nambaSubway,
-      alt: "Namba Subway Entrance",
-    },
-    {
-      src: sapaHouse,
-      alt: "Sapa Station Midway",
-    },
-    {
-      src: fansipanStatues,
-      alt: "At Fansipan",
-    },
-    {
-      src: incense,
-      alt: "Incense Village",
-    },
-    {
-      src: tower,
-      alt: "Some Construction at BGC",
-    },
-    {
-      src: tree,
-      alt: "Cental Square",
-    },
-    {
-      src: sapaLeading,
-      alt: "Along Sapa Station",
-    },
-    {
-      src: sapaTown,
-      alt: "Sapa Town Center",
-    },
-    {
-      src: hoalo,
-      alt: "Outside Hoalo Prison Museum",
-    },
-  ];
   return (
     <>
       <NextSeo title="Pictorial" />
@@ -155,29 +26,14 @@ const PictorailPage = () => {
             {`A visual record of where I've been. Moments I wanted to remember. Scenes that caught my eye.`}
           </p>
           <ul className="flex flex-col my-8 gap-4 list-none">
-            {landscapeImages.map((item) => (
+            {landscapeImages.map((item, index) => (
               <li key={getImageKey(item)} className="rounded relative">
-                <Image
+                <OptimizedPictorialImage
                   src={item.src}
-                  alt={item.alt ?? "a picture"}
-                  placeholder="blur"
-                  width={1800}
-                  height={1061}
-                  style={{ color: "transparent", position: "relative" }}
-                  className="aspect-auto z-0"
-                  onLoad={() => handleImageLoad(getImageKey(item))}
+                  alt={item.alt}
+                  layout="landscape"
+                  priority={index === 0}
                 />
-                <div
-                  className={`absolute bg-white/60 ml-2 -mt-8 z-20 text-gray-950 backdrop-opacity-30 backdrop-blur-sm rounded-full transition-opacity duration-300 ${
-                    loadedImages.has(getImageKey(item))
-                      ? "opacity-100"
-                      : "opacity-0 pointer-events-none"
-                  }`}
-                >
-                  <div className="text-xs py-1 px-2">
-                    <span>{item.alt}</span>
-                  </div>
-                </div>
               </li>
             ))}
           </ul>
@@ -197,36 +53,14 @@ const PictorailPage = () => {
               updated periodically)`}
             </p>
           </div>
-          <ul className="grid grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] xl:grid-cols-[repeat(4,_1fr)] gap-4 mt-8">
+          <ul className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] xl:grid-cols-[repeat(4,1fr)] gap-4 mt-8">
             {portraits.map((item) => (
               <li className="relative aspect-[.662727]" key={getImageKey(item)}>
-                <Image
+                <OptimizedPictorialImage
                   src={item.src}
-                  alt={item.alt ?? "a picture"}
-                  placeholder="blur"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center center",
-                    color: "transparent",
-                    display: "block",
-                  }}
-                  fill
-                  className="relative"
-                  onLoad={() => handleImageLoad(getImageKey(item))}
+                  alt={item.alt}
+                  layout="portrait"
                 />
-                <div
-                  className={`absolute bottom-3 bg-white/60 ml-2 z-20 text-gray-950 backdrop-opacity-30 backdrop-blur-sm rounded-full transition-opacity duration-300 ${
-                    loadedImages.has(getImageKey(item))
-                      ? "opacity-100"
-                      : "opacity-0 pointer-events-none"
-                  }`}
-                >
-                  <div className="text-xs py-1 px-2">
-                    <span>{item.alt}</span>
-                  </div>
-                </div>
               </li>
             ))}
           </ul>
