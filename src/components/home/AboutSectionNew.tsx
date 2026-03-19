@@ -13,7 +13,9 @@ export function AboutSectionNew() {
           }}
         >
           Jason Barba.{" "}
-          <span className="text-gray-600 font-normal">Sofware Engineer.</span>
+          <span className="text-gray-600 font-normal">
+            Senior Sofware Engineer.
+          </span>
         </div>
 
         <span
@@ -24,9 +26,9 @@ export function AboutSectionNew() {
           }}
         >
           Currently building{" "}
-          <span className="text-gray-950 font-medium">slugshift.com</span>, a
-          URL redirect management platform for marketing teams. Previously SE3
-          at Asurion.
+          <span className="text-gray-950 font-medium">Slugshift</span> a URL
+          management tool for marketing teams. <br />
+          Previously, Software Engineer 3 at Asurion.
         </span>
         <div
           className="mt-6 animate-fade-in"
@@ -36,7 +38,7 @@ export function AboutSectionNew() {
           }}
         >
           <span>
-            In my spare time — I could be at the gym, travelling with my wife,
+            In my down time, I could be at the gym, travelling with my wife,
             playing video games, developing a mini SaaS, working on some writing
             or taking a picture.
           </span>
@@ -64,8 +66,8 @@ export function AboutSectionNew() {
             <div>2023-2026</div>
           </div>
           <div className="">
-            Building & maintaining features, on-call & incident monitoring.
-            Security SME.
+            E2E feature ownership roles, on-call & incident monitoring. Security
+            SME.
           </div>
         </div>
         <div className="mt-6">
@@ -87,7 +89,7 @@ export function AboutSectionNew() {
             <div>2021-2022</div>
           </div>
           <div>
-            Owned cloud feature development & API integrations. Migration
+            Build web features around ffmpeg & API integrations. Migration
             efforts.
           </div>
         </div>
