@@ -5067,10 +5067,10 @@ next-contentlayer2@^0.5.8:
     "@contentlayer2/core" "0.5.8"
     "@contentlayer2/utils" "0.5.8"
 
-next-seo@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-6.0.0.tgz#4568dc61a44dbdf5fe5ff44156cd0ff8804889a2"
-  integrity sha512-jKKt1p1z4otMA28AyeoAONixVjdYmgFCWwpEFtu+DwRHQDllVX3RjtyXbuCQiUZEfQ9rFPBpAI90vDeLZlMBdg==
+next-seo@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-7.2.0.tgz#2fda1ed2a88af37f1067e9383e57649922b256e8"
+  integrity sha512-ST7/YB8g0SXGuEKNucBz9wiP6nCYVZ4v8qJB7rAz9Vr1X98mw5orWL9COr8td/dzqtCYd4xaIg0YVCq5Yy3PQA==
 
 next-sitemap@^4.1.8:
   version "4.1.8"
