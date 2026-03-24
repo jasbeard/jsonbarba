@@ -16,7 +16,7 @@ It includes:
 
 ## Prerequisites
 
-- Node.js `22.12.0` (see `volta` in `package.json`)
+- Node.js **24.x** LTS (pinned to `24.14.0` in Volta; see `engines` in `package.json`)
 - Yarn `1.22.19` (recommended for consistency with lockfile)
 
 ## Local Development
@@ -83,3 +83,5 @@ Key behavior:
 ## Deployment
 
 The app is configured for Vercel (includes analytics and speed insights), but can be deployed to any platform that supports Next.js.
+
+On Vercel, set the project **Node.js Version** to **24.x** so it matches `engines` / Volta in this repo.

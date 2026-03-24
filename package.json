@@ -2,12 +2,15 @@
   "name": "jsonbarba",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "scripts": {
     "analyze": "ANALYZE=true next build --webpack",
     "dev": "next dev --webpack",
     "build": "contentlayer2 build && next build --webpack",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "type-check": "tsc",
     "postbuild": "next-sitemap"
   },
@@ -22,7 +25,7 @@
     "classnames": "^2.3.2",
     "contentlayer2": "^0.5.8",
     "date-fns": "^4.1.0",
-    "eslint": "9.31.0",
+    "eslint": "9.39.4",
     "lucide-react": "^0.563.0",
     "next": "16.1.7",
     "next-contentlayer2": "^0.5.8",
@@ -36,17 +39,17 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.1",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^25.2.2",
+    "@types/node": "^24.0.0",
     "@types/react": "^19.0.11",
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "10.4.24",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "16.2.1",
     "next-seo": "^6.0.0",
     "tailwindcss": "4.1.18",
     "typescript": "^5.9.3"
   },
   "volta": {
-    "node": "22.12.0",
+    "node": "24.14.0",
     "yarn": "1.22.19"
   }
 }
