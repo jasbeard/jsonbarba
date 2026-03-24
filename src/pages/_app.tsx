@@ -1,5 +1,4 @@
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "next-themes";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -32,14 +31,12 @@ export default function App({ Component, pageProps }: AppProps) {
           content="eWe6gVI-N_FNp6_N2Kgegk3bWx-jkoKv028MeG1fEK4"
         />
       </Head>
-      <ThemeProvider attribute="class">
-        <main>
-          <Header />
-          <Component {...pageProps} />
-          <Analytics />
-          <SpeedInsights />
-        </main>
-      </ThemeProvider>
+      <main>
+        <Header />
+        <Component {...pageProps} />
+        <Analytics />
+        <SpeedInsights />
+      </main>
     </>
   );
 }
