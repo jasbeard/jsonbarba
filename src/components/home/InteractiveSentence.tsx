@@ -1,5 +1,4 @@
 import { serif } from "@/font/fonts";
-import { composeEventHandlers } from "@radix-ui/primitive";
 
 interface InteractiveSentenceProps {
   id: string;
@@ -33,7 +32,10 @@ export const InteractiveSentence = ({
         id={id}
         data-analytics-id={id}
         className={`px-2 font-medium dark:text-dark outline-offset-2 ${serif.className} ${buttonClassName}`}
-        onClick={composeEventHandlers(toggle, () => onMouse.over())}
+        onClick={() => {
+          toggle?.();
+          onMouse.over();
+        }}
         onBlur={onMouse.out}
         onFocus={onMouse.over}
         onMouseOver={onMouse.over}

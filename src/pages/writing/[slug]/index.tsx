@@ -162,6 +162,8 @@ const Content = ({
               </div>
             </div>
             <div className="*:mb-3 [&>*:last-child]:mb-0">
+              {/* Contentlayer: MDX root is compiled per post; cannot hoist outside render. */}
+              {/* eslint-disable-next-line react-hooks/static-components */}
               <MDXContent components={CustomMdxComponents} />
             </div>
           </article>
