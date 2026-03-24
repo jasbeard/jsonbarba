@@ -9,21 +9,25 @@ export function ThemeSwitcher() {
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    queueMicrotask(() => setMounted(true));
+  }, []);
 
   if (!mounted) {
     return null
   }
 
   const valueToIcon = (theme: string | undefined) => {
-    switch(theme) {
-      case 'dark': return <MoonIcon width={22} height={22} strokeWidth={6}/>;
-      case 'light': return <SunIcon width={22} height={22} strokeWidth={6}/>;
-      case 'system': return <GearIcon width={22} height={22} strokeWidth={6}/>;
-      default: null // never
+    switch (theme) {
+      case "dark":
+        return <MoonIcon width={22} height={22} strokeWidth={6} />;
+      case "light":
+        return <SunIcon width={22} height={22} strokeWidth={6} />;
+      case "system":
+        return <GearIcon width={22} height={22} strokeWidth={6} />;
+      default:
+        return null;
     }
-  }
+  };
 
   return (
     <Select.Root value={theme} onValueChange={value => setTheme(value)}>

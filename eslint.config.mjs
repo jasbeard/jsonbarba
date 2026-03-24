@@ -12,6 +12,13 @@ const config = [
       "react-hooks/static-components": "warn",
     },
   },
+  // Root CJS configs use require(); TypeScript rules still apply otherwise.
+  {
+    files: ["next.config.js", "tailwind.config.js", "postcss.config.js"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",

@@ -33,7 +33,9 @@ export function OptimizedPictorialImage({
     if (!img) return;
 
     if (img.complete && img.naturalWidth > 0) {
-      setIsLoaded(true);
+      queueMicrotask(() => {
+        if (mounted) setIsLoaded(true);
+      });
       return;
     }
 
@@ -81,6 +83,7 @@ export function OptimizedPictorialImage({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           {...imgCommon}
+          alt={alt}
           width={1800}
           height={1061}
           sizes="(max-width: 768px) 100vw, 672px"
@@ -116,6 +119,7 @@ export function OptimizedPictorialImage({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         {...imgCommon}
+        alt={alt}
         style={{
           width: "100%",
           height: "100%",

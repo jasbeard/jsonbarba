@@ -1,20 +1,16 @@
-import {
-  identity,
-} from 'remeda';
-
 /**
  * See https://ramdajs.com/docs/#pickBy
  */
-export function pickBy<T extends {}>(
+export function pickBy<T extends object>(
   test: (
-    arg0: T[Extract<keyof T, string>],
-    arg1: Extract<keyof T, string>,
-    arg2: T
-  ) => any,
-  obj: T
+    value: T[keyof T],
+    key: keyof T & string,
+    obj: T,
+  ) => boolean,
+  obj: T,
 ): Partial<T> {
-  let result: Partial<T> = {};
-  for (let prop in obj) {
+  const result: Partial<T> = {};
+  for (const prop in obj) {
     if (test(obj[prop], prop, obj)) {
       result[prop] = obj[prop];
     }
@@ -25,10 +21,10 @@ export function pickBy<T extends {}>(
 /**
  * Removes null or undefined entries in object
  */
-export function noNil<T extends {}>(obj: T): Partial<T> {
-  return pickBy<T>(identity, obj);
+export function noNil<T extends object>(obj: T): Partial<T> {
+  return pickBy<T>((value) => value != null, obj);
 }
 
-export function calculateReadingTime(num: number){
+export function calculateReadingTime(num: number) {
   return Math.ceil(num / 200);
 }

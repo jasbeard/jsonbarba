@@ -26,7 +26,7 @@ const Company = forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >(({ ...props }, ref) => {
   const workListContext = useWorkList();
-  let assistiveLabel =
+  const assistiveLabel =
     workListContext?.name[0] === "Asurion"
       ? `Jason's current contract`
       : `one of Jason's past contract`;
