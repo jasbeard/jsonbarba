@@ -25,9 +25,9 @@ export function AboutSectionNew() {
             animationFillMode: "both",
           }}
         >
-          Currently building{" "}
+          {/* Currently building{" "}
           <span className="text-gray-950 font-medium">Slugshift</span> a URL
-          management tool for marketing teams. <br />
+          management tool for marketing teams. <br /> */}
           Previously, Software Engineer 3 at Asurion.
         </span>
         <div
