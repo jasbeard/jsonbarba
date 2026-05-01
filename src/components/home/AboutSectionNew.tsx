@@ -1,6 +1,52 @@
 import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
 
+type ExperienceItem = {
+  company: string;
+  href?: string;
+  years: string;
+  /** When true, years use muted styling (e.g. previous role). */
+  yearsMuted?: boolean;
+  description: string;
+};
+
+const EXPERIENCE: ExperienceItem[] = [
+  {
+    company: "Aboitiz Data Innovation",
+    href: "https://aboitizdatainnovation.com/",
+    years: "2026-present",
+    description:
+      "Public sector AI projects. Internal secondment to different Aboitiz business units.",
+  },
+  {
+    company: "Asurion",
+    href: "https://www.asurion.com",
+    years: "2023-2026",
+    description:
+      "E2E feature ownership roles, on-call & incident monitoring. Security SME.",
+  },
+  {
+    company: "Videocom",
+    years: "2022-2023",
+    href: "https://videocom.com",
+    yearsMuted: true,
+    description:
+      "Senior engineer. Built & launched features for Videocom cloud.",
+  },
+  {
+    company: "SplitmediaLabs",
+    years: "2021-2022",
+    description:
+      "Build web features around ffmpeg & API integrations. Migration efforts.",
+  },
+  {
+    company: "Metrobank",
+    years: "2020-2021",
+    description:
+      "Led development of automated buy and sell features for wealth management platform.",
+  },
+];
+
 export function AboutSectionNew() {
   return (
     <>
@@ -25,9 +71,8 @@ export function AboutSectionNew() {
             animationFillMode: "both",
           }}
         >
-          {/* Currently building{" "}
-          <span className="text-gray-950 font-medium">Slugshift</span> a URL
-          management tool for marketing teams. <br /> */}
+          Currently works at Aboitiz Data Innovation as a Senior Full Stack
+          Engineer. <br />
           Previously, Software Engineer 3 at Asurion.
         </span>
         <div
@@ -53,57 +98,27 @@ export function AboutSectionNew() {
         }}
       >
         <h2 className="text-xl font-[550] text-gray-950">Experience.</h2>
-        <div className="mt-4">
-          <div className="flex gap-1">
-            <div className="">
-              <Link
-                href="https://www.asurion.com"
-                className="text-gray-950 font-medium"
-              >
-                Asurion
-              </Link>
+        {EXPERIENCE.map((item, index) => (
+          <div key={item.company} className={index === 0 ? "mt-4" : "mt-6"}>
+            <div className="flex gap-1">
+              <div>
+                {item.href ? (
+                  <Link href={item.href} className="text-gray-950 font-medium">
+                    {item.company}
+                  </Link>
+                ) : (
+                  <span className="text-gray-950 font-medium">
+                    {item.company}
+                  </span>
+                )}
+              </div>
+              <div className={item.yearsMuted ? "text-gray-600" : undefined}>
+                {item.years}
+              </div>
             </div>
-            <div>2023-2026</div>
+            <div>{item.description}</div>
           </div>
-          <div className="">
-            E2E feature ownership roles, on-call & incident monitoring. Security
-            SME.
-          </div>
-        </div>
-        <div className="mt-6">
-          <div className="flex gap-1">
-            <div>
-              <span className="text-gray-950 font-medium">Videocom</span>
-            </div>
-            <div className="text-gray-600">2022-2023</div>
-          </div>
-          <div>
-            Senior engineer. Built & launched features for Videocom cloud.
-          </div>
-        </div>
-        <div className="mt-6">
-          <div className="flex gap-1">
-            <div>
-              <span className="text-gray-950 font-medium">SplitmediaLabs</span>
-            </div>
-            <div>2021-2022</div>
-          </div>
-          <div>
-            Build web features around ffmpeg & API integrations. Migration
-            efforts.
-          </div>
-        </div>
-        <div className="mt-6">
-          <div className="flex gap-1">
-            <div>
-              <span className="text-gray-950 font-medium">Metrobank</span>
-            </div>
-            <div>2020-2021</div>
-          </div>
-          <div>
-            Led development of buy and sell features for bonds platform.
-          </div>
-        </div>
+        ))}
       </div>
       {/* Contact */}
       <div
