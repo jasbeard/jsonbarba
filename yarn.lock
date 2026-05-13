@@ -5375,10 +5375,10 @@ remark-rehype@^11.0.0, remark-rehype@^11.1.0:
     unified "^11.0.0"
     vfile "^6.0.0"
 
-remeda@^2.33.6:
-  version "2.33.6"
-  resolved "https://registry.yarnpkg.com/remeda/-/remeda-2.33.6.tgz#5cc100b6edad5e8ba9a5859e15b400c94e83c0d7"
-  integrity sha512-tazDGH7s75kUPGBKLvhgBEHMgW+TdDFhjUAMdQj57IoWz6HsGa5D2RX5yDUz6IIqiRRvZiaEHzCzWdTeixc/Kg==
+remeda@^2.34.1:
+  version "2.34.1"
+  resolved "https://registry.yarnpkg.com/remeda/-/remeda-2.34.1.tgz#4c2038ea90d31716ca735ac05210331238bf96ef"
+  integrity sha512-k5iIF3lHm2NQ+2bNGDvZTD5jZl/JZkCS6AQOfGjYBd7V4rbb3K5whHvab0/O7CqPI43vYzbnIVCQXQJqmOyI6w==
 
 require-directory@^2.1.1:
   version "2.1.1"
