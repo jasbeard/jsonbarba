@@ -1,0 +1,78 @@
+---
+title: Building Capital Notes 💸 🧐
+date: 2026-06-14
+bodyPreview: Turns portfolio data and AI analysis into a structured decision journal
+wordCount: 586
+tags: ["Side Projects", "Investing", "Software Engineering"]
+---
+
+I have been investing for years, and the hardest part is not finding information. It is keeping decisions honest over time.
+
+I would read earnings, run a valuation, feel confident about a position, and six months later forget why I sized it the way I did. Spreadsheets tracked holdings. Notes apps held fragments. Nothing connected portfolio state, research, and the reasoning behind each call.
+
+That gap is what I am building toward with **Capital Notes**.
+
+<br />
+
+## <span id="what-it-is">[What it is](#what-it-is)</span>
+
+Capital Notes is a research and analysis notebook for your portfolio. It helps investors turn portfolio data, market research, and AI-assisted analysis into a structured decision journal.
+
+The core loop is simple:
+
+- Enter holdings and cash
+- Define your portfolio thesis and risk limits (optional)
+- Run structured analyses against live portfolio context
+- Save results as notes with a full audit trail
+
+Instead of scattered docs and half-remembered conviction, every decision has a timestamp, a confidence score, and the reasoning that produced it.
+
+<br />
+
+## <span id="what-is-in-the-app">[What is in the app](#what-is-in-the-app)</span>
+
+The app is organized around three surfaces:
+
+**Portfolio dashboard** — Holdings, cash, concentration, and theme exposure at a glance. You see total value, position weights, and returns without leaving the app.
+
+**AI analysis** — Structured prompts, not open-ended chat. Health checks, portfolio reviews, exposure assessments, sentiment analysis, stock comparisons, and customer discovery. Each analysis type has a defined output: recommendations, risk framing, and decision-oriented takeaways.
+
+**Decision journal** — Saved analysis notes, watchlist items, and follow-up runs. When you revisit a ticker months later, you can see what you thought, when you thought it, and what changed.
+
+Settings round out the context: a portfolio thesis (north star, strategic intent, constraints) and risk limits that feed into every analysis run.
+
+<br />
+
+## <span id="why-structured-analysis">[Why structured analysis](#why-structured-analysis)</span>
+
+Most investing tools either show you data or let you chat with a model. Neither solves the journal problem.
+
+Raw data does not record intent. Unstructured chat does not create a durable record you can compare against later.
+
+Capital Notes sits in the middle. Analyses are typed, labeled, and saved. A portfolio health check from March and a follow-up in June are linked by ticker and kind, not buried in a conversation thread.
+
+The goal is not to replace your judgment. It is to make your judgment legible — to you, six months from now.
+
+<br />
+
+## <span id="stack">[Stack](#stack)</span>
+
+On the engineering side, it is a straightforward modern web app:
+
+- Next.js 16 (App Router) + TypeScript
+- PostgreSQL + Drizzle ORM
+- better-auth for email/password and optional Google OAuth
+- Kimi K2.6 via the Vercel AI SDK
+- Polar for subscription billing
+
+The UI takes cues from Linear — dark panels, tight typography, minimal chrome. I want the product to feel a bit of a research tool, not a consumer fintech app.
+
+<br />
+
+## <span id="where-things-stand">[Where things stand](#where-things-stand)</span>
+
+The core loop works end to end: sign up, seed a portfolio, run an analysis, save a note, revisit it later.
+
+What is still ahead: polish on the marketing site, tighter prompt iteration as I use the product on my own portfolio.
+
+I am building this because I need it. If the decision journal problem resonates with you, I will share more as the project evolves.

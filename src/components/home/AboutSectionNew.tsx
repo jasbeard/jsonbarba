@@ -153,7 +153,7 @@ export function AboutSectionNew() {
             />
           </Link>
           <Link
-            href="https://x.com/jasbeardtech"
+            href="https://x.com/itsjasonbarba"
             className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
             target="_blank"
           >
