@@ -1,0 +1,70 @@
+---
+title: Choosing an AI model for Capital Notes 🤖
+date: 2026-06-29
+bodyPreview: Testing cheaper models for structured analysis, and why Kimi K2.6 won out
+wordCount: 611
+tags: ["AI", "Side Projects", "Software Engineering"]
+---
+
+Capital Notes runs structured AI analyses against live portfolio context. Health checks, exposure assessments, stock comparisons. The output has to be reliable, follow a prompt spec, and stay cheap enough to ship as a product.
+
+Frontier models from OpenAI and Anthropic are excellent, but the per-task cost makes margins tight if you are not careful. So I spent time testing cheaper alternatives before committing to one for the app.
+
+<br />
+
+## <span id="the-benchmark-picture">[The benchmark picture](#the-benchmark-picture)</span>
+
+On paper, several mid-tier models cluster together on intelligence while costing a fraction of frontier pricing. The chart below is from Artificial Analysis. Intelligence, speed, and cost per task side by side.
+
+![AI model benchmarks: intelligence, speed, and cost per task](/writing/ai-model-benchmarks2.png "AI model benchmarks from Artificial Analysis")
+
+DeepSeek V4 Pro, MiniMax-M3, and Kimi K2.6 all land in a similar intelligence band. The real differences showed up once I wired them into actual multi-step workflows.
+
+<br />
+
+## <span id="deepseek-v4">[DeepSeek V4](#deepseek-v4)</span>
+
+Cheapest on the chart at $0.04 per task, and benchmark scores look competitive. In practice, it was the least reliable of the three.
+
+Responses would loop inside its reasoning and get stuck there. Sometimes it would eventually answer, but not according to the prompt spec. Wrong structure, missing fields, or tangents that did not map to the analysis type I asked for.
+
+For a product where every analysis has a defined output shape, that inconsistency was a dealbreaker.
+
+<br />
+
+## <span id="minimax-m3">[MiniMax M3](#minimax-m3)</span>
+
+MiniMax scored highest on intelligence among the cheaper models I tested. It handled multi-step workflows reasonably well. Ran the analysis, returned structured output, stayed within the prompt boundaries.
+
+Two practical catches for commercial use:
+
+- **Search is on you.** The model does not bring web search built in. That is fine if you integrate it yourself, but it is extra plumbing.
+- **Attribution requirements.** Using it commercially means placing attribution on your website, and it needs to be prominent. There is also a one-time notice email requirement.
+
+Neither is impossible, but for a polished product experience, the compliance overhead added friction I did not want to carry.
+
+<br />
+
+## <span id="kimi-k2-6">[Kimi K2.6](#kimi-k2-6)</span>
+
+Kimi sits a bit above the other two on cost ($0.31 per task on the chart), but still well below frontier pricing. Benchmarks are not far off. 43 on the intelligence index versus 44 for DeepSeek and MiniMax.
+
+What sold me was reliability. It follows prompt specs consistently, completes multi-step workflows without getting lost in reasoning loops, and does not require attribution or notice emails below a usage threshold. That threshold is large enough that I am nowhere near it.
+
+Good balance of cost, reliability, and intelligence for what Capital Notes needs.
+
+<br />
+
+## <span id="frontier-models">[Frontier models](#frontier-models)</span>
+
+GPT-5.5 and Claude still lead on raw intelligence benchmarks. No surprise there. But at $1.03 and $2.75 per task respectively, you have to think hard about margins when you are operating a subscription product.
+
+For internal tooling or low-volume use, frontier models make sense. For a product where users run analyses regularly, the cheaper tier with acceptable quality wins.
+
+<br />
+
+## <span id="the-decision">[The decision](#the-decision)</span>
+
+I am building Capital Notes on Kimi K2.6 for now. It is wired through the Vercel AI SDK, and the structured analysis loop works end to end with it.
+
+That could change as models improve and pricing shifts. But the lesson from this round of testing: benchmarks get you a shortlist. Integration and commercial terms tell you which one actually ships.
