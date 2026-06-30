@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRightIcon } from "lucide-react";
 
-type ExperienceItem = {
+type CareerItem = {
   company: string;
   href?: string;
   years: string;
@@ -10,7 +10,7 @@ type ExperienceItem = {
   description: string;
 };
 
-const EXPERIENCE: ExperienceItem[] = [
+const CAREER: CareerItem[] = [
   {
     company: "Aboitiz Data Innovation",
     href: "https://aboitizdatainnovation.com/",
@@ -89,7 +89,7 @@ export function AboutSectionNew() {
           </span>
         </div>
       </div>
-      {/* Experience */}
+      {/* Career */}
       <div
         className="mt-10 animate-fade-in"
         style={{
@@ -97,8 +97,8 @@ export function AboutSectionNew() {
           animationFillMode: "both",
         }}
       >
-        <h2 className="text-xl font-[550] text-gray-950">Experience.</h2>
-        {EXPERIENCE.map((item, index) => (
+        <h2 className="text-xl font-[550] text-gray-950">Career.</h2>
+        {CAREER.map((item, index) => (
           <div key={item.company} className={index === 0 ? "mt-4" : "mt-6"}>
             <div className="flex gap-1">
               <div>
