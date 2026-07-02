@@ -50,7 +50,7 @@ const CAREER: CareerItem[] = [
 export function AboutSectionNew() {
   return (
     <>
-      <div className="flex flex-col w-full max-w-2xl mt-20">
+      <div className="flex flex-col w-full max-w-2xl mt-20 text-sm lg:text-base">
         <div
           className="text-gray-950 font-medium animate-fade-in"
           style={{
@@ -72,8 +72,7 @@ export function AboutSectionNew() {
           }}
         >
           Currently works at Aboitiz Data Innovation as a Senior Full Stack
-          Engineer. <br />
-          Previously, Software Engineer 3 at Asurion.
+          Engineer. Previously, Software Engineer 3 at Asurion.
         </span>
         <div
           className="mt-6 animate-fade-in"
@@ -91,13 +90,15 @@ export function AboutSectionNew() {
       </div>
       {/* Career */}
       <div
-        className="mt-10 animate-fade-in"
+        className="mt-10 animate-fade-in text-sm lg:text-base"
         style={{
           animationDelay: "300ms",
           animationFillMode: "both",
         }}
       >
-        <h2 className="text-xl font-[550] text-gray-950">Career.</h2>
+        <h2 className="text-xl lg:text-2xl font-[550] text-gray-950">
+          Career.
+        </h2>
         {CAREER.map((item, index) => (
           <div key={item.company} className={index === 0 ? "mt-4" : "mt-6"}>
             <div className="flex gap-1">
@@ -122,17 +123,19 @@ export function AboutSectionNew() {
       </div>
       {/* Contact */}
       <div
-        className="mt-10 animate-fade-in pb-4"
+        className="mt-10 animate-fade-in pb-4 text-sm lg:text-base"
         style={{
           animationDelay: "400ms",
           animationFillMode: "both",
         }}
       >
-        <h2 className="text-xl font-[550] text-gray-950">Social.</h2>
+        <h2 className="text-xl lg:text-2xl font-[550] text-gray-950">
+          Social.
+        </h2>
         <div className="flex flex-wrap gap-2 mt-4">
           <Link
             href="mailto:me@jasonbarba.com"
-            className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+            className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-[13px] lg:text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
             target="_blank"
           >
             <div>me@jasonbarba.com</div>
@@ -143,7 +146,7 @@ export function AboutSectionNew() {
           </Link>
           <Link
             href="https://github.com/jasbeard"
-            className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+            className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-[13px] lg:text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
             target="_blank"
           >
             <div>github.com</div>
@@ -154,7 +157,7 @@ export function AboutSectionNew() {
           </Link>
           <Link
             href="https://x.com/itsjasonbarba"
-            className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+            className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-[13px] lg:text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
             target="_blank"
           >
             <div>x.com</div>

@@ -18,12 +18,14 @@ const WritingPage = () => {
       />
       <MainLayout>
         <div
-          className="mt-20 animate-fade-in"
+          className="mt-20 animate-fade-in text-sm lg:text-base"
           style={{
             animationFillMode: "both",
           }}
         >
-          <h1 className="text-3xl text-gray-950 font-[550]">Writing</h1>
+          <h1 className="text-2xl lg:text-3xl text-gray-950 font-[550]">
+            Writing
+          </h1>
           <p className="max-w-2xl mt-4">
             Life experiences, learnings, values, brain dumps. Pretty much
             anything I can think of, and something worthy to share.

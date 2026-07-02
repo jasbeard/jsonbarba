@@ -6,10 +6,10 @@ export const WritingPreview = (post: Writing) => {
   return (
     <Link
       href={post.url}
-      className="flex flex-col md:justify-between md:flex-row hover:bg-gray-200 p-4 rounded md:-ml-4"
+      className="flex flex-col md:justify-between md:flex-row hover:bg-gray-200 p-4 rounded md:-ml-4 text-sm lg:text-base"
     >
       <div className="flex flex-col">
-        <span className="text-gray-950">{post.title}</span>
+        <span className="text-gray-950 font-medium">{post.title}</span>
         <span className="text-gray-600">{post.bodyPreview}</span>
       </div>
       <div className="mt-1 text-sm">
