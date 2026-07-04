@@ -1,12 +1,17 @@
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
+import { buildPageSeo } from "@/lib/seo";
 
 export default function Custom404() {
   return (
     <>
       <NextSeo
-        title="Page not found"
+        {...buildPageSeo({
+          title: "Page not found",
+          path: "/404",
+          noindex: true,
+        })}
       />
       <div className="flex justify-center items-center h-screen">
         <div className="text-center space-y-2">

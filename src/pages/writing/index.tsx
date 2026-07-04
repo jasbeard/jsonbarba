@@ -3,6 +3,7 @@ import { WritingPreview } from "@/components/writing";
 import { allWritings } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import { NextSeo } from "next-seo";
+import { buildPageSeo } from "@/lib/seo";
 
 const WritingPage = () => {
   const posts = allWritings.sort((a, b) =>
@@ -12,9 +13,12 @@ const WritingPage = () => {
   return (
     <>
       <NextSeo
-        title="Writing"
-        description="Life experiences, learnings, values, brain dumps. Pretty much anything I can think of, and something worthy to share."
-        themeColor="dark"
+        {...buildPageSeo({
+          title: "Writing",
+          description:
+            "Life experiences, learnings, values, brain dumps. Pretty much anything I can think of, and something worthy to share.",
+          path: "/writing",
+        })}
       />
       <MainLayout>
         <div

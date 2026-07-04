@@ -1,3 +1,5 @@
+import { tagToSlug } from "@/lib/tags";
+
 export const Tags = ({ list }: { list: string[] }) => {
   if (!list.length) return null;
   return (
@@ -6,7 +8,7 @@ export const Tags = ({ list }: { list: string[] }) => {
         <a
           key={tag}
           className="whitespace-nowrap !mx-0 py-1 px-4 font-medium border rounded-xl border-gray-500 text-gray-500 hover:bg-gray-200 cursor-pointer"
-          href={`/writing/topic/${tag.toLowerCase()}`}
+          href={`/writing/topic/${tagToSlug(tag)}`}
         >
           {tag}
         </a>

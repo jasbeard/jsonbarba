@@ -1,5 +1,6 @@
 import { MainLayout } from "@/components/MainLayout";
 import { NextSeo } from "next-seo";
+import { buildPageSeo } from "@/lib/seo";
 import {
   landscapeImages,
   portraits,
@@ -12,7 +13,14 @@ const getImageKey = (item: PictorialImage) => item.alt;
 const PictorailPage = () => {
   return (
     <>
-      <NextSeo title="Pictorial" />
+      <NextSeo
+        {...buildPageSeo({
+          title: "Pictorial",
+          description:
+            "A visual record of where I've been. Moments I wanted to remember. Scenes that caught my eye.",
+          path: "/pictorial",
+        })}
+      />
       <MainLayout>
         <section
           className="mx-auto mt-20 max-w-2xl animate-fade-in text-sm lg:text-base"

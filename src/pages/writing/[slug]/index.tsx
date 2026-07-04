@@ -6,6 +6,7 @@ import { NextSeo } from "next-seo";
 import type { MDXComponents } from "mdx/types";
 import { GetStaticPropsContext } from "next";
 import { calculateReadingTime } from "@/utils/lib";
+import { buildPageSeo } from "@/lib/seo";
 import {
   AnchorWithLinkDisplay,
   Tags,
@@ -138,9 +139,17 @@ const Content = ({
   return (
     <>
       <NextSeo
-        title={writing.title}
-        description={writing.bodyPreview}
-        themeColor="dark"
+        {...buildPageSeo({
+          title: writing.title,
+          description: writing.bodyPreview,
+          path: writing.url,
+          image: writing.image,
+          type: "article",
+          article: {
+            publishedTime: writing.date,
+            tags: writing.tags as string[] | undefined,
+          },
+        })}
       />
       <MainLayout>
         <div

@@ -1,18 +1,17 @@
 import { NextSeo } from "next-seo";
 import { MainLayout } from "@/components/MainLayout";
 import { AboutSectionNew } from "@/components/home/AboutSectionNew";
+import { buildPageSeo, SITE_NAME } from "@/lib/seo";
 
 export default function Home() {
-  const currentYear = new Date().getFullYear();
   return (
     <>
       <NextSeo
-        title="Jason Barba"
-        description={`Jason Joseph Barba is a software engineer mainly focuses on the web frontend development side of things to help build web-based software solutions and services.
-        He spent over ${
-          currentYear - 2017
-        } years working with various tech startups, mid-stage organizations and even some larger ones. He likes to work on projects
-        that make our lives a bit better and easier.`}
+        {...buildPageSeo({
+          title: SITE_NAME,
+          path: "/",
+          fullTitle: true,
+        })}
       />
       <MainLayout>
         <AboutSectionNew />

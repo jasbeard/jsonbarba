@@ -1,34 +1,56 @@
 import { MainLayout } from "@/components/MainLayout";
-import { useRouter } from "next/router";
-import { allWritings } from "contentlayer/generated";
 import { WritingPreview } from "@/components/writing";
+import { allWritings, Writing } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import { NextSeo } from "next-seo";
+import { GetStaticPropsContext } from "next";
+import { buildPageSeo } from "@/lib/seo";
+import { getAllTags, tagFromSlug, tagToSlug } from "@/lib/tags";
 
-function titleCase(tag: string) {
-  const splitStr = tag?.toLowerCase().split(" ") ?? [];
-  for (let i = 0; i < splitStr.length; i++) {
-    splitStr[i] =
-      splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-  }
-  return splitStr.join(" ");
+export async function getStaticPaths() {
+  const paths = getAllTags().map((tag) => ({
+    params: { slug: tagToSlug(tag) },
+  }));
+
+  return { paths, fallback: false };
 }
 
-const TopicPage = () => {
-  const router = useRouter();
-  const tag = titleCase(router.query?.slug as string);
-  const sortedWritings = allWritings.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
-  const writingResult = sortedWritings.filter(
-    (blog) => blog.tags?.includes(tag) && blog
-  );
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const slug = context.params?.slug as string;
+  const tag = tagFromSlug(slug);
+
+  if (!tag) {
+    return { notFound: true };
+  }
+
+  const writings = allWritings
+    .filter((blog) => blog.tags?.includes(tag))
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+
+  return {
+    props: {
+      tag,
+      slug,
+      writings,
+    },
+  };
+}
+
+type TopicPageProps = {
+  tag: string;
+  slug: string;
+  writings: Writing[];
+};
+
+const TopicPage = ({ tag, slug, writings }: TopicPageProps) => {
   return (
     <>
       <NextSeo
-        title="Blog search"
-        description="Life experiences, learnings, values, brain dumps. Pretty much anything I can think of, and something worthy to share."
-        themeColor="dark"
+        {...buildPageSeo({
+          title: tag,
+          description: `Articles tagged "${tag}" — life experiences, learnings, values, and brain dumps.`,
+          path: `/writing/topic/${slug}`,
+        })}
       />
       <MainLayout>
         <div
@@ -45,7 +67,7 @@ const TopicPage = () => {
             anything I can think of, and something worthy to share.
           </p>
           <div className="mt-8">
-            {writingResult.map((blog) => (
+            {writings.map((blog) => (
               <WritingPreview key={blog.title} {...blog} />
             ))}
           </div>
