@@ -9,6 +9,9 @@ export const DEFAULT_DESCRIPTION =
 
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og.jpg`;
 
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
+
 export const defaultOpenGraph = {
   type: "website" as const,
   locale: "en_US",
@@ -16,8 +19,8 @@ export const defaultOpenGraph = {
   images: [
     {
       url: DEFAULT_OG_IMAGE,
-      width: 400,
-      height: 400,
+      width: OG_IMAGE_WIDTH,
+      height: OG_IMAGE_HEIGHT,
       alt: SITE_NAME,
     },
   ],
@@ -58,8 +61,8 @@ export function buildPageSeo({
   description = DEFAULT_DESCRIPTION,
   path = "/",
   image,
-  imageWidth = 400,
-  imageHeight = 400,
+  imageWidth,
+  imageHeight,
   type = "website",
   noindex,
   fullTitle,
@@ -70,9 +73,10 @@ export function buildPageSeo({
     ? [
         {
           url: resolveImageUrl(image),
-          width: imageWidth,
-          height: imageHeight,
           alt: title,
+          ...(imageWidth != null && imageHeight != null
+            ? { width: imageWidth, height: imageHeight }
+            : {}),
         },
       ]
     : defaultOpenGraph.images;

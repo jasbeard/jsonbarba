@@ -7,6 +7,7 @@ import type { MDXComponents } from "mdx/types";
 import { GetStaticPropsContext } from "next";
 import { calculateReadingTime } from "@/utils/lib";
 import { buildPageSeo } from "@/lib/seo";
+import { getImageDimensions } from "@/lib/imageDimensions";
 import {
   AnchorWithLinkDisplay,
   Tags,
@@ -116,8 +117,12 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   // Return notFound if the post does not exist.
   if (!writing) return { notFound: true };
 
+  const imageDimensions = writing.image
+    ? await getImageDimensions(writing.image)
+    : null;
+
   // Return the post as page props.
-  return { props: { writing, prev, next } };
+  return { props: { writing, prev, next, imageDimensions } };
 }
 
 type FooterActions = { title: string; path: string };
@@ -126,10 +131,12 @@ const Content = ({
   writing,
   next,
   prev,
+  imageDimensions,
 }: {
   writing: Writing;
   next: FooterActions;
   prev: FooterActions;
+  imageDimensions: { width: number; height: number } | null;
 }) => {
   // const post = allWritings.find((post) => post._raw.flattenedPath === router?.query.slug) as Writing;
   const MDXContent = useMDXComponent(writing?.body.code);
@@ -144,6 +151,8 @@ const Content = ({
           description: writing.bodyPreview,
           path: writing.url,
           image: writing.image,
+          imageWidth: imageDimensions?.width,
+          imageHeight: imageDimensions?.height,
           type: "article",
           article: {
             publishedTime: writing.date,
