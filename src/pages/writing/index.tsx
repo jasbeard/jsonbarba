@@ -7,14 +7,14 @@ import { buildPageSeo } from "@/lib/seo";
 
 const WritingPage = () => {
   const posts = allWritings.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
+    compareDesc(new Date(a.date), new Date(b.date)),
   ); // sort desc by date
 
   return (
     <>
       <NextSeo
         {...buildPageSeo({
-          title: "Writing",
+          title: "Writing — Life experiences, learnings, values, brain dumps",
           description:
             "Life experiences, learnings, values, brain dumps. Pretty much anything I can think of, and something worthy to share.",
           path: "/writing",

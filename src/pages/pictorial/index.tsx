@@ -15,7 +15,7 @@ const PictorailPage = () => {
     <>
       <NextSeo
         {...buildPageSeo({
-          title: "Pictorial",
+          title: "Pictorial — Moments I wanted to remember",
           description:
             "A visual record of where I've been. Moments I wanted to remember. Scenes that caught my eye.",
           path: "/pictorial",

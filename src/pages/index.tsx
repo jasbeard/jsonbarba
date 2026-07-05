@@ -8,8 +8,7 @@ export default function Home() {
     <>
       <NextSeo
         {...buildPageSeo({
-          title:
-            "Jason Barba — Software Engineer, Writer & Side Project Builder",
+          title: "Jason Barba — Software Engineer, building capitalnotes",
           path: "/",
           fullTitle: true,
         })}
