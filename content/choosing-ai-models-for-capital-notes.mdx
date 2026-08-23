@@ -1,12 +1,12 @@
 ---
-title: Choosing an AI model for Capital Notes 🤖
+title: Choosing an AI model for Capitalnotes 🤖
 date: 2026-06-29
 bodyPreview: Testing cheaper models for structured analysis, and why Kimi K2.6 won out
 wordCount: 611
 tags: ["AI", "Side Projects", "Software Engineering"]
 ---
 
-Capital Notes runs structured AI analyses against live portfolio context. Health checks, exposure assessments, stock comparisons. The output has to be reliable, follow a prompt spec, and stay cheap enough to ship as a product.
+Capitalnotes runs structured AI analyses against live portfolio context. Health checks, exposure assessments, stock comparisons. The output has to be reliable, follow a prompt spec, and stay cheap enough to ship as a product.
 
 Frontier models from OpenAI and Anthropic are excellent, but the per-task cost makes margins tight if you are not careful. So I spent time testing cheaper alternatives before committing to one for the app.
 
@@ -51,7 +51,7 @@ Kimi sits a bit above the other two on cost ($0.31 per task on the chart), but s
 
 What sold me was reliability. It follows prompt specs consistently, completes multi-step workflows without getting lost in reasoning loops, and does not require attribution or notice emails below a usage threshold. That threshold is large enough that I am nowhere near it.
 
-Good balance of cost, reliability, and intelligence for what Capital Notes needs.
+Good balance of cost, reliability, and intelligence for what Capitalnotes needs.
 
 <br />
 
@@ -65,6 +65,6 @@ For internal tooling or low-volume use, frontier models make sense. For a produc
 
 ## <span id="the-decision">[The decision](#the-decision)</span>
 
-I am building Capital Notes on Kimi K2.6 for now. It is wired through the Vercel AI SDK, and the structured analysis loop works end to end with it.
+I am building Capitalnotes on Kimi K2.6 for now. It is wired through the Vercel AI SDK, and the structured analysis loop works end to end with it.
 
 That could change as models improve and pricing shifts. But the lesson from this round of testing: benchmarks get you a shortlist. Integration and commercial terms tell you which one actually ships.

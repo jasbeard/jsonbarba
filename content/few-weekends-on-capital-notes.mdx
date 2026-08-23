@@ -1,0 +1,95 @@
+---
+title: A few weekends on Capitalnotes 📓
+date: 2026-08-21
+bodyPreview: Analysis, Journal, and Discover, the three pieces that clicked together
+wordCount: 743
+tags: ["Side Projects", "Investing", "Software Engineering"]
+image: writing/capitalnotes-landing.png
+---
+
+It has been a few months since I wrote about building Capitalnotes. Life got busy. But over several weekends, I kept coming back to it, and a few things finally assembled into something that feels like a real product.
+
+The core loop I was chasing from the start: turn portfolio context and research into decisions you can revisit later. Not a brokerage. Not a chatbot (for now). A research notebook for self-directed investors.
+
+Three surfaces carry most of that now: **Analysis**, **Journal**, and **Discover**.
+
+<br />
+
+## <span id="what-it-looks-like">[What it looks like now](#what-it-looks-like)</span>
+
+The landing page is live. Dark panels, tight typography, closer to a research tool than a consumer fintech app. That was intentional. I wanted the product to feel like something you sit with, not something that nudges you to trade.
+
+![Capital Notes landing page](/writing/capitalnotes-landing.png "Capitalnotes landing page")
+
+Under the hood it is still a Next.js app with PostgreSQL, structured AI prompts, and a subscription model around analysis credits. The engineering stack has not changed much since my earlier post, but the model landscape has. A few stronger options shipped in the months since I locked in Kimi K2.6 for the core loop.
+
+Starter and trial runs still use that cost-efficient tier. Paid Pro subscribers get a stronger model. What changed most is how the pieces connect.
+
+<br />
+
+## <span id="analysis">[Analysis](#analysis)</span>
+
+Each analysis type has a defined output shape: health checks, exposure assessments, stock comparisons, earnings reviews, portfolio reviews, macro framing and more. You configure the run, pick a scope (single stock, whole portfolio, or macro event), and get back a note with recommendations framed as decision-oriented takeaways.
+
+Built-in analysis kinds cover most of what I need day to day. Pro subscribers can also define custom analyses: freeform instructions on a fixed template, still bound by the same note contract so output stays journal-compatible.
+
+The point is consistency. A portfolio health check from March and a follow-up in August are the same _kind_ of artifact. You can compare them without digging through a conversation thread.
+
+<br />
+
+## <span id="journal">[Journal](#journal)</span>
+
+Analysis without memory is just another opinion. The journal is why I think people would stay subscribed after running a few reports. It depends on analysis though. Saved notes, timelines, and chart markers all come from runs you actually performed.
+
+The feature I am most excited about: note markers on stock charts. Weekly price, dots where you wrote analyses, thesis updates, or logged activity. Click one and you are back in the reasoning at that moment in the market.
+
+For me it is a revisit aid, like _Does what I wrote in April still make sense given where price went?_
+
+<br />
+
+## <span id="discover">[Discover](#discover)</span>
+
+Discover has no fixed place in the workflow. I actually use it last, but it works the other way too: when you do not know where to begin, it gives you **candidates to research** aligned with your portfolio thesis.
+
+Most tools show data or let you ask a model anything. Discover sits in between, a structured shortlist with _why investigate_ and questions to answer.
+
+One session costs one credit, same as a full analysis. Hand off to a deeper run or add names to your research queue.
+
+<br />
+
+## <span id="the-loop">[How they fit](#the-loop)</span>
+
+There is no prescribed order for Analysis and Discover. Jump straight into an analysis on a ticker you already follow. Or run Discover first when you need a starting point. I tend to use Discover last, after working through my book, to find gaps I missed.
+
+The one dependency that holds: **Journal needs Analysis**. Saved notes, per-ticker timelines, and chart markers all come from analysis output. Without runs, the journal is empty.
+
+<pre
+  style={{
+    fontSize: "0.75rem",
+    lineHeight: "1.6",
+    overflowX: "auto",
+    padding: "0.75rem 1rem",
+    borderRadius: "0.375rem",
+    backgroundColor: "#f2f2f2",
+    color: "#525252",
+    fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+  }}
+>
+  {`Discover ──┐
+             ├──→ Analysis ──→ Journal ──→ Revisit
+   In mind ──┘
+
+Discover: optional, first or last
+Journal:  requires Analysis
+`}
+</pre>
+
+Portfolio context sits underneath as enrichment. Holdings, cash, portfolio thesis, optional position theses. All optional inputs that make analyses sharper when you want them. Analyses can run without a fully seeded portfolio too.
+
+<br />
+
+## <span id="where-this-leaves-me">[Where this leaves me](#where-this-leaves-me)</span>
+
+The core loop works end to end now. Sign up, seed a portfolio, run analyses and Discover in whatever order fits, save a note, revisit it on a chart months later.
+
+What is still ahead: tighter prompt iteration as I use it on my own book, polish on edge cases, and the usual solo-builder backlog of things that only show up when real users touch the product.
