@@ -22,9 +22,8 @@ const PictorailPage = () => {
         })}
       />
       <MainLayout>
-        <section
-          className="mx-auto mt-20 max-w-2xl animate-fade-in text-sm lg:text-base"
-          aria-describedby="pictorial"
+        <article
+          className="mt-20 max-w-2xl animate-fade-in text-sm lg:text-base"
           style={{
             animationFillMode: "both",
           }}
@@ -33,8 +32,10 @@ const PictorailPage = () => {
             Pictorial
           </h1>
           <p className="mt-4">
-            {`A visual record of where I've been. Moments I wanted to remember. Scenes that caught my eye.`}
+            A visual record of where I&apos;ve been. Moments I wanted to
+            remember. Scenes that caught my eye.
           </p>
+
           <ul className="flex flex-col my-8 gap-4 list-none">
             {landscapeImages.map((item, index) => (
               <li key={getImageKey(item)} className="rounded relative">
@@ -47,35 +48,27 @@ const PictorailPage = () => {
               </li>
             ))}
           </ul>
-        </section>
+
+          <h2 className="text-xl lg:text-2xl text-gray-950 font-[550] mt-16">
+            Portraits
+          </h2>
+          <p className="mt-4 text-gray-600">
+            Street moments, passing by.
+          </p>
+        </article>
+
+        <ul className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] xl:grid-cols-[repeat(4,1fr)] gap-4 mt-8 mb-4 w-full">
+          {portraits.map((item) => (
+            <li className="relative aspect-[.662727]" key={getImageKey(item)}>
+              <OptimizedPictorialImage
+                src={item.src}
+                alt={item.alt}
+                layout="portrait"
+              />
+            </li>
+          ))}
+        </ul>
       </MainLayout>
-      <section
-        className="w-full px-4 md:px-4 animate-fade-in"
-        style={{
-          animationFillMode: "both",
-        }}
-      >
-        <div className="mt-4 md:mt-24 mb-4">
-          <div className="md:px-32 lg:self-center lg:px-0 lg:w-[50%] mx-auto text-sm lg:text-base">
-            <h1 className="text-2xl lg:text-3xl text-gray-950 font-[550]">{`Some portraits for ya'll`}</h1>
-            <p className="max-w-4xl mt-4 text-gray-600">
-              {`Somewhere in the streets, just passing by. (this section will be
-              updated periodically)`}
-            </p>
-          </div>
-          <ul className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] xl:grid-cols-[repeat(4,1fr)] gap-4 mt-8">
-            {portraits.map((item) => (
-              <li className="relative aspect-[.662727]" key={getImageKey(item)}>
-                <OptimizedPictorialImage
-                  src={item.src}
-                  alt={item.alt}
-                  layout="portrait"
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
     </>
   );
 };

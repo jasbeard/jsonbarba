@@ -45,8 +45,13 @@ const CustomMdxComponents: MDXComponents = {
   h2: (props) => (
     <h2 {...props} className="text-xl lg:text-2xl text-gray-950" />
   ),
-  ul: (props) => <ul {...props} className="list-['—']" />,
-  li: (props) => <li {...props} className="ml-4 pl-2" />,
+  ul: (props) => (
+    <ul {...props} className="list-disc pl-5 marker:text-gray-400" />
+  ),
+  ol: (props) => (
+    <ol {...props} className="list-decimal pl-5 marker:text-gray-500" />
+  ),
+  li: (props) => <li {...props} className="pl-1" />,
   strong: (props) => <strong {...props} className="font-[550]" />,
 };
 

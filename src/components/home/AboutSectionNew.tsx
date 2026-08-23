@@ -47,6 +47,9 @@ const CAREER: CareerItem[] = [
   },
 ];
 
+const pillStyles =
+  "flex w-fit justify-center border border-surface-border bg-transparent items-center gap-0.5 cursor-pointer group px-3.5 py-1.5 text-[13px] text-ink lg:text-sm rounded-full hover:bg-surface-hover-subtle transition-colors duration-200";
+
 export function AboutSectionNew() {
   return (
     <>
@@ -60,7 +63,7 @@ export function AboutSectionNew() {
         >
           Jason Barba.{" "}
           <span className="text-gray-600 font-normal">
-            Senior Sofware Engineer.
+            Senior Software Engineer.
           </span>
         </div>
 
@@ -72,8 +75,9 @@ export function AboutSectionNew() {
           }}
         >
           Currently works at Aboitiz Data Innovation as a Senior Full Stack
-          Engineer. Previously, Software Engineer 3 at Asurion.
+          Engineer.
         </span>
+        <div>Previously, Software Engineer 3 at Asurion.</div>
         <div
           className="mt-6 animate-fade-in"
           style={{
@@ -101,7 +105,7 @@ export function AboutSectionNew() {
         </h2>
         {CAREER.map((item, index) => (
           <div key={item.company} className={index === 0 ? "mt-4" : "mt-6"}>
-            <div className="flex gap-1">
+            <div className="flex flex-wrap gap-x-1 gap-y-0.5">
               <div>
                 {item.href ? (
                   <Link href={item.href} className="text-gray-950 font-medium">
@@ -132,39 +136,30 @@ export function AboutSectionNew() {
         <h2 className="text-xl lg:text-2xl font-[550] text-gray-950">
           Social.
         </h2>
-        <div className="flex flex-wrap gap-2 mt-4">
+        <div className="flex flex-wrap gap-2 mt-4 font-normal">
           <Link
             href="mailto:me@jasonbarba.com"
-            className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-[13px] lg:text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+            className={pillStyles}
             target="_blank"
           >
             <div>me@jasonbarba.com</div>
-            <ArrowUpRightIcon
-              size={16}
-              className="text-gray-600 stroke-1 group-hover:text-white mb-1"
-            />
+            <ArrowUpRightIcon size={16} className="text-ink stroke-1 mb-1" />
           </Link>
           <Link
             href="https://github.com/jasbeard"
-            className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-[13px] lg:text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+            className={pillStyles}
             target="_blank"
           >
             <div>github.com</div>
-            <ArrowUpRightIcon
-              size={16}
-              className="text-gray-600 stroke-1 group-hover:text-white mb-1"
-            />
+            <ArrowUpRightIcon size={16} className="text-ink stroke-1 mb-1" />
           </Link>
           <Link
             href="https://x.com/itsjasonbarba"
-            className="flex w-fit justify-center items-center gap-0.5 cursor-pointer group px-2 py-1 text-[13px] lg:text-sm rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white transition-colors duration-200"
+            className={pillStyles}
             target="_blank"
           >
             <div>x.com</div>
-            <ArrowUpRightIcon
-              size={16}
-              className="text-gray-600 stroke-1 group-hover:text-white mb-1"
-            />
+            <ArrowUpRightIcon size={16} className="text-ink stroke-1 mb-1" />
           </Link>
         </div>
       </div>

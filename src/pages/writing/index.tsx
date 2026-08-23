@@ -16,7 +16,7 @@ const WritingPage = () => {
         {...buildPageSeo({
           title: "Writing — Life experiences, learnings, values, brain dumps",
           description:
-            "Life experiences, learnings, values, brain dumps. Pretty much anything I can think of, and something worthy to share.",
+            "Life experiences, learnings, and brain dumps. Things worth sharing.",
           path: "/writing",
         })}
       />
@@ -31,8 +31,7 @@ const WritingPage = () => {
             Writing
           </h1>
           <p className="max-w-2xl mt-4">
-            Life experiences, learnings, values, brain dumps. Pretty much
-            anything I can think of, and something worthy to share.
+            Life experiences, learnings, and brain dumps. Things worth sharing.
           </p>
           <div className="mt-8">
             {posts.map((post, idx) => (

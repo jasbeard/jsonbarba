@@ -2,7 +2,7 @@ import type { NextSeoProps } from "next-seo";
 
 export const SITE_URL = "https://jasonbarba.com";
 export const SITE_NAME = "Jason Barba";
-export const THEME_COLOR = "#f3f3f5";
+export const THEME_COLOR = "#fafafa";
 
 export const DEFAULT_DESCRIPTION =
   "Software engineer building Capitalnotes. Writing about tech, side projects, travel, and life.";
