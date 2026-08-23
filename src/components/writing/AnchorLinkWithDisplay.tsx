@@ -47,4 +47,4 @@ export const AnchorWithLinkDisplay = (props: ComponentProps<"a">) => {
       {hover && hoverDisplay}
     </span>
   );
-}
+};

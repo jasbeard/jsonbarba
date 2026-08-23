@@ -43,7 +43,16 @@ const CustomMdxComponents: MDXComponents = {
     </Link>
   ),
   h2: (props) => (
-    <h2 {...props} className="text-xl lg:text-2xl text-gray-950" />
+    <h2
+      {...props}
+      className="text-xl lg:text-2xl font-medium text-gray-950 mt-8 mb-2"
+    />
+  ),
+  h3: (props) => (
+    <h3
+      {...props}
+      className="text-lg lg:text-xl font-medium text-gray-950 mt-6 mb-2"
+    />
   ),
   ul: (props) => (
     <ul {...props} className="list-disc pl-5 marker:text-gray-400" />
@@ -175,7 +184,7 @@ const Content = ({
           <article className="pb-8 mt-20 max-w-2xl text-sm lg:text-base">
             <div className="mb-10">
               <Tags list={writing.tags as string[]} />
-              <h1 className="text-2xl lg:text-3xl font-semibold">
+              <h1 className="text-2xl lg:text-3xl font-medium text-gray-950">
                 {writing.title}
               </h1>
               <div className="flex mb-1 text-sm lg:text-base text-gray-500">
