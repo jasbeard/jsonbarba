@@ -23,7 +23,7 @@ const PictorailPage = () => {
       />
       <MainLayout>
         <article
-          className="mt-20 max-w-2xl animate-fade-in text-sm lg:text-base"
+          className="mx-auto mt-20 max-w-2xl animate-fade-in text-sm lg:text-base"
           style={{
             animationFillMode: "both",
           }}
