@@ -10,6 +10,15 @@ type CareerItem = {
   description: string;
 };
 
+const PROJECTS: CareerItem[] = [
+  {
+    company: "capitalnotes.xyz",
+    href: "https://capitalnotes.xyz",
+    years: "2025-present",
+    description: "Decision journal for self-directed investors.",
+  },
+];
+
 const CAREER: CareerItem[] = [
   {
     company: "Aboitiz Data Innovation",
@@ -49,6 +58,46 @@ const CAREER: CareerItem[] = [
 
 const pillStyles =
   "flex w-fit justify-center border border-surface-border bg-transparent items-center gap-0.5 cursor-pointer group px-3.5 py-1.5 text-[13px] text-ink lg:text-sm rounded-full hover:bg-surface-hover-subtle transition-colors duration-200";
+
+const entryStyles =
+  "block p-4 rounded md:-ml-4 transition-colors duration-200";
+
+function SectionEntry({
+  item,
+  showYears = false,
+}: {
+  item: CareerItem;
+  showYears?: boolean;
+}) {
+  const content = (
+    <>
+      <div className="flex flex-wrap gap-x-1 gap-y-0.5">
+        <span className="text-gray-950 font-medium">{item.company}</span>
+        {showYears ? (
+          <span className={item.yearsMuted ? "text-gray-600" : undefined}>
+            {item.years}
+          </span>
+        ) : null}
+      </div>
+      <div>{item.description}</div>
+    </>
+  );
+
+  if (item.href) {
+    return (
+      <Link
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${entryStyles} hover:bg-surface-hover`}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return <div className={entryStyles}>{content}</div>;
+}
 
 export function AboutSectionNew() {
   return (
@@ -92,7 +141,7 @@ export function AboutSectionNew() {
           </span>
         </div>
       </div>
-      {/* Career */}
+      {/* Projects */}
       <div
         className="mt-10 animate-fade-in text-sm lg:text-base"
         style={{
@@ -101,35 +150,36 @@ export function AboutSectionNew() {
         }}
       >
         <h2 className="text-xl lg:text-2xl font-[550] text-gray-950">
+          Projects.
+        </h2>
+        <div className="mt-4">
+          {PROJECTS.map((item) => (
+            <SectionEntry key={item.company} item={item} />
+          ))}
+        </div>
+      </div>
+      {/* Career */}
+      <div
+        className="mt-10 animate-fade-in text-sm lg:text-base"
+        style={{
+          animationDelay: "400ms",
+          animationFillMode: "both",
+        }}
+      >
+        <h2 className="text-xl lg:text-2xl font-[550] text-gray-950">
           Career.
         </h2>
-        {CAREER.map((item, index) => (
-          <div key={item.company} className={index === 0 ? "mt-4" : "mt-6"}>
-            <div className="flex flex-wrap gap-x-1 gap-y-0.5">
-              <div>
-                {item.href ? (
-                  <Link href={item.href} className="text-gray-950 font-medium">
-                    {item.company}
-                  </Link>
-                ) : (
-                  <span className="text-gray-950 font-medium">
-                    {item.company}
-                  </span>
-                )}
-              </div>
-              <div className={item.yearsMuted ? "text-gray-600" : undefined}>
-                {item.years}
-              </div>
-            </div>
-            <div>{item.description}</div>
-          </div>
-        ))}
+        <div className="mt-4">
+          {CAREER.map((item) => (
+            <SectionEntry key={item.company} item={item} showYears />
+          ))}
+        </div>
       </div>
       {/* Contact */}
       <div
         className="mt-10 animate-fade-in pb-4 text-sm lg:text-base"
         style={{
-          animationDelay: "400ms",
+          animationDelay: "500ms",
           animationFillMode: "both",
         }}
       >
