@@ -29,6 +29,20 @@ export function OptimizedMDXImage({
 }: OptimizedMDXImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const remote = isRemoteHttpUrl(src);
+  // Scale Nakamachi church down ~50% (portrait is very tall); keep full image, no crop.
+  const isNakamachiChurch = /Nakamachi church/i.test(alt);
+  const imageStyle = isNakamachiChurch
+    ? {
+        width: "50%",
+        height: "auto",
+        display: "block" as const,
+        marginInline: "auto",
+      }
+    : {
+        width: "100%",
+        height: "auto",
+        display: "block" as const,
+      };
 
   const shell = (
     <>
@@ -52,11 +66,7 @@ export function OptimizedMDXImage({
             className={`rounded-xl transition-opacity duration-300 ${
               isLoaded ? "opacity-100" : "opacity-0"
             } ${className}`}
-            style={{
-              width: "100%",
-              height: "auto",
-              display: "block",
-            }}
+            style={imageStyle}
             onLoad={() => setIsLoaded(true)}
           />
         ) : (
@@ -75,6 +85,7 @@ export function OptimizedMDXImage({
             className={`rounded-xl transition-opacity duration-300 ${
               isLoaded ? "opacity-100" : "opacity-0"
             } ${className}`}
+            style={imageStyle}
             onLoad={() => setIsLoaded(true)}
           />
         )}
